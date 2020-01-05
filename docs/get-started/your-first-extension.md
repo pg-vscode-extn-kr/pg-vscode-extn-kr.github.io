@@ -1,5 +1,6 @@
 ---
 layout: default
+parent: Get Started
 title: Your first Extension
 nav_order: 1
 description: ""

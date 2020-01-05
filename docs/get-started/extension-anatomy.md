@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Overview
+parent: Get Started
+title: Extansion Anatomy
 nav_order: 2
 description: ""
-permalink: /
 ---
 
 
