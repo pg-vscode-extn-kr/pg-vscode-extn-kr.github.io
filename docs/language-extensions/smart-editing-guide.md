@@ -1,7 +1,4 @@
----
-DateApproved:
-MetaDescription:
----
+
 
 # Smart Editing Guide
 

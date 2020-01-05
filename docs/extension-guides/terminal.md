@@ -1,7 +1,4 @@
----
-DateApproved:
-MetaDescription:
----
+
 
 # Terminal Guide
 

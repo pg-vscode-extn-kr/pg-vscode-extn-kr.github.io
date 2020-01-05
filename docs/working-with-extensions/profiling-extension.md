@@ -1,6 +1,2 @@
----
-DateApproved:
-MetaDescription:
----
 
 # Profiling Extension

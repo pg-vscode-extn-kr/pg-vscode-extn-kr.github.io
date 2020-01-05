@@ -1,7 +1,4 @@
----
-DateApproved:
-MetaDescription:
----
+
 
 # Embedded Languages
 

@@ -1,7 +1,3 @@
----
-DateApproved:
-MetaDescription:
----
 
 # Extending Core Functionalities
 

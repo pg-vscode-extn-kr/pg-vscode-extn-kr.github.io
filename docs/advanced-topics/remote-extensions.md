@@ -1,10 +1,4 @@
----
-ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 12/12/2019
 
-# Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: A guide to adding Visual Studio Code Remote Development and Visual Studio Online support to extensions
----
 # Supporting Remote Development and Visual Studio Online
 
 **[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[Visual Studio Online](https://aka.ms/vso)** is a preview service that expands these capabilities with managed cloud-hosted or self-hosted environments that are accessible from both VS Code and a browser-based editor.

@@ -1,11 +1,4 @@
----
-# DO NOT TOUCH — Managed by doc writer
-ContentId: e0d5bd37-f020-4235-ad81-c977baaeb24f
-DateApproved: 12/12/2019
 
-# Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: Explain how to extend Visual Studio Code's workbench area with custom UI components
----
 
 # Extending Workbench
 

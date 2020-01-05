@@ -1,11 +1,3 @@
----
-# DO NOT TOUCH — Managed by doc writer
-ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 12/12/2019
-
-# Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
----
 
 # Webview API
 
