@@ -19,6 +19,7 @@ DCinside 프로그래밍 갤러리 유저들을 주축으로 번역되고 있습
 
 #### Additional rules for translation
  - 영어 원문을 주석으로 달아주십시오 (번역 확인을 위해 필요합니다)
+ - 존댓말로 번역하십시오.
  - Markdown / html 문법을 바꾸지 마십시오. 바꾸면 떄지합니다
  - 특정 용어들의 번역을 통일시켜야 합니다. Extension, editor와 같은 중요한 용어들에 대한 번역은 [이곳](#terminology-translation)을 참조해 주시고, 새롭게 번역한 용어에 대해서도 이곳에 명시해주시기 바랍니다. 
 
