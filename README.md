@@ -1,68 +1,93 @@
-<p align="right">
-    <a href="https://badge.fury.io/rb/just-the-docs"><img src="https://badge.fury.io/rb/just-the-docs.svg" alt="Gem version"></a> <a href="https://github.com/pmarsceill/just-the-docs/actions"><img src="https://github.com/pmarsceill/just-the-docs/workflows/CI/badge.svg" alt="Build status"></a>
-</p>
-<br><br>
-<p align="center">
-    <h1 align="center">Just the Docs</h1>
-    <p align="center">A modern, highly customizable, and responsive Jekyll theme for documentation with built-in search.<br>Easily hosted on GitHub Pages with few dependencies.</p>
-    <p align="center"><strong><a href="https://pmarsceill.github.io/just-the-docs/">See it in action!</a></strong></p>
-    <br><br><br>
-</p>
 
-![jtd](https://user-images.githubusercontent.com/896475/47384541-89053c80-d6d5-11e8-98dc-dba16e192de9.gif)
+## Description
 
-## Installation
+[Vscode extionsion API](https://code.visualstudio.com/api)의 한국어 번역을 제공하는 웹사이트를 서포트하는 저장소입니다. 
+Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-extn-kr.github.io/)를 통해 접근 가능합니다. 
+DCinside 프로그래밍 갤러리 유저들을 주축으로 번역되고 있습니다. 
 
-Add this line to your Jekyll site's Gemfile:
+## Translation 
 
-```ruby
-gem "just-the-docs"
-```
+전문 번역가들에 의해 번역되는 것이 아니며, 의역과 오역에 대해서는 issue나 pull request로 알려주시길 바랍니다. 
 
-And add this line to your Jekyll site's `_config.yml`:
+## Contribution
 
-```yaml
-theme: just-the-docs
-```
+현재 [진행 상황](#progress)을 확인하고 번역되지 않은 섹션에 대해 이슈를 올려주시고, 그 후 fork를 떠서 번역을 진행해주시기 바랍니다. 이때 이미 누군가 번역하고 있다고 issue를 세웠는지 확인해 번역중이 아닌 섹션을 선택해주시길 바랍니다. 웬만하면 앞쪽부터 채워주십시오. 또한 이미지는 그대로 이용하시면 됩니다. 
 
-And then execute:
+번역이 끝나면 pull request를 통해 이를 알려주십시오. 체크한 후 merge하겠습니다. 성공적으로 merge될 경우 `pg-vscode-extrn-kr` 조직의 멤버로 추가됩니다. 
 
-    $ bundle
 
-Or install it yourself as:
+## Progress
 
-    $ gem install just-the-docs
+#### Overview
 
-## Usage
+- [ ] Overview
 
-[View the documentation](https://pmarsceill.github.io/just-the-docs/) for usage information.
+#### Get started 
 
-## Contributing
+- [ ] Your First extension
+- [ ] Extension Anatomy
+- [ ] Wrapping up 
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/pmarsceill/just-the-docs. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+#### Working with Extensions
 
-### Submitting code changes:
+- [ ] Testing Extension
+- [ ] Publishing Extension
+- [ ] Building Extension
+- [ ] Continuous Integration
 
-- Open a [Pull Request](https://github.com/pmarsceill/just-the-docs/pulls)
-- Ensure all CI tests pass
-- Await code review
-- Bump the version number in `just-the-docs.gemspec` and `package.json` according to [semantic versioning](https://semver.org/).
+#### Extension Capabilities
 
-### Design and development principles of this theme:
+- [ ] Overview
+- [ ] Common Capabilities
+- [ ] Theming
+- [ ] Extending Workbench
 
-1. As few dependencies as possible
-2. No build script needed
-3. First class mobile experience
-4. Make the content shine
+#### Extension Guides
 
-## Development
+- [ ] Overview
+- [ ] Command
+- [ ] Color Theme
+- [ ] Icon Theme
+- [ ] Tree View
+- [ ] Webview
+- [ ] Virtual Documents
+- [ ] Task Provider
+- [ ] Source Control
+- [ ] Debugger Extension
+- [ ] Markdown Extension
+- [ ] Custom Data Extension
 
-To set up your environment to develop this theme, run `bundle install`.
+#### Language Extensions
 
-Your theme is set up just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+- [ ] Overview
+- [ ] Syntax Highlight Guide
+- [ ] Snippet Guide
+- [ ] Language Configuration Guide
+- [ ] Programmatic Language Features
+- [ ] Language Server Extension Guide
 
-When the theme is released, only the files in `_layouts`, `_includes`, and `_sass` tracked with Git will be released.
+#### Advanced Topics
+
+- [ ] Extension Host
+- [ ] Remote Development and VS Online
+- [ ] Using Proposed API
+
+#### References
+
+- [ ] VS Code API
+- [ ] Contribution Points
+- [ ] Activation Events
+- [ ] Extension Manifest
+- [ ] Commands
+- [ ] Theme Color
+- [ ] Icons In Labels
+- [ ] Document Selector
+
+## Contributor
+
+
+
 
 ## License
 
-The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+이 저장소는 [MIT License](http://opensource.org/licenses/MIT)를 따릅니다. 
