@@ -63,14 +63,17 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 ## Progress
 
+초벌 번역이 완료된 문서의 경우 "초벌 번역 완료"로 표시됩니다. 
+검토 / 수정 후 check합니다.
+
 #### Overview
 
 - [ ] Overview
 
 #### Get started 
 
-- [ ] Your First extension
-- [ ] Extension Anatomy
+- [ ] Your First extension : 초벌 번역 완료
+- [ ] Extension Anatomy : 초벌 번역 완료
 - [ ] Wrapping up 
 
 #### Working with Extensions
