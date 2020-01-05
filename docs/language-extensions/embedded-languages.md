@@ -1,10 +1,11 @@
 ---
 layout: default
-parent: Extension Guides
-title: Search Provider 
-nav_order: 15
+parent: Language Extensions
+title: Embedded Languages
+nav_order: 7
 description: ""
 ---
-# Search Provider
+
+# Embedded Languages
 
 아직 원본 문서가 작성되지 않았습니다.
