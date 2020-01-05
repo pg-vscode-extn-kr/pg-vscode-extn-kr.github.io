@@ -1,8 +1,10 @@
 
 ## Description
 
-[Vscode extionsion API](https://code.visualstudio.com/api)의 한국어 번역을 제공하는 웹사이트를 서포트하는 저장소입니다. 
+[Vscode extionsion API](https://code.visualstudio.com/api)의 한국어 번역을 제공하는 웹사이트를 서포트하는 저장소입니다.
+
 Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-extn-kr.github.io/)를 통해 접근 가능합니다. 
+
 DCinside 프로그래밍 갤러리 유저들을 주축으로 번역되고 있습니다. 
 
 ## Translation 
@@ -97,7 +99,8 @@ DCinside 프로그래밍 갤러리 유저들을 주축으로 번역되고 있습
 - [ ] Icons In Labels
 - [ ] Document Selector
 
-## Contributor
+## Contributors
+
 
 
 
