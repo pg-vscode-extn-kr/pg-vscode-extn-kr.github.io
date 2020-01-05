@@ -12,7 +12,7 @@ description: ""
 -->
 
 이번 주제에서는, 익스텐션을 만들기 위한 기본 컨셉에 대해 설명합니다.
-[Node.js](https://nodejs.org/en/) 와 [Git](https://git-scm.com/)을 먼저 설치 한 다음, [Yeoman](http://yeoman.io/) 과 [VS Code Extension Generator](https://www.npmjs.com/package/generator-code)가 정상적으로 설치 되어 있는지 확인해주세요.
+[Node.js](https://nodejs.org/en/) 와 [Git](https://git-scm.com/)을 먼저 설치 한 다음, [Yeoman](http://yeoman.io/) 과 [VS Code Extension Generator](https://www.npmjs.com/package/generator-code)가 정상적으로 설치 되어 있는지 확인해주십시오.
 
 <!---
 In this topic, we'll teach you the fundamental concepts for building extensions.
