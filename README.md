@@ -5,7 +5,6 @@
 
 Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-extn-kr.github.io/)를 통해 접근 가능합니다. 
 
-DCinside 프로그래밍 갤러리 유저들을 주축으로 번역되고 있습니다. 
 
 ## Translation 
 
