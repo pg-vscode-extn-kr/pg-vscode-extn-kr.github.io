@@ -15,6 +15,19 @@ DCinside 프로그래밍 갤러리 유저들을 주축으로 번역되고 있습
 
 번역이 끝나면 pull request를 통해 이를 알려주십시오. 체크한 후 merge하겠습니다. 성공적으로 merge될 경우 `pg-vscode-extrn-kr` 조직의 멤버로 추가됩니다. 
 
+#### Additional rules for translation
+ - 영어 원문을 주석으로 달아주십시오 (번역 확인을 위해 필요합니다)
+ - 특정 용어들의 번역을 통일시켜야 합니다. Extension, editor와 같은 중요한 용어들에 대한 번역은 [이곳](#terminology-translation)을 참조해 주시고, 새롭게 번역한 용어에 대해서도 이곳에 명시해주시기 바랍니다. 
+
+## Terminology Translation
+
+1. Extension -> 익스텐션
+2. Editor -> 에디터
+3. UI -> UI
+4. VS Code -> VS Code 
+5. Stack Overflow -> 스택 오버플로우
+6. ...
+
 
 ## Progress
 
