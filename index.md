@@ -31,7 +31,7 @@ If you are looking for published extensions, head to the [VS Code Extension Mark
 - VS Code의 풍부한 익스텐션 API를 제대로 활용하는 방법
 - 당신이 쉽게 개발을 시작할 수 있도록 도와줄 설명과 예시 코드들을 찾을 수 있는 곳
 
-이미 퍼블리시된 익스텐션을 찾고 있다면, [VS Code 익스텐션 마켓플레이스](https://marketplace.visualstudio.com/vscode)를 참조하세요. 
+이미 퍼블리시된 익스텐션을 찾고 있다면 [VS Code 익스텐션 마켓플레이스](https://marketplace.visualstudio.com/vscode)를 참조하십시오. 
 
 
 ## What's new?
