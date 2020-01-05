@@ -2,7 +2,7 @@
 layout: default
 title: Overview
 nav_order: 1
-description: "VS Code 익스텐션의 한글 번역입니다."
+description: ""
 permalink: /
 ---
 
