@@ -4,5 +4,5 @@ title: References
 nav_order: 8
 description: ""
 has_children: true
-permalink: /docs/references
+permalink: api/references
 ---
