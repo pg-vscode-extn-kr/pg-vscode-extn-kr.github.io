@@ -24,7 +24,7 @@ then install [Yeoman](http://yeoman.io/) and [VS Code Extension Generator](https
 npm install -g yo generator-code
 ```
 
-generator로 TypeScript 나 Javascript project의 틀을 만들어 개발을 준비하세요. <br>
+generator로 타입스크립트나 자바스크립트 프로젝트의 틀을 만들어 개발을 준비하세요. <br>
 generator를 실행하고 TypeScript project를 위한 몇 필드를 채워 넣으세요 :
 
 <!---
@@ -159,15 +159,15 @@ In the next topic, [Extension Anatomy](/api/get-started/extension-anatomy), we'l
 You can find the source code of this tutorial at: https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-sample. The [Extension Guides](/api/extension-guides/overview) topic contains other samples, each illustrating a different VS Code API or Contribution Point.
 -->
 
-### Javascript 의 경우
+### 자바스크립트의 경우
 
 <!-- 
 ### Using JavaScript
 -->
 
-저희는 TypeScript 가 VS Code 익스텐션을 개발할때 있어서 가장 좋은 경험을 준다고 믿기 때문에, <br>
-이 가이드에서 VS Code 익스텐션을 TypeScript 로 개발하는 방법 위주로 설명했어요.<br>
-하지만, 만약 Javascript를 선호 한다면, [helloworld-minimal-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-minimal-sample) 를 통해 계속 진행 할 수 있답니다. 
+저희는 타입스크립트가 VS Code 익스텐션을 개발할 때 있어서 가장 좋은 경험을 준다고 믿기 때문에, <br>
+이 가이드에서 VS Code 익스텐션을 타입스크립트로 개발하는 방법 위주로 설명했어요.<br>
+하지만, 만약 자바스크립트를 선호 한다면, [helloworld-minimal-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-minimal-sample) 를 통해 계속 진행 할 수 있답니다. 
 
 <!--
 In this guide, we mainly describe how to develop VS Code extension with TypeScript because we believe TypeScript offers the best experience for developing VS Code extensions. However, if you prefer JavaScript, you can still follow along using [helloworld-minimal-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-minimal-sample).
