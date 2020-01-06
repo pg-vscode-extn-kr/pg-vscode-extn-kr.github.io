@@ -5,31 +5,65 @@ title: Publishing Extension
 nav_order: 2
 description: ""
 ---
+
+
+# 익스텐션 퍼블리시하기
+
+<!-- 
 # Publishing Extensions
+-->
 
+높은 퀄리티의 익스텐션을 한번 만들고 나면, 다른 사람들이 익스텐션을 찾고 다운로드하고 사용할 수 있게 [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode)에 퍼블리시 할 수 있습니다. 다른 방법으로, 익스텐션을 설치 가능한 VSIX 포맷의 [package](#packaging-extensions)로 만들어 다른 사용자와 공유 할 수 있습니다. 
+
+<!--
 Once you have made a high-quality extension, you can publish it to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode) so others can find, download, and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
+-->
 
+이번 주제에서 다루는 내용:
+
+<!-- 
 This topics covers:
+-->
 
+- VS Code 익스텐션 관리 하는 CLI 툴인 [`vsce`](#vsce)를 사용방법
+- 익스텐션을 [패키징](#packaging-extensions), [퍼블리싱](#publishing-extensions) 그리고 [퍼블리싱 취소](#unpublishing-extensions)하기.
+- 익스텐션 퍼블리시를 위한 [`publisherId` 등록](#create-a-publisher) 하기
+
+<!--
 - Using [`vsce`](#vsce), the CLI tool for managing VS Code extensions
 - [Packaging](#packaging-extensions), [publishing](#publishing-extensions) and [unpublishing](#unpublishing-extensions) extensions
 - [Registering a `publisherId`](#create-a-publisher) necessary for publishing extensions
+-->
 
 ## vsce
 
+'Visual Studio Code Extension'를 줄인 [vsce](https://github.com/Microsoft/vsce)는 VS Code 익스텐션을 패키징, 퍼블리싱, 관리하는 커맨드라인 도구 입니다. 
+
+<!-- 
 [vsce](https://github.com/Microsoft/vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
+-->
 
-### Installation
+### 설치
 
-Make sure you have [Node.js](https://nodejs.org/) installed. Then run:
+<!-- ### Installation -->
+
+[Node.js](https://nodejs.org/)가 설치되어 있는지 확인 후 다음을 실행하십시오:
+
+<!-- Make sure you have [Node.js](https://nodejs.org/) installed. Then run: -->
 
 ```bash
 npm install -g vsce
 ```
 
-### Usage
+### 사용예시
 
+<!-- ### Usage -->
+
+`vsce`를 사용하여 익스텐션을 쉽게 패키징하고 퍼블리시 할 수 있습니다. 
+
+<!--
 You can use `vsce` to easily [package](#packaging-extensions) and [publish](#publishing-extensions) your extensions:
+-->
 
 ```bash
 $ cd myExtension
@@ -39,50 +73,107 @@ $ vsce publish
 # <publisherID>.myExtension published to VS Code MarketPlace
 ```
 
-`vsce` can also search, retrieve metadata, and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
+또한 `vsce`로 익스텐션 검색, 메타데이터 검색, 퍼블리시 취소를 할 수 있습니다. 가능한 모든 `vsce` 명령어를 확인하려면, `vsce --help` 를 실행하십시오.
 
-## Publishing extensions
+<!--
+`vsce` can also search, retrieve metadata, and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
+-->
+
+## 익스텐션 퍼블리싱하기
+
+<!-- ## Publishing extensions -->
 
 ---
 
+**주의** 보안 문제로 인해, 사용자 제공 SVG 이미지를 포함하는 익스텐션을 `vsce` 는 퍼블리시 하지 않습니다. 
+
+<!--
 **Note:** Due to security concerns, `vsce` will not publish extensions which contain user-provided SVG images.
+-->
 
-The publishing tool checks the following constraints:
+퍼블리싱 도구는 다음 상황들을 만족해야합니다.  
 
+<!-- The publishing tool checks the following constraints: -->
+
+- `package.json`에 제공되는 아이콘은 SVG 가 아니어야 합니다. 
+- `package.json`에 쓰이는 뱃지는 [검증된 뱃지 제공자](/api/references/extension-manifest#approved-badges)로부터 온 SVG만 허용 됩니다. 
+- `README.md`와 `CHANGELOG.md`의 이미지 URL은 `https` URL로 제공되어야 합니다.  
+- `README.md`와 `CHANGELOG.md`의 이미지는 [검증된 뱃지 제공자](/api/references/extension-manifest#approved-badges)로부터 온 SVG만 허용 됩니다. 
+
+
+<!--
 - The icon provided in `package.json` may not be an SVG.
 - The badges provided in the `package.json` may not be SVGs unless they are from [trusted badge providers](/api/references/extension-manifest#approved-badges).
 - Image URLs in `README.md` and `CHANGELOG.md` need to resolve to `https` URLs.
 - Images in `README.md` and `CHANGELOG.md` may not be SVGs unless they are from [trusted badge providers](/api/references/extension-manifest#approved-badges).
+-->
 
 ---
 
+Visual Studio Code 는 마켓플레이스 서비스를 위해 [Azure DevOps](https://azure.microsoft.com/services/devops/)를 사용합니다. 이는 익스텐션의 검증, 호스팅, 관리가 Azure DevOps를 통해서 행해진다는것을 의미합니다 .
+
+<!--
 Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
+-->
 
+`vsce`는 오직 [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats)을 이용해서만 익스텐션을 퍼블리시 합니다. 익스텐션 퍼블리시를 위해서 적어도 1개의 토큰을 만드십시오.
+
+<!--
 `vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
+-->
 
+### Personal Access Token 생성하기
+
+<!-- 
 ### Get a Personal Access Token
+-->
 
+먼저, Azure DevOps [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)를 가지고 있는지 확인해야합니다.
+<!-- 
 First, make sure you have an Azure DevOps [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
+-->
 
+이후의 예시에서, organization 의 이름은 `vscode`입니다. 당신의 organization의 홈페이지에서 (예를 들면: `https://dev.azure.com/vscode`), 프로필 이미지 옆의 유저 설정 메뉴를 열고 **Personal access tokens**를 선택하십시오. 
+
+<!-- 
 In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
+-->
 
 ![Personal settings menu](images/publishing-extension/token1.png)
 
+**Personal Access Tokens** 페이지에서, **New Token**을 클릭하여 새로운 Personal Access Token을 생성하십시오:
+
+<!--
 On the **Personal Access Tokens** page, click **New Token** to create a new Personal Access Token:
+-->
 
 ![Create personal access token](images/publishing-extension/token2.png)
 
+Personal Access Token에 이름을 짓고, 필요에 따라 만료기간을 1년 연장 한 다음, 모든 organization에서 접근 가능하게 하고, **custom defined** 범위를 선택하여 **Show all scopes**를 클릭하십시오.
+
+<!--
 Give the Personal Access Token a name, optionally extend its expiration date to one year, make it accessible to every organization, select a **custom defined** scope ruleset and click **Show all scopes**:
+-->
 
 ![Personal access token details](images/publishing-extension/token3.png)
 
+마지막으로, 가능한 범위들을 **Marketplace**를 찾을 때까지 아래로 스크롤하여 **Acquire** 과 **Manage**를 둘 다 선택하십시오:
+
+<!--
 Finally, scroll down the list of possible scopes until you find **Marketplace** and select both **Acquire** and **Manage**:
+-->
+
 
 ![Personal access token details](images/publishing-extension/token4.png)
 
-Select **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+**Create**를 선택하면 이제 새롭게 생성한 Personal Access Token을 선보일 차례입니다. 퍼블리셔를 생성하기 위해 이를 **Copy** 하십시오.
 
-### Create a publisher
+<!--
+Select **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+-->
+
+### 퍼블리셔 생성하기
+<!-- ### Create a publisher -->
 
 A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
 
