@@ -56,14 +56,18 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 2. Editor -> 에디터
 3. UI -> UI
 4. VS Code -> VS Code 
-5. Stack Overflow -> 스택 오버플로우
-6. publish -> 퍼블리시, 퍼빌리싱
-7. ...
+5. Visual Studio Code -> Visual Studio Code
+6. Stack Overflow -> 스택 오버플로우
+7. publish -> 퍼블리시, 퍼빌리싱
+8. topic -> 주제
+9. repository -> 저장소
+10. integration tests -> 통합 테스트
+11. ...
 
 
 ## Progress
 
-초벌 번역이 완료된 문서의 경우 "초벌 번역 완료"로 기술ㅂ됩니다. 
+초벌 번역이 완료된 문서의 경우 "초벌 번역 완료"로 기술됩니다. 
 검토 / 수정 후 번역이 완료되었다고 표시합니다. 
 
 #### Overview
