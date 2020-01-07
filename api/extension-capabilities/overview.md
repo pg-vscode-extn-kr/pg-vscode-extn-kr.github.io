@@ -57,7 +57,7 @@ Some of these capabilities include:
 - 파일창을 열어 사용자가 파일이나 폴더를 선택할 수 있게 함
 - 지속적인 명령을 나타내기 위한 Progress API
 
-
+<!--
 ## Theming
 
 [Theming](./theming) controls the look of VS Code, both the colors of source code in the editor and the colors of the VS Code UI. If you've ever wanted to make it look like you're coding the Matrix by making VS Code different shades of green, or just wanted to create the ultimate, minimalist grayscale workspace, then themes are for you.
@@ -69,6 +69,8 @@ Some of these capabilities include:
 - Port an existing TextMate theme to VS Code.
 - Add custom file icons.
 
+-->
+
 ## 테마
 
 [테마](./theming)는 VS Code UI와 소스 코드의 색상을 결정해 VS Code의 모습을 바꿔줍니다. 당신이 VS Code를 행렬처럼 보이게 하기 위해 UI를 다양한 밝기의 초록색으로 만들고 싶었거나, 그저 궁극적인 단순함을 추구하는  회색 작업 공간을 만들고 싶었다면, 테마 기능은 당신을 위해 준비되어 있습니다.
@@ -79,6 +81,8 @@ Some of these capabilities include:
 - VS Code UI 색상 변경
 - 이미 있는 TextMate 테마를 VS Code로 포팅
 - 사용자화된 새로운 파일 아이콘 추가
+
+
 
 
 ## Declarative Language Features
