@@ -1,14 +1,14 @@
 ---
 layout: default
 parent: Get Started
-title: Extansion Anatomy
+title: 익스텐션 구조
 nav_order: 2
 description: ""
 ---
 
 # 익스텐션 구조
 
-지난 주제에서, 여러분은 기초적인 익스텐션을 만들 수 있었습니다. 내부는 어떻게 작동할까요?
+지난 주제에서, 당신은 기초적인 익스텐션을 만들 수 있었습니다. 내부는 어떻게 작동할까요?
 
 `Hello World` 익스텐션은 3가지 기능이 있습니다:
 

@@ -62,7 +62,10 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 8. topic -> 주제
 9. repository -> 저장소
 10. integration tests -> 통합 테스트
-11. ...
+11. workspace -> 작업 공간
+12. theme, theming -> 테마 
+13. you -> 당신
+14. ...
 
 
 ## Progress
