@@ -139,10 +139,15 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 - [ ] Icons In Labels
 - [ ] Document Selector
 
-## Contributors
-
-
-
+## Contributors (Alphabetical Order)
+<table>
+<tr>
+ <td align="center"><a href = "https://github.com/jeonhyun97">jeonhyun97</a></td>
+ <td align="center"><a href = "https://github.com/jhk0530">jhk0530</a></td>
+ <td align="center"><a href = "https://github.com/mirusu400">mirusu400</a></td>
+ <td align="center"><a href = "https://github.com/ssibl4">ssibl4</a></td>
+</tr>
+</table>
 
 
 ## License
