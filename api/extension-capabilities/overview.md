@@ -75,7 +75,7 @@ Some of these capabilities include:
 
 [테마](./theming)는 VS Code UI와 소스 코드의 색상을 결정해 VS Code의 모습을 바꿔줍니다. 당신이 VS Code를 행렬처럼 보이게 하기 위해 UI를 다양한 밝기의 초록색으로 만들고 싶었거나, 그저 궁극적인 단순함을 추구하는  회색 작업 공간을 만들고 싶었다면, 테마 기능은 당신을 위해 준비되어 있습니다.
 
-**익스텐션 테마 아이디어**
+**확장 아이디어**
 
 - 소스 코드의 색상 변경
 - VS Code UI 색상 변경
@@ -83,7 +83,7 @@ Some of these capabilities include:
 - 사용자화된 새로운 파일 아이콘 추가
 
 
-
+<!--
 
 ## Declarative Language Features
 
@@ -97,6 +97,24 @@ Some of these capabilities include:
 - Extend an existing grammar with grammar injections.
 - Port an existing TextMate grammar to VS Code.
 
+-->
+
+<!-- Features를 "지원"으로 번역. 문맥상 그게 맞아 보임 -->
+
+## 선언적 언어 지원
+
+[선언적 언어 지원](/api/language-extensions/overview#declarative-language-features)에서는 괄호 매칭, 자동 들여쓰기, 문법 강조와 같은 프로그래밍 언어를 위한 기본적인 텍스트 편집 지원 기능을 제공합니다. 이들은 코드를 작성하지 않고도 선언적으로 실행됩니다. Intellisense나 디버깅과 같이 더 향상된 언어 지원을 원한다면, [프로그래밍적 언어 지원](/api/language-extensions/overview#programmatic-language-features)을 참고하십시오. 
+
+**확장 아이디어**
+
+- 많이 쓰이는 자바스크립트 코드 조각을 익스텐션에 번들로 추가합니다.
+- VS Code에게 새로운 프로그래밍 언어에 대해 알립니다.
+- 프로그래밍 언어의 문법을 추가하거나 변경합니다. 
+- 이미 있는 문법에 새로운 요소를 추가하거나 이를 확장합니다. 
+- 이미 있는 TextMate 문법을 VS Code에 포팅합니다. 
+
+
+<!--
 ## Programmatic Language Features
 
 [Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features) add rich programming language support such as Hovers, Go to Definition, diagnostic errors, IntelliSense and CodeLens. These language features are exposed through the [`vscode.languages.*`](/api/references/vscode-api#languages) API. An extension can either use these API directly, or write a Language Server and adapt it to VS Code using the VS Code [Language Server library](https://github.com/Microsoft/vscode-languageserver-node).
@@ -110,6 +128,25 @@ Although we provide a listing of [language features](/api/language-extensions/pr
 - Register a new code formatter for HTML.
 - Provide rich, context-aware IntelliSense.
 - Add folding, breadcrumbs and outline support for a language.
+
+
+-->
+
+
+## 프로그래밍적 언어 지원
+
+[프로그래밍적 언어 지원](/api/language-extensions/overview#programmatic-language-features)에서는 호버, 정의로 향하기, 에러 진단, IntelliSense나 CodeLen과 같은 풍부한 프로그래밍 관련 지원을 제공합니다. 이러한 지원들은 [`vscode.languages.*`](/api/references/vscode-api#languages) API를 통해 확인 가능합니다. 익스텐션은 이런 API를 직접적으로 사용하거나, Language Server를 작성한 후 VS Code [Language Server library](https://github.com/Microsoft/vscode-languageserver-node)를 이용해 이를 VS Code와 연결할 수도 있습니다. 
+
+우리는 [언어 지원](/api/language-extensions/programmatic-language-features)의 한정된 목록과 의도한 사용법만을 제공하지만, 이를 창의적으로 사용하는 데에는 아무런 제약이 없습니다. 예를 들어, CodeLen이나 Hover는 추가적인 정보를 즉시 보여줄 수 있는 좋은 방법이고, 에러 진단의 경우 철자나 코드 스타일 에러를 강조하는 데 쓰일 수 있습니다. 
+
+**확장 아이디어**
+
+- API의 사용 방법 예시를 보여주는 호버를 추가.
+- 진단을 활용해 철자나 linter 에러를 보고함. 
+- HTML을 위한 새로운 코드 정리 기능을 등록.
+- 풍부하고 문맥에 민감한 IntelliSense를 제공.
+- 코드 접기나 특정 위치로 이동하기와 같은 추가적인 지원 제공.
+
 
 ## Workbench Extensions
 
