@@ -76,7 +76,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 #### Overview
 
-- [ ] Overview
+- [ ] Overview : 초벌 번역 
 
 #### Get started 
 
@@ -88,7 +88,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 - [ ] Testing Extension : 초벌 번역 완료
 - [ ] Publishing Extension : 초벌 번역 완료
-- [ ] Building Extension
+- [ ] Bundling Extension : 초벌 번역 완료
 - [ ] Continuous Integration
 
 #### Extension Capabilities
