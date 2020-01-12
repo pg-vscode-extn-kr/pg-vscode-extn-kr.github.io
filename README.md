@@ -18,7 +18,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 #### Additional rules for translation
  - 영어 원문을 주석으로 달아주십시오 (번역 확인을 위해 필요합니다)
- - 존댓말(합쇼체)로 번역하십시오.
+ - 존댓말(합쇼체)을 중심으로 번역하십시오.
  - Markdown / html 문법을 바꾸지 마십시오. 바꾸면 떄지합니다
  - 특정 용어들의 번역을 통일시켜야 합니다. Extension, editor와 같은 중요한 용어들에 대한 번역은 [이곳](#terminology-translation)을 참조해 주시고, 새롭게 번역한 용어에 대해서도 이곳에 명시해주시기 바랍니다.
  
@@ -29,7 +29,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 >Visual Studio Code is built with extensibility in mind. From the UI to the editing experience, almost every part of VS Code can be customized and enhanced through the Extension API. In fact, many core features of VS Code are built as [extensions](https://github.com/Microsoft/vscode/tree/master/extensions) and use the same Extension API.
 
->비주얼 스튜디오 코드는 확장성을 염두에 두고 개발되었습니다. UI부터 시작해 편집 방식에 이르기까지, VS Code의 거의 모든 부분을 익스텐션 API를 통해 사용자화하고 발전시킬 수 있습니다. 실제로 많은 VS Code의 핵심 기능들이  이 문서에서 소개하는 API를 활용한 [익스텐션](https://github.com/Microsoft/vscode/tree/master/extensions) 형태로 개발되었습니다. 
+>비주얼 스튜디오 코드는 확장성을 염두에 두고 개발되었습니다. UI부터 시작해 편집 방식에 이르기까지, VS Code의 거의 모든 부분을 익스텐션 API를 통해 커스터마이즈하고 발전시킬 수 있습니다. 실제로 많은 VS Code의 핵심 기능들이  이 문서에서 소개하는 API를 활용한 [익스텐션](https://github.com/Microsoft/vscode/tree/master/extensions) 형태로 개발되었습니다. 
 
 ##### 예시 2
 
@@ -62,7 +62,11 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 8. topic -> 주제
 9. repository -> 저장소
 10. integration tests -> 통합 테스트
-11. ...
+11. workspace -> 작업 공간
+12. theme, theming -> 테마 
+13. you -> 당신
+14. customize -> 커스터마이즈 
+15. ...
 
 
 ## Progress
@@ -72,19 +76,19 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 #### Overview
 
-- [ ] Overview
+- [ ] Overview : 초벌 번역 
 
 #### Get started 
 
 - [ ] Your First extension : 초벌 번역 완료
 - [ ] Extension Anatomy : 초벌 번역 완료
-- [ ] Wrapping up 
+- [ ] Wrapping up : 초벌 번역 완료
 
 #### Working with Extensions
 
-- [ ] Testing Extension
-- [ ] Publishing Extension
-- [ ] Building Extension
+- [ ] Testing Extension : 초벌 번역 완료
+- [ ] Publishing Extension : 초벌 번역 완료
+- [ ] Bundling Extension : 초벌 번역 완료
 - [ ] Continuous Integration
 
 #### Extension Capabilities
@@ -135,10 +139,15 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 - [ ] Icons In Labels
 - [ ] Document Selector
 
-## Contributors
-
-
-
+## Contributors (Alphabetical Order)
+<table>
+<tr>
+ <td align="center"><a href = "https://github.com/jeonhyun97">jeonhyun97</a></td>
+ <td align="center"><a href = "https://github.com/jhk0530">jhk0530</a></td>
+ <td align="center"><a href = "https://github.com/mirusu400">mirusu400</a></td>
+ <td align="center"><a href = "https://github.com/ssibl4">ssibl4</a></td>
+</tr>
+</table>
 
 
 ## License
