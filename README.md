@@ -89,12 +89,12 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 - [ ] Testing Extension : 초벌 번역 완료
 - [ ] Publishing Extension : 초벌 번역 완료
 - [ ] Bundling Extension : 초벌 번역 완료
-- [ ] Continuous Integration
+- [ ] Continuous Integration : 초벌 번역 완료
 
 #### Extension Capabilities
 
 - [ ] Overview
-- [ ] Common Capabilities
+- [ ] Common Capabilities : 초벌 번역 완료 
 - [ ] Theming
 - [ ] Extending Workbench
 
