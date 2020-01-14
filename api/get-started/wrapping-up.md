@@ -29,6 +29,7 @@ This section includes topics that help you develop high-quality VS Code extensio
 - 어떻게 만든 익스텐션을 [통합 테스트](/api/working-with-extensions/testing-extension) 하는지
 - 어떻게 VS Code [Marketplace](https://marketplace.visualstudio.com/) 를 통해 [익스텐션을 퍼블리싱](/api/working-with-extensions/publishing-extension) 하는지 
 - 어떻게 익스텐션을 [지속적 통합(CI)](/api/working-with-extensions/continuous-integration) 할 수 있는지
+
 <!--
 - How to add [integration tests](/api/working-with-extensions/testing-extension) for your extension
 - How to [publish your extension](/api/working-with-extensions/publishing-extension) to the VS Code [Marketplace](https://marketplace.visualstudio.com/)
@@ -41,6 +42,7 @@ This section includes topics that help you develop high-quality VS Code extensio
 -->
 
 이 섹션에선, [VS Code API](/api/references/vscode-api) 와 [기여 포인트](/api/references/contribution-points) 를 이용해, 당신의 익스텐션이 달성할 수 있는 것들에 대한 간단한 설명이 있습니다. VS Code API로 익스텐션 아이디어가 달성 가능한지 확인하고, 새로운 익스텐션 아이디어를 찾아 보세요.
+
 <!--
 In this section, we split the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points) into a few categories, each with short descriptions as to what your extension could achieve. Validate that your extension idea is achievable with VS Code API or look for new extension ideas here.
 -->
@@ -51,6 +53,7 @@ In this section, we split the [VS Code API](/api/references/vscode-api) and [Con
 -->
 
 당신이 적응할 수 있도록, 훌륭한 예제 익스텐션들이 있습니다. 그리고 몇몇 익스텐션 예제들은 소스 코드를 설명하는 자세한 가이드 또한 포함되어 있습니다. 모든 가이드와 예제는 [익스텐션 가이드 목록](/api/extension-guides/overview) 또는 [vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples) 저장소에서 확인할 수 있습니다.
+
 <!--
 We have a great collection of sample extensions that you can adapt from, and some of them include a detailed guide that explains the source code. You can find all Samples & Guides in the [Extension Guide Listing](/api/extension-guides/overview) or the [vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples) repository.
 -->
