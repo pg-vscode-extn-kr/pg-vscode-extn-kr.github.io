@@ -11,6 +11,7 @@ description: ""
 -->
 
 Visual Studio Code는 당신이 만든 익스텐션의 실행 및 디버깅을 제공해 줍니다. 모든 테스트는 **익스텐션 개발 호스트**라고 불리는 VS Code에 있는 특별한 인스턴스에 의해 진행되고, 이는 모든 VS Code API에 접근이 가능합니다. 이러한 테스트들은 VS Code 인스턴스를 이용한 단위 테스트 없이도 가능한 테스트이기 때문에, 이를 통합 테스트라고 부릅니다. 이 문서는 VS Code 통합 테스트에 집중해 설명한 문서입니다.
+
 <!--
 Visual Studio Code supports running and debugging tests for your extension. These tests will run inside a special instance of VS Code named the **Extension Development Host**, and have full access to the VS Code API. We refer to these tests as integration tests, because they go beyond unit tests that can run without a VS Code instance. This documentation focuses on VS Code integration tests.
 -->
@@ -57,7 +58,8 @@ Alternatively, you can find the configuration for this guide in the [helloworld-
 
 VS Code는 익스텐션 테스트를 위해 `--extensionDevelopmentPath` 와 `--extensionTestsPath` 두 개의 CLI 매개 변수를 제공해 줍니다, 
 
-For example:
+예시:
+
 <!--
 VS Code provides two CLI parameters for running extension tests, `--extensionDevelopmentPath` and `--extensionTestsPath`.
 
@@ -87,7 +89,7 @@ import { runTests } from 'vscode-test';
 async function main() {
   try {
     // 익스텐션 매니페스트 package.json를 포함하는 폴더
-    // `--extensionDevelopmentPath`에 전달됩니다.
+    // --extensionDevelopmentPath에 전달됩니다.
     const extensionDevelopmentPath = path.resolve(__dirname, '../../../');
 
     // 익스텐션 테스트 실행 스크립트의 경로
@@ -141,6 +143,7 @@ main();
 - VS Code 를 추가적인 CLI 매개 변수와 함께 실행
 
 추가적인 API 사용 예제는 [microsoft/vscode-test](https://github.com/microsoft/vscode-test)에서 찾을 수 있습니다.
+
 <!--
 The `vscode-test` API also allows:
 
@@ -157,6 +160,7 @@ You can find more API usage examples at [microsoft/vscode-test](https://github.c
 -->
 
 통합 테스트를 실행할때, `--extensionTestsPath`는 테스트 묶음을 실행하는 **테스트 실행 스크립트** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts))를 가르킵니다. 아래는 Mocha로 테스트 묶음을 실행하기 위해 사용하는 `helloworld-test-sample`의 [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts)입니다. 이 예제를 시작점으로 잡고 [Mocha's API](https://mochajs.org/api/mocha)를 이용해 다양하게 수정할 수 있습니다. 프로그래밍 방식으로 작동되는 다른 테스트 프레임워크를 Mocha 대신에 이용할 수도 있습니다.
+
 <!--
 When running the extension integration test, `--extensionTestsPath` points to the **test runner script** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts)) that programmatically runs the test suite. Below is the [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts) of `helloworld-test-sample` that uses Mocha to run the test suite. You can use this as a starting point and customize your setup with [Mocha's API](https://mochajs.org/api/mocha). You can also replace Mocha with any other test framework that can be run programmatically.
 -->
@@ -302,11 +306,13 @@ suite('Extension Test Suite', () => {
 테스트를 디버깅하는 것은 익스텐션을 디버깅 하는것과 유사합니다.
 
 다음은 예제 `launch.json`의 디버거 구성입니다:
+
 <!--
 Debugging the tests is similar to debugging the extension.
 
 Here is a sample `launch.json` debugger configuration:
 -->
+
 ```json
 {
   "version": "0.2.0",
@@ -341,6 +347,7 @@ Here is a sample `launch.json` debugger configuration:
 -->
 
 VS Code의 제약 때문에, VS Code 안정화 버전을 사용하고 있고 통합 테스트를 **CLI를 통해** 진행한다면, 이런 오류가 날겁니다:
+
 <!--
 Because of VS Code's limitation, if you are using VS Code stable release and try to run the integration test **on CLI**, it will throw an error:
 -->
@@ -348,6 +355,7 @@ Because of VS Code's limitation, if you are using VS Code stable release and try
 ```
 익스텐션 테스트를 명령 창에서 실행하는 것은 다른 코드 인스턴스가 실행중이지 않을 때만 가능합니다.
 ```
+
 <!--
 ```
 Running extension tests from the command line is currently only supported if no other instance of Code is running.
@@ -355,6 +363,7 @@ Running extension tests from the command line is currently only supported if no 
 -->
 
 이를 해결하기 위해 [VS Code Insiders](https://code.visualstudio.com/insiders/)를 개발에 이용하거나 이러한 제약을 우회하기 위해 디버그 실행 설정을 이용해 익스텐션을 실행할 수도 있습니다.
+
 <!--
 You can either use [VS Code Insiders](https://code.visualstudio.com/insiders/) for development or launch the extension test from the debug launch config that bypasses this limitation.
 -->
@@ -365,6 +374,7 @@ You can either use [VS Code Insiders](https://code.visualstudio.com/insiders/) f
 -->
 
 VS Code에서 익스텐션 테스트를 디버깅 할 때, VS Code는 설치되어 있는 모든 인스턴스를 사용하고, 모든 확장 프로그램을 로드시킵니다. `--disable-extensions`설정을 `launch.json`에 추가하거나 `vscode-test`의 `runTests` API에 있는 `launchArgs` 옵션을 사용해도 됩니다 .
+
 <!--
 When you debug an extension test in VS Code, VS Code uses the globally installed instance of VS Code and will load all installed extensions. You can add `--disable-extensions` configuration to the `launch.json` or the `launchArgs` option of `vscode-test`'s `runTests` API.
 -->
@@ -406,6 +416,7 @@ await runTests({
   launchArgs: ['--disable-extensions']
 });
 ```
+
 <!--
 ```ts
 await runTests({
@@ -432,6 +443,7 @@ await runTests({
 -->
 
 가끔씩 테스트를 시작하기 전에 다른 익스텐션을 설치하기 위해 `code --install-extension`를 실행하는 것처럼, 사용자 지정 설치를 해야 할 때가 있습니다. `vscode-test`는 보다 세분화된 API를 이용해 이런 경우를 처리합니다:
+
 <!--
 Sometimes you might want to run custom setups, such as running `code --install-extension` to install another extension before starting your test. `vscode-test` has a more granular API to accommodate that case:
 -->
@@ -517,6 +529,7 @@ main();
 -->
 
 [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) 모듈은 익스텐션 통합 테스트를 실행할 때 기본적으로 사용되던 방법이었지만, 현재는 [`vscode-test`](https://github.com/microsoft/vscode-test)로 대체되었습니다. 마이그레이션을 하는 방법은 다음과 같습니다:
+
 <!--
 The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had been the default way of running extension integration tests and is being superseded by [`vscode-test`](https://github.com/microsoft/vscode-test). Here's how you can migrate from it:
 -->
@@ -529,6 +542,7 @@ The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had 
 - [test script](#the-test-script)를 추가합니다. [`runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts)의 예제를 이용해도 됩니다.
 - `runTest.ts`를 컴파일하기 위해 `package.json`에 `test`스크립트를 지정합니다.
 - [test runner script](#the-test-runner-script)를 추가합니다. [sample test runner script](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts)의 예제를 이용해도 됩니다. `vscode`는 `mocha@4`와 `glob`에 의존해 사용되었으므로, 이제는 `devDependencies`의 일부로써 그것들을 설치해야 합니다.
+
 <!--
 - Remove `vscode` dependency.
 - Add `vscode-test` dependency.
@@ -546,6 +560,7 @@ The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had 
 -->
 
 - [지속적 통합(CI)](/api/working-with-extensions/continuous-integration) - Azure DevOps같은 지속적 통합(CI) 서비스를 이용해 익스텐션 테스트를 실행해 보세요.
+
 <!--
 - [Continuous Integration](/api/working-with-extensions/continuous-integration) - Run your extension tests in a Continuous Integration service such as Azure DevOps.
 -->

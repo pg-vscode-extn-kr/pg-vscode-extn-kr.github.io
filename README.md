@@ -66,8 +66,9 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 12. theme, theming -> 테마 
 13. you -> 당신
 14. customize -> 커스터마이즈 
-15. ...
-
+15. component -> 컴포넌트
+16. sample -> 예제
+17. ...
 
 ## Progress
 
