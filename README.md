@@ -96,8 +96,8 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 - [ ] Overview
 - [ ] Common Capabilities : 초벌 번역 완료 
-- [ ] Theming
-- [ ] Extending Workbench
+- [ ] Theming : 초벌 번역 완료 
+- [ ] Extending Workbench : 초벌 번역 완료 
 
 #### Extension Guides
 
