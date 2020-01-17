@@ -101,7 +101,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 #### Extension Guides
 
-- [ ] Overview
+- [ ] Overview : 초벌 번역 완료 
 - [ ] Command
 - [ ] Color Theme
 - [ ] Icon Theme
