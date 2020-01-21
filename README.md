@@ -105,7 +105,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 - [ ] Command : 초벌 번역 완료
 - [ ] [Color Theme](api/extension-guides/color-theme.md) : 초벌 번역 완료
 - [ ] [Icon Theme](api/extension-guides/icon-theme.md) : 초벌 번역 완료
-- [ ] Tree View
+- [ ] [Tree View](api/extension-guides/tree-view.md) : 초벌 번역 완료
 - [ ] Webview
 - [ ] Virtual Documents
 - [ ] Task Provider
