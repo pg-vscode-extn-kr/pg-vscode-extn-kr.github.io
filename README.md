@@ -108,7 +108,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 - [ ] [Tree View](api/extension-guides/tree-view.md) : 초벌 번역 완료
 - [ ] [Webview](api/extension-guides/webview.md) : 초벌 번역 완료
 - [ ] [Virtual Documents](api/extension-guides/virtual-documents.md) : 초벌 번역 완료
-- [ ] Task Provider
+- [ ] [Task Provider](api/extension-guides/task-provider.md) : 초벌 번역 완료
 - [ ] Source Control
 - [ ] Debugger Extension
 - [ ] Markdown Extension
