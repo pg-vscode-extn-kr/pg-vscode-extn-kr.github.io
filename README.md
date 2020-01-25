@@ -109,9 +109,9 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 - [ ] [Webview](api/extension-guides/webview.md) : 초벌 번역 완료
 - [ ] [Virtual Documents](api/extension-guides/virtual-documents.md) : 초벌 번역 완료
 - [ ] [Task Provider](api/extension-guides/task-provider.md) : 초벌 번역 완료
-- [ ] Debugger Extension
-- [ ] Markdown Extension
-- [ ] Custom Data Extension
+- [ ] [Debugger Extension](api/extension-guides/debugger-extension.md) : 초벌 번역 완료
+- [ ] [Markdown Extension](api/extension-guides/markdown-extension.md) : 초벌 번역 완료
+- [ ] [Custom Data Extension](api/extension-guides/custom-data-extension.md) : 초벌 번역 완료
 
 #### Language Extensions
 
