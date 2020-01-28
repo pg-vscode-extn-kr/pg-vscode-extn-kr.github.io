@@ -14,7 +14,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 현재 [진행 상황](#progress)을 확인하고 번역되지 않은 섹션에 대해 이슈를 올려주시고, 그 후 fork를 떠서 번역을 진행해주시기 바랍니다. 이때 이미 누군가 번역하고 있다고 issue를 세웠는지 확인해 번역중이 아닌 섹션을 선택해주시길 바랍니다. 웬만하면 앞쪽부터 채워주십시오. issue를 올릴 때는 `번역 중`, 혹은 `번역 수정`을 달아주세요.
 
-번역이 끝나면 pull request를 통해 이를 알려주십시오. 체크한 후 merge하겠습니다. 성공적으로 merge될 경우 `pg-vscode-extrn-kr` 조직의 멤버로 추가됩니다. 
+번역이 끝나면 pull request를 통해 이를 알려주십시오. 체크한 후 merge하겠습니다. 성공적으로 merge될 경우 `pg-vscode-extn-kr` 조직의 멤버로 추가됩니다. 
 
 #### Additional rules for translation
  - 영어 원문을 주석으로 달아주십시오 (번역 확인을 위해 필요합니다)
@@ -115,8 +115,8 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 #### Language Extensions
 
-- [ ] [Overview](api/language-extensions/overview.md) : 초벌 번역 
-- [ ] Syntax Highlight Guide
+- [ ] [Overview](api/language-extensions/overview.md) : 초벌 번역 완료
+- [ ] [Syntax Highlight Guide](api/language-extensions/syntax-highlight-guide.md) : 초벌 번역 완료
 - [ ] Snippet Guide
 - [ ] Language Configuration Guide
 - [ ] Programmatic Language Features
