@@ -117,7 +117,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 - [ ] [Overview](api/language-extensions/overview.md) : 초벌 번역 완료
 - [ ] [Syntax Highlight Guide](api/language-extensions/syntax-highlight-guide.md) : 초벌 번역 완료
-- [ ] Snippet Guide
+- [ ] [Snippet Guide](api/language-extensions/snippet-guide.md) : 초벌 번역 완료
 - [ ] Language Configuration Guide
 - [ ] Programmatic Language Features
 - [ ] Language Server Extension Guide
