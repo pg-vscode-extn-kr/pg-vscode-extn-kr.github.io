@@ -296,7 +296,7 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-추가로, 언어서버는 `textDocument/hover` 리퀘스트에 응답해야 합니다. 
+추가로, 언어 서버는 `textDocument/hover` 리퀘스트에 응답해야 합니다. 
 
 <!--
 In addition, your language server needs to respond to the `textDocument/hover` request. -->
@@ -373,7 +373,7 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-추가로 언어서버는 `textDocument/signatureHelp`요청에 응답하여야 합니다. 
+추가로 언어 서버는 `textDocument/signatureHelp`요청에 응답하여야 합니다. 
 <!--
 In addition, your language server needs to respond to the `textDocument/signatureHelp` request.-->
 
@@ -586,7 +586,7 @@ Allow the user to see all occurrences of a symbol in the open editor. -->
 
 <!-- #### Language Server Protocol -->
 
-`initialize` 메소드에 대한 응답으로, 언어서버는 심볼 문서 위치를 제공한다고 알려야합니다.
+`initialize` 메소드에 대한 응답으로, 언어 서버는 심볼 문서 위치를 제공한다고 알려야합니다.
 
 <!--
 In the response to the `initialize` method, your language server needs to announce that it provides symbol document locations. -->
@@ -644,15 +644,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 >
 > Nothing additional. -->
 
-## Show all Symbol Definitions Within a Document
+## 문서의 모든 심볼 정의
 
-Allow the user to quickly navigate to any symbol definition in the open editor.
+<!-- ## Show all Symbol Definitions Within a Document -->
+
+사용자에게 열린 에디터에서 빠르게 심볼의 정의를 확인 할 수 있게 합니다. 
+
+<!--
+Allow the user to quickly navigate to any symbol definition in the open editor. -->
 
 ![Type Hover](images/language-support/document-symbols.gif)
 
-#### Language Server Protocol
+#### 언어 서버 프로토콜
+<!--
+#### Language Server Protocol -->
 
-In the response to the `initialize` method, your language server needs to announce that it provides symbol document locations.
+`initialize` 메소드에 대한 응답으로, 언어 서버는 심볼 문서 위치를 제공한다고 알려야합니다.
+<!-- In the response to the `initialize` method, your language server needs to announce that it provides symbol document locations.-->
 
 ```json
 {
@@ -664,9 +672,15 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/documentSymbol` request.
+추가로, 언어 서버는 `textDocument/documentSymbol` 요청에 응답해야 합니다. 
 
-#### Direct Implementation
+<!--
+In addition, your language server needs to respond to the `textDocument/documentSymbol` request. -->
+
+#### 직접 구현
+
+<!--
+#### Direct Implementation -->
 
 ```typescript
 class GoDocumentSymbolProvider implements vscode.DocumentSymbolProvider {
@@ -686,23 +700,44 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
+> **기본**
+>
+> 문서의 모든 심볼을 반환합니다. 변수, 함수, 클래스, 메소드 등과 같은 심볼의 종류를 정의하십시오. 
+
+> **고급**
+>
+> 추가 될 것이 없습니다. 
+
+<!--
 > **Basic**
 >
-> Return all symbols in the document. Define the kinds of symbols such as variables, functions, classes, methods, etc.
+> Return all symbols in the document. Define the kinds of symbols such as variables, functions, classes, methods, etc. -->
 
+<!--
 > **Advanced**
 >
-> Nothing additional.
+> Nothing additional. -->
 
-## Show all Symbol Definitions in Folder
+## 폴더의 모든 심볼 정의
 
-Allow the user to quickly navigate to symbol definitions anywhere in the folder (workspace) opened in VS Code.
+<!--
+## Show all Symbol Definitions in Folder -->
+
+사용자가 VS Code의 (작업공간) 열린 폴더 내부의 심볼 정의를 확인 할 수 있게 합니다. 
+
+<!--
+Allow the user to quickly navigate to symbol definitions anywhere in the folder (workspace) opened in VS Code. -->
 
 ![Type Hover](images/language-support/workspace-symbols.gif)
 
-#### Language Server Protocol
+#### 언어 서버 프로토콜
 
-In the response to the `initialize` method, your language server needs to announce that it provides global symbol locations.
+<!-- 
+#### Language Server Protocol-->
+
+`initialize` 메소드에 대한 응답으로, 언어 서버는 전역 심볼 위치를 제공한다고 알려야합니다.
+<!--
+In the response to the `initialize` method, your language server needs to announce that it provides global symbol locations. -->
 
 ```json
 {
@@ -714,9 +749,14 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `workspace/symbol` request.
+추가로, 언어 서버는 `workspace/symbol` 요청에 응답해야 합니다. 
 
-#### Direct Implementation
+<!--
+In addition, your language server needs to respond to the `workspace/symbol` request. -->
+
+#### 직접 구현
+
+<!-- #### Direct Implementation -->
 
 ```typescript
 class GoWorkspaceSymbolProvider implements vscode.WorkspaceSymbolProvider {
@@ -736,23 +776,44 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
+> **기본**
+>
+> 열린 폴더의 모든 소스 코드에 정의 된 심볼을 반환합니다. 변수, 함수, 클래스, 메소드 등과 같은 심볼의 종류를 정의하십시오. 
+
+> **고급**
+>
+> 추가 될 것이 없습니다. 
+
+<!--
 > **Basic**
 >
-> Return all symbols define by the source code within the open folder. Define the kinds of symbols such as variables, functions, classes, methods, etc.
+> Return all symbols define by the source code within the open folder. Define the kinds of symbols such as variables, functions, classes, methods, etc. -->
 
+<!--
 > **Advanced**
 >
-> Nothing additional.
+> Nothing additional. -->
 
-## Possible Actions on Errors or Warnings
+## 가능한 액션, 에러, 경고
 
-Provide the user with possible corrective actions right next to an error or warning. If actions are available, a light bulb appears next to the error or warning. When the user clicks the light bulb, a list of available Code Actions is presented.
+<!--
+## Possible Actions on Errors or Warnings -->
+
+사용자에게 에러나 경고에 대하여 가능한 액션을 제공합니다. 만약 액션이 사용가능 하다면, 전구 모양이 에러 혹은 경고 옆에 나타날 것입니다. 사용자가 전구를 클릭하면, 가능한 코드 액션 목록이 표시 됩니다.
+
+<!--
+Provide the user with possible corrective actions right next to an error or warning. If actions are available, a light bulb appears next to the error or warning. When the user clicks the light bulb, a list of available Code Actions is presented. -->
 
 ![Type Hover](images/language-support/quick-fixes.gif)
 
-#### Language Server Protocol
+#### 언어 서버 프로토콜
 
-In the response to the `initialize` method, your language server needs to announce that it provides Code Actions.
+<!--
+#### Language Server Protocol -->
+
+`initialize` 메소드에 대한 응답으로, 언어 서버는 코드 액션을 제공한다고 알려야합니다.
+
+<!-- In the response to the `initialize` method, your language server needs to announce that it provides Code Actions.-->
 
 ```json
 {
@@ -764,9 +825,13 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/codeAction` request.
+추가로, 언어 서버는 `textDocument/codeAction` 요청에 응답해야 합니다. 
 
-#### Direct Implementation
+<!-- In addition, your language server needs to respond to the `textDocument/codeAction` request.-->
+
+#### 직접 구현
+<!--
+#### Direct Implementation-->
 
 ```typescript
 class GoCodeActionProvider implements vscode.CodeActionProvider {
@@ -787,23 +852,43 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
+> **기본**
+>
+> 에러/경고를 고칠 수 있는 코드 액션을 제공하십시오. 
+
+> **고급**
+>
+> 추가로, 리팩토링과 같은 소스 코드 조작 액션을 제공하십시오. 예를 들면 **Extract Method** 입니다 .
+
+<!--
 > **Basic**
 >
-> Provide Code Actions for error/warning correcting actions.
+> Provide Code Actions for error/warning correcting actions. -->
 
+<!--
 > **Advanced**
 >
-> In addition, provide source code manipulation actions such as refactoring. For example, **Extract Method**.
+> In addition, provide source code manipulation actions such as refactoring. For example, **Extract Method**. -->
 
-## CodeLens - Show Actionable Context Information Within Source Code
+## CodeLens - 소스 코드내부의 실행 가능한 컨텍스트 정보 제공
 
-Provide the user with actionable, contextual information that is displayed interspersed with the source code.
+<!--
+## CodeLens - Show Actionable Context Information Within Source Code -->
+
+사용자에게 소스 코드와 함께 표시되는 실행 가능한 컨텍스트 정보를 제공합니다.
+
+<!-- Provide the user with actionable, contextual information that is displayed interspersed with the source code. -->
 
 ![Type Hover](images/language-support/code-lens.gif)
 
-#### Language Server Protocol
+#### 언어 서버 프로토콜
 
-In the response to the `initialize` method, your language server needs to announce that it provides CodeLens results and whether it supports the `codeLens\resolve` method to bind the CodeLens to its command.
+<!-- #### Language Server Protocol -->
+
+`initialize` 메소드에 대한 응답으로, 언어 서버는 CodeLens 결과를 제공하는 것과, CodeLens 커맨드에 바인딩 하는 `condLens\resolve`를 지원하는지의 여부를 알려야합니다. 
+
+<!--
+In the response to the `initialize` method, your language server needs to announce that it provides CodeLens results and whether it supports the `codeLens\resolve` method to bind the CodeLens to its command. -->
 
 ```json
 {
@@ -817,9 +902,14 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/codeLens` request.
+추가로, 언어 서버는 `textDocument/codeLens` 요청에 응답해야 합니다. 
 
-#### Direct Implementation
+<!--
+In addition, your language server needs to respond to the `textDocument/codeLens` request. -->
+
+#### 직접 구현
+<!--
+#### Direct Implementation -->
 
 ```typescript
 class GoCodeLensProvider implements vscode.CodeLensProvider {
@@ -843,23 +933,43 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
+> **기본**
+>
+> 문서에 사용가능한 CodeLens 결과를 정의하십시오. 
+
+> **고급**
+>
+> `codeLens/resolve`에 응답하여 CodeLens 결과를 커맨드에 바인딩 하십시오. 
+
+<!--
 > **Basic**
 >
-> Define the CodeLens results that are available for a document.
+> Define the CodeLens results that are available for a document. -->
 
+<!--
 > **Advanced**
 >
-> Bind the CodeLens results to a command by responding to `codeLens/resolve`.
+> Bind the CodeLens results to a command by responding to `codeLens/resolve`.-->
 
-## Show Color Decorators
+## 색상 설정
 
-Allow the user to preview and modify colors in the document.
+<!--
+## Show Color Decorators -->
+
+사용자에게 문서의 색상을 수정하거나 미리보기 할 수 있게 합니다.
+
+<!--
+Allow the user to preview and modify colors in the document. -->
 
 ![Type Hover](images/language-support/color-decorators.png)
 
-#### Language Server Protocol
+#### 언어 서버 프로토콜
+<!--
+#### Language Server Protocol -->
 
-In the response to the `initialize` method, your language server needs to announce that it provides color information.
+`initialize` 메소드에 대한 응답으로, 언어 서버는 색상 정보를 제공한다고 알려야합니다.
+<!--
+In the response to the `initialize` method, your language server needs to announce that it provides color information. -->
 
 ```json
 {
@@ -871,9 +981,13 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/documentColor` and `textDocument/colorPresentation` requests.
+추가로, 언어 서버는 `textDocument/documentColor` 과 `textDocument/colorPresentation` 요청에 응답해야 합니다. 
 
-#### Direct Implementation
+<!-- In addition, your language server needs to respond to the `textDocument/documentColor` and `textDocument/colorPresentation` requests.-->
+
+#### 직접 구현
+<!--
+#### Direct Implementation -->
 
 ```typescript
 class GoColorProvider implements vscode.DocumentColorProvider {
@@ -898,23 +1012,42 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
+> **기본**
+>
+> 문서의 모든 색상 참조를 반환하십시오. 지원 되는 색상 형식에 대한 표현을 제공하십시오. (예 : rgb(...), hsl(...))
+
+> **고급**
+>
+> 추가 될 것이 없습니다 .
+
+
+<!--
 > **Basic**
 >
-> Return all color references in the document. Provide color presentations for the color formats supported (for example rgb(...), hsl(...)).
+> Return all color references in the document. Provide color presentations for the color formats supported (for example rgb(...), hsl(...)). -->
 
+<!--
 > **Advanced**
 >
-> Nothing additional.
+> Nothing additional. -->
 
-## Format Source Code in an Editor
+## 에디터의 소스 코드 포맷
+<!--
+## Format Source Code in an Editor -->
 
-Provide the user with support for formatting whole documents.
+사용자에게 전체 문서에 대한 포맷을 지원합니다. 
+<!--
+Provide the user with support for formatting whole documents.-->
 
 ![Document Formatting at Work](images/language-support/format-document.gif)
 
-#### Language Server Protocol
+#### 언어 서버 프로토콜
 
-In the response to the `initialize` method, your language server needs to announce that it provides document formatting.
+<!-- #### Language Server Protocol -->
+
+`initialize` 메소드에 대한 응답으로, 언어 서버는 문서 포맷을 제공한다고 알려야합니다.
+<!--
+In the response to the `initialize` method, your language server needs to announce that it provides document formatting.-->
 
 ```json
 {
@@ -925,10 +1058,13 @@ In the response to the `initialize` method, your language server needs to announ
     }
 }
 ```
+추가로, 언어 서버는 `textDocument/formatting` 요청에 응답해야 합니다. 
+<!--
+In addition, your language server needs to respond to the `textDocument/formatting` request. -->
 
-In addition, your language server needs to respond to the `textDocument/formatting` request.
-
-#### Direct Implementation
+#### 직접 구현
+<!--
+#### Direct Implementation -->
 
 ```typescript
 class GoDocumentFormatter implements vscode.DocumentFormattingEditProvider {
@@ -947,23 +1083,43 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
+> **기본**
+>
+> 포맷 지원을 제공하지 않습니다.
+
+> **고급**
+>
+> 소스 코드를 포하는 최소한의 텍스트 수정을 반환해야 합니다. 이는 진단 결과와 같은 마커가 올바르게 조절되고 손실 되지 않도록 하는것에 있어 중요합니다. 
+
+<!--
 > **Basic**
 >
-> Don't provide formatting support.
-
+> Don't provide formatting support. -->
+<!--
 > **Advanced**
 >
-> You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted correctly and are not lost.
+> You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted correctly and are not lost. -->
 
-## Format the Selected Lines in an Editor
+## 에디터의 선택된 줄에 포맷
 
-Provide the user with support for formatting a selected range of lines in a document.
+<!--
+## Format the Selected Lines in an Editor -->
+
+사용자에게 문서에서 선택된 범위내의 줄에 대한 포맷을 지원합니다. 
+
+<!--
+Provide the user with support for formatting a selected range of lines in a document. -->
 
 ![Document Formatting at Work](images/language-support/format-document-range.gif)
 
-#### Language Server Protocol
+#### 언어 서버 프로토콜
+<!--
+#### Language Server Protocol -->
 
-In the response to the `initialize` method, your language server needs to announce that it provides formatting support for ranges of lines.
+`initialize` 메소드에 대한 응답으로, 언어 서버는 선택된 줄에 대한 포맷을 제공한다고 알려야합니다.
+
+<!--
+In the response to the `initialize` method, your language server needs to announce that it provides formatting support for ranges of lines. -->
 
 ```json
 {
@@ -975,9 +1131,13 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/rangeFormatting` request.
+추가로, 언어 서버는 `textDocument/rangeFormatting` 요청에 응답해야 합니다. 
 
-#### Direct Implementation
+<!-- In addition, your language server needs to respond to the `textDocument/rangeFormatting` request. -->
+
+#### 직접 구현
+
+<!-- #### Direct Implementation -->
 
 ```typescript
 class GoDocumentRangeFormatter implements vscode.DocumentRangeFormattingEditProvider{
@@ -998,25 +1158,49 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
+
+> **기본**
+>
+> 포맷 지원을 제공하지 않습니다. 
+
+> **고급**
+>
+> 소스 코드를 포맷하는 최소한의 텍스트 수정을 반환해야 합니다. 이는 진단 결과와 같은 마커가 올바르게 조절되고 손실 되지 않도록 하는것에 있어 중요합니다.
+
+<!--
 > **Basic**
 >
-> Don't provide formatting support.
+> Don't provide formatting support. -->
 
+<!--
 > **Advanced**
 >
-> You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
+> You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost. -->
 
-## Incrementally Format Code as the User Types
+## 사용자 입력에 대한 포맷
 
-Provide the user with support for formatting text as they type.
+<!-- 
+## Incrementally Format Code as the User Types -->
 
-**Note**: The user [setting](/docs/getstarted/settings) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
+사용자에게 그들이 입력 하는 대로 포맷을 지원합니다. 
+<!--
+Provide the user with support for formatting text as they type. -->
+
+**주의**: 사용자 [설정](/docs/getstarted/settings) `editor.formatOnType`으로 소스 코드가 사용자 타입으로 포맷 될지 조절 합니다 .
+
+<!--
+**Note**: The user [setting](/docs/getstarted/settings) `editor.formatOnType` controls whether source code gets formatted or not as the user types. -->
 
 ![Document Formatting at Work](images/language-support/format-on-type.gif)
 
-#### Language Server Protocol
+#### 언어 서버 프로토콜
 
-In the response to the `initialize` method, your language server needs to announce that it provides formatting as the user types. It also needs to tell the client on which characters formatting should be triggered. `moreTriggerCharacters` is optional.
+<!-- #### Language Server Protocol -->
+
+`initialize` 메소드에 대한 응답으로, 언어 서버는 사용자 입력으로 포맷을 제공한다고 알려야합니다. 또한 클라이언트에 어떤 문자로 포맷을 시작할지 알려야 합니다. `moreTriggerCharacters`는 선택지입니다. 
+
+<!--
+In the response to the `initialize` method, your language server needs to announce that it provides formatting as the user types. It also needs to tell the client on which characters formatting should be triggered. `moreTriggerCharacters` is optional.-->
 
 ```json
 {
@@ -1031,9 +1215,13 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/onTypeFormatting` request.
+추가로, 언어 서버는 `textDocument/onTypeFormatting` 요청에 응답해야 합니다. 
 
-#### Direct Implementation
+<!-- In addition, your language server needs to respond to the `textDocument/onTypeFormatting` request.-->
+
+#### 직접 구현
+
+<!-- #### Direct Implementation -->
 
 ```typescript
 class GoOnTypingFormatter implements vscode.OnTypeFormattingEditProvider{
@@ -1054,23 +1242,42 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
+> **기본**
+>
+> 포맷 지원을 제공하지 않습니다. 
+
+> **고급**
+>
+> 소스 코드를 포맷하는 최소한의 텍스트 수정을 반환해야 합니다. 이는 진단 결과와 같은 마커가 올바르게 조절되고 손실 되지 않도록 하는것에 있어 중요합니다.
+
+<!-- 
 > **Basic**
 >
-> Don't provide formatting support.
-
+> Don't provide formatting support. -->
+<!--
 > **Advanced**
 >
-> You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
+> You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost. -->
 
-## Rename Symbols
+## 심볼 이름 변경
 
-Allow the user to rename a symbol and update all references to the symbol.
+<!-- 
+## Rename Symbols-->
+
+사용자에게 심볼 이름을 변경하고 심볼의 모든 참조를 업데이트 하게 합니다. 
+
+<!--
+Allow the user to rename a symbol and update all references to the symbol. -->
 
 ![Type Hover](images/language-support/rename.gif)
 
-#### Language Server Protocol
+#### 언어 서버 프로토콜
+<!--
+#### Language Server Protocol -->
 
-In the response to the `initialize` method, your language server needs to announce that it provides for renaming.
+`initialize` 메소드에 대한 응답으로, 언어 서버는 이름 변경을 제공한다고 알려야합니다.
+<!--
+In the response to the `initialize` method, your language server needs to announce that it provides for renaming. -->
 
 ```json
 {
@@ -1082,9 +1289,14 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/rename` request.
+추가로, 언어 서버는 `textDocument/rename` 요청에 응답해야 합니다. 
 
-#### Direct Implementation
+<!--
+In addition, your language server needs to respond to the `textDocument/rename` request. -->
+
+#### 직접 구현
+
+<!-- #### Direct Implementation -->
 
 ```typescript
 class GoRenameProvider implements vscode.RenameProvider {
@@ -1105,10 +1317,21 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
+> **기본**
+>
+> 이름 변경 지원을 제공하지 않습니다. 
+
+> **고급**
+>
+> 수행해야 하는 모든 작업 공간 목록을 반환합니다. 예를 들면 심볼에 대한 참조를 포함하는 모든 일의 편집 목록입니다.
+
+<!--
 > **Basic**
 >
-> Don't provide rename support.
+> Don't provide rename support.-->
 
+<!--
 > **Advanced**
 >
 > Return the list of all workspace edits that need to be performed, for example all edits across all files that contain references to the symbol.
+-->
