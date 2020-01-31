@@ -57,7 +57,7 @@ Additionally, language features can be resource intensive. For example, to corre
 <!--
 Finally, integrating multiple language toolings with multiple code editors could involve significant effort. From language toolings' perspective, they need to adapt to code editors with different APIs. From code editors' perspective, they cannot expect any uniform API from language toolings. This makes implementing language support for `M` languages in `N` code editors the work of `M * N`.-->
 
-이 문제들을 해결하기 위해서, 마이크로소프트는 언어 도구와 코드 에디터간의 통신을 표준화 하는 [언어 서버 프로토콜](https://microsoft.github.io/language-server-protocol)을 명시했습니다. 이 방법으로, 언어 서버는 어느 언어로도 구현 될 수 있으며, 코드 에디터와 언어 서버 프로토콜을 이용한 통신을 하여, 퍼포먼스 비용을 피하며 자체 프로세스에서 실행 할 수 있게 됩니다. 더 나아가, 모든 LSP를 준수하는 언어 도구는 여러개의 LSP 준수 코드 에디터에 통합 될 수 있고, 모든 LSP 준수 코드 에디터는 여러개의 LSP 준수 언어 도구를 선택 할 수 있습니다. LSP 는 언어 도구 제공자와 코드 에디터 공급자에 대하여 모드에게 이득입니다.
+이 문제들을 해결하기 위해서, 마이크로소프트는 언어 도구와 코드 에디터간의 통신을 표준화 하는 [언어 서버 프로토콜](https://microsoft.github.io/language-server-protocol)을 명시했습니다. 이 방법으로, 언어 서버는 어느 언어로도 구현 될 수 있으며, 코드 에디터와 언어 서버 프로토콜을 이용한 통신을 하여, 퍼포먼스 비용을 피하며 자체 프로세스에서 실행 할 수 있게 됩니다. 더 나아가, 모든 LSP를 준수하는 언어 도구는 여러개의 LSP 준수 코드 에디터에 통합 될 수 있고, 모든 LSP 준수 코드 에디터는 여러개의 LSP 준수 언어 도구를 선택 할 수 있습니다. LSP 는 언어 도구 제공자와 코드 에디터 공급자에 대하여 모두에게 이득입니다.
 
 <!--
 To solve those problems, Microsoft specified [Language Server Protocol](https://microsoft.github.io/language-server-protocol) which standardizes the communication between language tooling and code editor. This way, Language Servers can be implemented in any language and run in their own process to avoid performance cost, as they communicate with the code editor through the Language Server Protocol. Furthermore, any LSP-compliant language toolings can integrate with multiple LSP-compliant code editors, and any LSP-compliant code editors can easily pick up multiple LSP-compliant language toolings. LSP is a win for both language tooling providers and code editor vendors! -->
@@ -909,16 +909,31 @@ The screenshot below shows the completed code running on a plain text file: -->
 
 ![Code Complete](images/language-server-extension-guide/codeComplete.png)
 
-### Testing The Language Server
+### 언어 서버 테스트
 
-To create a high-quality Language Server, we need to build a good test suite covering its functionalities. There are two common ways of testing Language Servers:
+<!--
+### Testing The Language Server -->
 
+언어 서버의 높은 품질을 위해, 좋은 기능 테스트를 작성 해야 합니다. 언어 서버를 테스트 하는 방법에는 2가지 일반적인 방법이 있습니다:
+
+<!--
+To create a high-quality Language Server, we need to build a good test suite covering its functionalities. There are two common ways of testing Language Servers: -->
+
+- 단위 테스트 : 언어 서버로 전송되는 모든 정보를 예시로, 특정 기능을 테스트를 원할때 유용합니다. VS Code의 [HTML](https://github.com/Microsoft/vscode-html-languageservice) / [CSS](https://github.com/Microsoft/vscode-css-languageservice) / [JSON](https://github.com/Microsoft/vscode-json-languageservice) 언어 서버는 테스트를 위해 이 방법을 사용합니다. LSP npm 모듈 또한 이를 사용합니다. [이곳](https://github.com/Microsoft/vscode-languageserver-node/blob/master/protocol/src/test/connection.test.ts)에서 npm 프로토콜 모듈을 사용하여 작성된 단위 테스트를 참조하십시오. 
+- End-to-End 테스트 : 이는 [VS Code 익스텐션 테스트](/api/working-with-extensions/testing-extension)와 유사합니다. 이 방법의 장점은 작업공간으로 VS Code를 인스턴스화 하고, 파일을 열어, 언어 서버/클라이언트를 활성화 한후 [VS Code 커맨드](/api/references/commands)를 통해 실행 한다는 것입니다. 이는 예시를 작성하기 어려운 파일, 설정, 혹은 의존성(`node_modules`와 같은)을 가지고 있을때 우수합니다. 유명한 [Python](https://github.com/Microsoft/vscode-python) 익스텐션이 이 방법을 테스트에 사용합니다. 
+
+<!--
 - Unit Test: This is useful if you want to test specific functionalities in Language Servers by mocking up all the information being sent to it. VS Code's [HTML](https://github.com/Microsoft/vscode-html-languageservice) / [CSS](https://github.com/Microsoft/vscode-css-languageservice) / [JSON](https://github.com/Microsoft/vscode-json-languageservice) Language Servers take this approach to testing. The LSP npm modules itself use the approach. See [here](https://github.com/Microsoft/vscode-languageserver-node/blob/master/protocol/src/test/connection.test.ts) for some unit test written using the npm protocol module.
-- End-to-End Test: This is similar to [VS Code extension test](/api/working-with-extensions/testing-extension). The benefit of this approach is that it runs the test by instantiating a VS Code instance with a workspace, opening the file, activating the Language Client / Server, and running [VS Code commands](/api/references/commands). This approach is superior if you have files, settings, or dependencies (such as `node_modules`) which are hard or impossible to mock. The popular [Python](https://github.com/Microsoft/vscode-python) extension takes this approach to testing.
+- End-to-End Test: This is similar to [VS Code extension test](/api/working-with-extensions/testing-extension). The benefit of this approach is that it runs the test by instantiating a VS Code instance with a workspace, opening the file, activating the Language Client / Server, and running [VS Code commands](/api/references/commands). This approach is superior if you have files, settings, or dependencies (such as `node_modules`) which are hard or impossible to mock. The popular [Python](https://github.com/Microsoft/vscode-python) extension takes this approach to testing.-->
 
-It is possible to do Unit Test in any testing framework of your choice. Here we describe how to do End-to-End testing for Language Server Extension.
+모든 선택한 테스트 프레임워크에서 단위테스트를 수행 할 수 있습니다. 여기서는 언어 서버 익스텐션을 위한 End-to-End 테스팅을 하는 방법에 대해 설명합니다.
 
-Open `.vscode/launch.json`, and you can find a `E2E` test target:
+<!--
+It is possible to do Unit Test in any testing framework of your choice. Here we describe how to do End-to-End testing for Language Server Extension. -->
+
+`.vscode/launch.json`을 열어, `E2E` 테스트 목표를 확인하십시오: 
+
+<!-- Open `.vscode/launch.json`, and you can find a `E2E` test target:-->
 
 ```json
 {
@@ -937,9 +952,14 @@ Open `.vscode/launch.json`, and you can find a `E2E` test target:
 }
 ```
 
-If you run this debug target, it will launch a VS Code instance with `client/testFixture` as the active workspace. VS Code will then proceed to execute all tests in `client/src/test`. As a debugging tip, you can set breakpoints in TypeScript files in `client/src/test` and they will be hit.
+디버그 대상을 실행하면, `client/testFixture`를 활성 작업 공간으로 사용하는 VS Code 인스턴스를 실행 할 것입니다. VS Code는 이후 `client/src/test`에 있는 모든 테스트를 실행합니다. 디버깅 팁으로, `client/src/test` 내부에 타입스크립트 파일에 중단점을 설정할 수 있습니다. 
 
-Let's take a look at the `completion.test.ts` file:
+<!--
+If you run this debug target, it will launch a VS Code instance with `client/testFixture` as the active workspace. VS Code will then proceed to execute all tests in `client/src/test`. As a debugging tip, you can set breakpoints in TypeScript files in `client/src/test` and they will be hit. -->
+
+`completion.test.ts` 파일을 확인해보면:
+<!--
+Let's take a look at the `completion.test.ts` file: -->
 
 ```ts
 import * as vscode from 'vscode';
@@ -982,13 +1002,26 @@ async function testCompletion(
 }
 ```
 
-In this test, we:
+이 테스트에서 : 
 
+- 익스텐션을 활성화.
+- URI와 완성을 작동할 위치를 사용하여 `vscode.executeCompletionItemProvider` 커맨드를 실행.
+- 반환 완료 항목을 예상 완료 항목과 비교하십시오.
+
+
+<!--
+In this test, we: -->
+<!--
 - Activate the extension.
 - Run the command `vscode.executeCompletionItemProvider` with a URI and a position to simulate completion trigger.
 - Assert the returned completion items against our expected completion items.
+-->
 
-Let's dive a bit deeper into the `activate(docURI)` function. It is defined in `client/src/test/helper.ts`:
+
+`activate(docURI)` 함수에 대하여 조금 더 알아 보겠습니다. 이는 `client/src/test/helper.ts`에 정의되어 있습니다:
+
+<!--
+Let's dive a bit deeper into the `activate(docURI)` function. It is defined in `client/src/test/helper.ts`: -->
 
 ```ts
 import * as vscode from 'vscode';
@@ -1020,30 +1053,79 @@ async function sleep(ms: number) {
 }
 ```
 
-In the activation part, we:
+활성화 부분에서 : 
 
+<!-- In the activation part, we: -->
+
+- `package.json`에 정의 되어있는, `{publisher.name}.{extensionId}`를 이용하여 익스텐션 정보를 확보.
+- 특정 문서를 열고, 활성된 텍스트 에디터에 보임.
+- 2초 간 대기, 이를 통해 언어 서버가 인스턴스 되었다는 것을 확인.
+
+<!--
 - Get the extension using the `{publisher.name}.{extensionId}`, as defined in `package.json`.
 - Open the specified document, and show it in the active text editor.
-- Sleep for 2 seconds, so we are sure the Language Server is instantiated.
+- Sleep for 2 seconds, so we are sure the Language Server is instantiated.-->
 
-After the preparation, we can run the [VS Code Commands](/api/references/commands) corresponding to each language feature, and assert against the returned result.
+준비가 된 이후, 각 언어 기능에 대항다는 [VS Code 커맨드](/api/references/commands)를 실행하고, 반환된 결과와 비교 할 수 있습니다. 
 
-There is one more test that covers the diagnostics feature that we just implemented. Check it out at `client/src/test/diagnostics.test.ts`.
+<!--
+After the preparation, we can run the [VS Code Commands](/api/references/commands) corresponding to each language feature, and assert against the returned result.-->
 
-## Advanced Topics
+방금 구현한 진한 기능을 다루는 테스트가 한가지 더 있습니다. 이를 `client/src/test/diagnostics.test.ts`에서 확인하십시오. 
 
-So far, this guide covered:
+<!--
+There is one more test that covers the diagnostics feature that we just implemented. Check it out at `client/src/test/diagnostics.test.ts`. -->
 
+## 고급 주제
+<!--
+## Advanced Topics -->
+
+여태까지, 가이드에서 다룬것은 : 
+
+<!--
+So far, this guide covered: -->
+
+- 언어 서버와 언어 서버 프로토콜에 대한 개요
+- VS Code의 언어 서버 익스텐션의 구조
+- **lsp-sample** 익스텐션과, 이를 개발/디버그/조사/테스트 하는 방법입니다. 
+
+<!--
 - A brief overview of Language Server and Language Server Protocol.
 - Architecture of a Language Server extension in VS Code
-- The **lsp-sample** extension, and how to develop/debug/inspect/test it.
+- The **lsp-sample** extension, and how to develop/debug/inspect/test it.-->
 
-There are some more advanced topics we could not fit in to this guide. We will include links to these resources for further studying of Language Server development.
+이 가이드에 적합하지 않은 고급 주제가 몇 가지 있습니다. 언어 서버 개발에 대한 추가 공부를 위해 이러한 리소스에 대한 링크를 포함시키겠습니다. 
 
-### Additional Language Server features
+<!--
+There are some more advanced topics we could not fit in to this guide. We will include links to these resources for further studying of Language Server development. -->
 
-The following language features are currently supported in a language server along with code completions:
+### 추가 언어 서버 기능들
+<!--
+### Additional Language Server features -->
 
+아래의 언어 기능들은 코드 완성과 같이 현재 언어 서버에서 지원 됩니다. 
+
+<!--
+The following language features are currently supported in a language server along with code completions: -->
+
+
+- _Document Highlights_: 문서의 모든 '동일한' 심볼을 강조합니다.
+- _Hover_: 문서의 선택된 심볼에 대해 호버링 도움말을 제공합니다.
+- _Signature Help_: 문서의 선택된 심볼에 대한 시그니쳐 도움말을 제공합니다. 
+- _Goto Definition_: 문서의 선택된 심볼에 대한 정의로 이동을 제공합니다. 
+- _Goto Type Definition_: 문서의 선택된 심볼에 대한 타입/인터페이스 정의 지원으로 이동을 제공합니다. 
+- _Goto Implementation_: 문서의 선택된 심볼에 대한 구현 정의로 이동을 제공합니다. 
+- _Find References_: 문서의 선택된 심볼에 대하여 모든 프로젝트에 대한 참조를 검색합니다. 
+- _List Document Symbols_: 문서의 선택된 심볼에 대한 목록을 제공합니다. 
+- _List Workspace Symbols_: 모든 프로젝트의 심볼에 대한 목록을 제공합니다. 
+- _Code Actions_: 주어진 문서와 범위에 대하여 실행할 커맨드을 수행합니다. (일반적으로 beautify/refactor)
+- _CodeLens_: 주어진 문서에 대해 CodeLens 통계치를 계산합니다. 
+- _Document Formatting_: 이는 전체 문서 포맷, 문서 범위 및 타입에 대한 포맷을 포함합니다.
+- _Rename_: 프로젝트 전체의 심볼 이름 변경.
+- _Document Links_: 문서 내의 링크를 계산, 연결합니다. 
+- _Document Colors_: 문서 내부의 색상을 계산, 연결하여 에디터에 색상 선택기를 제공합니다. 
+
+<!--
 - _Document Highlights_: highlights all 'equal' symbols in a text document.
 - _Hover_: provides hover information for a symbol selected in a text document.
 - _Signature Help_: provides signature help for a symbol selected in a text document.
@@ -1059,27 +1141,56 @@ The following language features are currently supported in a language server alo
 - _Rename_: project-wide rename of a symbol.
 - _Document Links_: compute and resolve links inside a document.
 - _Document Colors_: compute and resolve colors inside a document to provide color picker in editor.
+-->
 
-The [Programmatic Language Features](/api/language-extensions/programmatic-language-features) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
+[프로그래밍 언어 기능](/api/language-extensions/programmatic-language-features) 주제에서 위의 각 언어 기능을 설명하고 언어 서버 프로토콜을 통해서나 익스텐션에서 확장성 API를 직접 이용하여 기능들을 구현 하는 방법을 제공합니다. 
 
-### Incremental Text Document Synchronization
+<!--
+The [Programmatic Language Features](/api/language-extensions/programmatic-language-features) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.-->
 
-The example uses the simple text document manager provided by the `vscode-languageserver` module to synchronize documents between VS Code and the language server.
+### 증분 텍스트 문서 동기화
+<!--
+### Incremental Text Document Synchronization-->
 
-This has two drawbacks:
+이 예제에서는 `vscode-languageserver`모듈에서 제공된 간단한 텍스트 문서 관리자를 이용하여 VS Code와 언어 서버 간에 문서를 동기화 합니다. 
 
+<!--
+The example uses the simple text document manager provided by the `vscode-languageserver` module to synchronize documents between VS Code and the language server. -->
+
+이는 두가지 단점을 가지고 있습니다:
+
+<!-- This has two drawbacks:-->
+
+- 반복적으로 서버에 문서의 전체 내용을 전송하므로 데이터 전달이 많습니다. 
+- 기존 언어 라이브러리를 사용하는 경우, 일반적으로 불필요한 파싱과 추상 구문 트리 작성을 위해 증분 문서 업데이트를 지원합니다. 
+
+<!--
 - Lots of data transfer since the whole content of a text document is sent to the server repeatedly.
-- If an existing language library is used, such libraries usually support incremental document updates to avoid unnecessary parsing and abstract syntax tree creation.
+- If an existing language library is used, such libraries usually support incremental document updates to avoid unnecessary parsing and abstract syntax tree creation. -->
 
-The protocol therefore supports incremental document synchronization as well.
+따라서 이 프로토콜은 증분 문서 동기화도 지원합니다. 
 
-To make use of incremental document synchronization, a server needs to install three notification handlers:
+<!-- The protocol therefore supports incremental document synchronization as well.-->
 
+증분 문서 동기화를 사용하기 위해, 서버는 3가지 알림 핸들러를 설치해야 합니다:
+
+<!--
+To make use of incremental document synchronization, a server needs to install three notification handlers:-->
+
+- _onDidOpenTextDocument_: VS Code에서 문서가 열릴때 호출됩니다. 
+- _onDidChangeTextDocument_: VS Code에서 문서가 바뀌었을때 호출됩니다. 
+- _onDidCloseTextDocument_: VS Code에서 문서가 닫혔을때 호출됩니다. 
+
+<!--
 - _onDidOpenTextDocument_: is called when a text document is opened in VS Code.
 - _onDidChangeTextDocument_: is called when the content of a text document changes in VS Code.
 - _onDidCloseTextDocument_: is called when a text document is closed in VS Code.
+-->
 
-Below is a code snippet that illustrates how to hook these notification handlers on a connection and how to return the right capability on initialize:
+아래는 이러한 알림 핸들러를 연결하고 초기화시 올바른 기능을 반환하는 방법을 보여주는 코드 snippet입니다:
+
+<!--
+Below is a code snippet that illustrates how to hook these notification handlers on a connection and how to return the right capability on initialize: -->
 
 ```typescript
 connection.onInitialize((params): InitializeResult => {
@@ -1111,26 +1222,62 @@ connection.onDidCloseTextDocument((params) => {
 });
 ```
 
-### Using VS Code API directly to implement Language Features
+### 언어 기능 구현을 위해 VS Code API를 직접 사용
 
-While Language Servers have many benefits, they are not the only option for extending the editing capabilities of VS Code. In the cases when you want to add some simple language features for a type of document, consider using `vscode.languages.register[LANGUAGE_FEATURE]Provider` as an option.
+<!--
+### Using VS Code API directly to implement Language Features -->
 
-Here is a [`completions-sample`](https://github.com/Microsoft/vscode-extension-samples/tree/master/completions-sample) using `vscode.languages.registerCompletionItemProvider` to add a few snippets as completions for plain text files.
+언어 서버가 많은 장점을 가지고 있지만, VS Code의 편집 기능을 확장하는 유일한 방법은 아닙니다. 문서 타입에 대한 간단한 언어 기능을 추가 하려는 경우, `vscode.languages.register[LANGUAGE_FEATURE]Provider` 를 사용하는것을 고려해보십시오. 
 
-More samples illustrating the usage of VS Code API can be found at [https://github.com/Microsoft/vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples).
+<!--
+While Language Servers have many benefits, they are not the only option for extending the editing capabilities of VS Code. In the cases when you want to add some simple language features for a type of document, consider using `vscode.languages.register[LANGUAGE_FEATURE]Provider` as an option. -->
 
-### Error Tolerant Parser for Language Server
+이것은 `vscode.languages.registerCompletionItemProvider`를 사용하여 텍스트 파일에 대해 snippet을 완성시키는 기능을 추가한 [`completions-sample`](https://github.com/Microsoft/vscode-extension-samples/tree/master/completions-sample) 예시 입니다. 
 
-Most of the time, the code in the editor is incomplete and syntactically incorrect, but developers would still expect autocomplete and other language features to work. Therefore, an error tolerant parser is necessary for a Language Server: The parser generates meaningful AST from partially complete code, and the Language Server provides language features based on the AST.
+<!--
+Here is a [`completions-sample`](https://github.com/Microsoft/vscode-extension-samples/tree/master/completions-sample) using `vscode.languages.registerCompletionItemProvider` to add a few snippets as completions for plain text files.-->
 
-When we were improving PHP support in VS Code, we realized the official PHP parser is not error tolerant and cannot be reused directly in the Language Server. Therefore, we worked on [Microsoft/tolerant-php-parser](https://github.com/Microsoft/tolerant-php-parser) and left detailed [notes](https://github.com/Microsoft/tolerant-php-parser/blob/master/docs/HowItWorks.md) that might help Language Server authors who need to implement an error tolerant parser.
+VS Code API의 사용을 설명하는 더 많은 예시를 [https://github.com/Microsoft/vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples)에서 확인 할 수 있습니다. 
 
-## Common questions
+<!--
+More samples illustrating the usage of VS Code API can be found at [https://github.com/Microsoft/vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples).-->
 
-### When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000 ms)"?
+### 언어 서버용 오류 허용 파서
 
-You will see this timeout error if the server isn't running when you try to attach the debugger. The client starts the language server so make sure you have started the client in order to have a running server. You may also need to disable your client breakpoints if they are interfering with starting the server.
+<!--
+### Error Tolerant Parser for Language Server -->
 
-### I have read through this guide and the [LSP Specification](https://microsoft.github.io/language-server-protocol/), but I still have unresolved questions. Where can I get help?
+대부분의 경우, 에디터의 모드는 불완전하고 구문상 옳지 않지만, 개발자는 여전히 자동완성과 다른 언어 기능이 작동하길 기대합니다. 그러므로 에러 허용 파서가 언어 서버에 필수적입니다 : 파서는 의미있는 AST를 부분적으로 완성된 코드로 부터 생성하며, 언어 서버는 AST를 기반으로 언어 기능을 제공합니다.
 
-Please open an issue at https://github.com/Microsoft/language-server-protocol.
+<!--
+Most of the time, the code in the editor is incomplete and syntactically incorrect, but developers would still expect autocomplete and other language features to work. Therefore, an error tolerant parser is necessary for a Language Server: The parser generates meaningful AST from partially complete code, and the Language Server provides language features based on the AST. -->
+
+VS Code에서 PHP 지원을 개선할때, 공식 PHP 파서가 에러를 허용하지 않아 언어 서버에서 직접 재사용 될 수 없음을 발견 했습니다. 따라서 우리는 
+[Microsoft/tolerant-php-parser](https://github.com/Microsoft/tolerant-php-parser)를 작업 했으며, 에러 허용 파서를 구현하려는 언어 서버 작성자에게 도움이 될 수 있는 자세한 [기록](https://github.com/Microsoft/tolerant-php-parser/blob/master/docs/HowItWorks.md)을 남겨두었습니다.  
+
+<!--
+When we were improving PHP support in VS Code, we realized the official PHP parser is not error tolerant and cannot be reused directly in the Language Server. Therefore, we worked on [Microsoft/tolerant-php-parser](https://github.com/Microsoft/tolerant-php-parser) and left detailed [notes](https://github.com/Microsoft/tolerant-php-parser/blob/master/docs/HowItWorks.md) that might help Language Server authors who need to implement an error tolerant parser.-->
+
+## 자주 나오는 질문
+
+<!--
+## Common questions -->
+
+### 서버에 연결할 때, "cannot connect to runtime proceess (timeout after 5000ms)"가 확인됩니다.
+
+<!--
+### When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000 ms)"? -->
+
+서버가 실행중이지 않은 상태에서 디버거를 연결하려 할때 해당 timeout 에러를 확인 할 수 있습니다. 클라이언트는 언어 서버를 시작하므로, 작동중인 서버를 갖기 위해 클라이언트가 시작 되었는지 확인하십시오. 또한 서버 시작을 방해하는 클라이언트의 중단점을 비활성화 해야 할 수도 있습니다. 
+
+<!--
+You will see this timeout error if the server isn't running when you try to attach the debugger. The client starts the language server so make sure you have started the client in order to have a running server. You may also need to disable your client breakpoints if they are interfering with starting the server. -->
+
+### 이 가이드와 [LSP Specification](https://microsoft.github.io/language-server-protocol/)를 읽었지만 여전히 해결 되지 않은 문제가 있습니다, 어디서 도움을 받을 수 있나요?
+
+<!--
+### I have read through this guide and the [LSP Specification](https://microsoft.github.io/language-server-protocol/), but I still have unresolved questions. Where can I get help? -->
+
+https://github.com/Microsoft/language-server-protocol 에 이슈를 작성하십시오. 
+
+<!-- Please open an issue at https://github.com/Microsoft/language-server-protocol.-->
