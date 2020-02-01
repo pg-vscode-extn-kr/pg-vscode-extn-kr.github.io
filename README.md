@@ -58,19 +58,23 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 4. VS Code -> VS Code 
 5. Visual Studio Code -> Visual Studio Code
 6. Stack Overflow -> 스택 오버플로우
-7. publish -> 퍼블리시, 퍼빌리싱
-8. topic -> 주제
-9. repository -> 저장소
-10. integration tests -> 통합 테스트
-11. workspace -> 작업 공간
-12. theme, theming -> 테마 
-13. you -> 당신
-14. customize -> 커스터마이즈 
-15. component -> 컴포넌트
-16. sample -> 예제
+7. Publish -> 퍼블리시, 퍼빌리싱
+8. Topic, Section -> 주제
+9. Repository -> 저장소
+10. Integration tests -> 통합 테스트
+11. Workspace -> 작업 공간
+12. Theme, Theming -> 테마 
+13. You -> 당신
+14. Customize -> 커스터마이즈 
+15. Component -> 컴포넌트
+16. Sample -> 예제
 17. Visual Studio Online -> Visual Studio Online
 18. VS Online -> VS Online
-19. ...
+19. local -> 로컬
+20. machine -> 머신
+21. API -> API
+22. Preview -> 프리뷰
+23. ...
 
 
 ## Progress
