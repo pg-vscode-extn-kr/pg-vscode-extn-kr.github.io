@@ -68,7 +68,10 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 14. customize -> 커스터마이즈 
 15. component -> 컴포넌트
 16. sample -> 예제
-17. ...
+17. Visual Studio Online -> Visual Studio Online
+18. VS Online -> VS Online
+19. ...
+
 
 ## Progress
 
