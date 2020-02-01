@@ -125,7 +125,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 #### Advanced Topics
 
 - [ ] [Extension Host](api/advanced-topics/extension-host.md) : 초벌 번역 완료
-- [ ] Remote Development and VS Online
+- [ ] [Remote Development and VS Online](api/advanced-topics/remote-extensions.md) : 초벌 번역 완료
 - [ ] Using Proposed API
 
 #### References
