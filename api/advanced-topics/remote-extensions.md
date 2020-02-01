@@ -5,83 +5,188 @@ title: Remote Development and VS Online
 nav_order: 2
 description: ""
 ---
-# Supporting Remote Development and Visual Studio Online
 
-**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[Visual Studio Online](https://aka.ms/vso)** is a preview service that expands these capabilities with managed cloud-hosted or self-hosted environments that are accessible from both VS Code and a browser-based editor.
+# Visual Studio Online과 원격 개발 지원
+<!--
+# Supporting Remote Development and Visual Studio Online -->
 
-To ensure performance, Remote Development and Visual Studio Online both transparently run certain VS Code extensions remotely. However, this can have subtle impacts on how extensions need to work.  While many extensions will work without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.
+**[Visual Studio Code 원격 개발](/docs/remote/remote-overview)** 을 통해 소스 코드와 다른 머신의 (가상이던 아니던) 런타임 환경에서 투명하게 상호작용 할수 있습니다. **[Visual Studio Online](https://aka.ms/vso)** 은 VS Code와 브라우전 기반에서 모두 액세스 할 수 있는, 클라우드 호스팅 이나 자체 호스팅 환경에서 이를 사용 가능한 프리뷰 서비스 입니다. 
 
-This article summarizes what extension authors need to know about VS Code Remote Development and VS Online including the extension [architecture](#architecture-and-extension-kinds), how to [debug your extension](#debugging-extensions) in remote workspaces or VS Online, and recommendations on [what to do if your extension does not work properly](#common-problems).
+<!--
+**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[Visual Studio Online](https://aka.ms/vso)** is a preview service that expands these capabilities with managed cloud-hosted or self-hosted environments that are accessible from both VS Code and a browser-based editor.-->
 
-## Architecture and extension kinds
+퍼포먼스를 보장하기 위해, 원격 개발과 Visual Studio Online은 둘 다 특정 VS Code 익스텐션을 원격으로 실행 합니다. 그러나 이는 익스텐션이 작동하는 방식에 있어 작은 영향을 줄 수 있습니다. 많은 익스텐션이 수정 없이 삭동하지만, 모든 환경에서 익스텐션이 원하는 대로 작동하려면 적더라도 변경을 해야 할 수 있습니다. 
+<!--
+To ensure performance, Remote Development and Visual Studio Online both transparently run certain VS Code extensions remotely. However, this can have subtle impacts on how extensions need to work.  While many extensions will work without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.-->
 
-In order to make working with Remote Development or VS Online as transparent as possible to users, VS Code distinguishes two kinds of extensions:
+이 글은 익스텐션 작성자가 익스텐션 [구조](#architecture-and-extension-kinds), 원격 작업공간이나 VS Online에서의 [익스텐션 디버그](#debugging-extensions), 그리고 [익스텐션이 작동하지 않은 경우](#common-problems)에 관한 도움을 포함한 VS Code 원격 개발과, VS Online에 대하여 알아야 하는 것을 요약한 것입니다. 
 
+<!--
+This article summarizes what extension authors need to know about VS Code Remote Development and VS Online including the extension [architecture](#architecture-and-extension-kinds), how to [debug your extension](#debugging-extensions) in remote workspaces or VS Online, and recommendations on [what to do if your extension does not work properly](#common-problems).-->
+
+## 구조와 익스텐션
+
+<!--
+## Architecture and extension kinds -->
+
+원격 개발이나 VS Online이 사용자에게 투명하게 작동하기 위해서, VS Code는 2종류의 익스텐션을 구분 짓습니다:
+<!--
+In order to make working with Remote Development or VS Online as transparent as possible to users, VS Code distinguishes two kinds of extensions: -->
+
+- **UI 익스텐션**: 이 익스텐션은 VS Code 사용자 인터페이스를 작성하며, 사용자의 로컬 머신에서 실행됩니다. UI 익스텐션은 원격 작업공간의 파일에 직접 액세스 하거나, 해당 작업공간 혹은 머신에 설치된 도구/스크립트를 실행할 수 없습니다. 예시 UI 익스텐션으로는 : 테마, snippet, language grammars, keymap이 포함 됩니다. 
+
+<!--
 - **UI Extensions**: These extensions contribute to the VS Code user interface and are always run on the user's local machine. UI Extensions cannot directly access files in the remote workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
 
-- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions run on the local machine. When in a remote workspace or when using VS Online, Workspace Extensions run on the remote machine / environment. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in the workspace (either directly or by invoking scripts/tools). While Workspace Extensions do not focus on modifying the UI, they can contribute explorers, views, and other UI elements as well.
+- **작업공간 익스텐션**: 이 익스텐션은 작업영역이 위치한 곳과 동일한 머신에서 작동 됩니다. 로컬 작업 공간에 있는 경우, 작업 공간 익스텐션은 로컬 머신에서 실행됩니다. 원격 작업 공간에 있거나 VS Online을 사용중인 경우, 작업 공간 익스텐션은 원격 머신 / 환경에서 실행 됩니다. 작업 공간 익스텐션은 작업 공간의 파일에 액세스 하여 다양한 다중 파일 언어 서비스, 디버그 지원 혹은 작업 공간의 여러 파일에 대해 복잡한 작업을 할 수 있습니다( 직접 혹은 스크립트 / 도구를 사용해서 ). 작업 공간 익스텐션은 UI 수정에 중점을 두지 않지만, 탐색기, 뷰, 그리고 다른 UI 엘리먼트를 작성할 수 있습니다. 
 
-When a user installs an extension, VS Code automatically installs it to the correct location based on its kind. If an extension can run as either kind, VS Code will attempt to choose the optimal one for the situation. UI Extensions are run in VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run in a **Remote Extension Host** that sits in a small **VS Code Server**. To ensure the latest VS Code client features are available, the server needs to match the VS Code client version exactly. Therefore, the server is automatically installed (or updated) by the Remote Development or VS Online extensions when you open a folder in a container, on a remote SSH host, in a VS Online environment, or in the Windows Subsystem for Linux (WSL). (VS Code also automatically manages starting and stopping the server, so users aren't aware of its presence.)
+<!--
+- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions run on the local machine. When in a remote workspace or when using VS Online, Workspace Extensions run on the remote machine / environment. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in the workspace (either directly or by invoking scripts/tools). While Workspace Extensions do not focus on modifying the UI, they can contribute explorers, views, and other UI elements as well.-->
+
+사용자가 익스텐션을 설치하면, VS Code는 자동적으로 그 익스텐션의 종류에 따라 올바른 위치에 설치할것 입니다. 만약 익스텐션이 두 종류에서 모두 실행 가능하다면, VS Code는 상황에 따른 최적의 선택을 시도 할 것입니다. UI 익스텐션은 VS Code의 [로컬 익스텐션 호스트](/api/advanced-topics/extension-host)에서 실행되며, 작업 공간 익스텐션은 **VS Code 서버**에 있는 **원격 익스텐션 호스트**에서 실행됩니다. 최신 VS Code 클라이언트의 기능을 사용하기 위해, 서버는 VS Code 클라이언트의 버전과 일치 해야합니다. 그러므로 서버는 VS Online 환경, 원격 SSH 호스트, 컨테이너의 폴더 혹은 Linux용 Windows 하위 시스템에서 열었을 때, 원격 개발 혹은 VS Online 익스텐션에 의해 자동으로 설치(혹은 업데이트) 될 것입니다. (VS Code는 자동으로 서버의 시작과 중지를 관리하므로, 사용자는 그 존재를 알 지 못합니다)
+
+<!--
+When a user installs an extension, VS Code automatically installs it to the correct location based on its kind. If an extension can run as either kind, VS Code will attempt to choose the optimal one for the situation. UI Extensions are run in VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run in a **Remote Extension Host** that sits in a small **VS Code Server**. To ensure the latest VS Code client features are available, the server needs to match the VS Code client version exactly. Therefore, the server is automatically installed (or updated) by the Remote Development or VS Online extensions when you open a folder in a container, on a remote SSH host, in a VS Online environment, or in the Windows Subsystem for Linux (WSL). (VS Code also automatically manages starting and stopping the server, so users aren't aware of its presence.)-->
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
-The VS Code APIs are designed to automatically run on the correct machine (either local or remote) when called from both UI or Workspace Extensions. However, if your extension uses APIs not provided by VS Code — such using Node APIs or running shell scripts — it may not work properly when run remotely. We recommend that you test that all features of your extension work properly in both local and remote workspaces.
+VS Code API는 UI 혹은 작업 공간 익스텐션으로 부터 호출 되었을때 올바른 머신(로컬 혹은 원격)에서 자동으로 실행되도록 디자인 되어있습니다. 그러나 익스텐션이 VS Code에서 지원되지 않는 API를 사용한 경우 — Node API나 쉘 스크립트를 실행 — 원격에서 실행했을때 정상적으로 작동 하지 않을 수도 있습니다. 익스텐션의 모든 기능이 로컬이나 원격 작업공간 모두에서 제대로 작동하는지 테스트 해보는 것을 추천합니다. 
 
-## Debugging Extensions
+<!--
+The VS Code APIs are designed to automatically run on the correct machine (either local or remote) when called from both UI or Workspace Extensions. However, if your extension uses APIs not provided by VS Code — such using Node APIs or running shell scripts — it may not work properly when run remotely. We recommend that you test that all features of your extension work properly in both local and remote workspaces.-->
 
-While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) in a remote environment for testing, if you encounter issues, you will likely want to debug your extension directly in a remote environment. In this section, we will cover how to edit, launch, and debug your extension in [Visual Studio Online](#debugging-with-visual-studio-online), a [local container](#debugging-in-a-development-container), an [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl).
+## 익스텐션 디버그
+<!--
+## Debugging Extensions -->
 
-Typically, your best starting point for testing is to use a remote environment that restricts port access (for example VS Online, a container, or remote SSH hosts with a restrictive firewall) since extensions that work in these environments tend to work in less restrictive ones like WSL.
+원격 작업 공간에서의 테스트를 위해 여러분은 [익스텐션의 개발 버전을 설치](#installing-a-development-version-of-your-extension) 할 수 있지만, 만약 문제가 발생 했을 경우 원격 작업 공간에서 직접 익스텐션을 디버그 할 수 있습니다. 이번 주제에서는, [Visual Studio Online](#debugging-with-visual-studio-online), [로컬 컨테이너](#debugging-in-a-development-container), [SSH Host](#debugging-using-ssh) 혹은 [WSL](#debugging-using-wsl)에서 익스텐션을 편집, 실행 그리고 디버그 하는 방법을 다룰 것입니다. 
 
-### Debugging with Visual Studio Online
+<!--
+While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) in a remote environment for testing, if you encounter issues, you will likely want to debug your extension directly in a remote environment. In this section, we will cover how to edit, launch, and debug your extension in [Visual Studio Online](#debugging-with-visual-studio-online), a [local container](#debugging-in-a-development-container), an [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl). -->
 
-Debugging your extension in [Visual Studio Online](https://aka.ms/vso) preview can be a great starting point since you can use both VS Code and VS Online's browser-based editor for testing and troubleshooting. Note that, while there is a cost to the service's cloud-based managed environments, you can use your own desktop/laptop as a self-hosted environment at no cost.
+일반적으로, 이러한 작업 공간에서 작동하는 익스텐션은 WSL처럼 덜 제한적인 곳에서도 작동 하기 때문에, 익스텐션 테스트를 위한 좋은 시작 방법은 포트 액세스를 제한하는(예를 들어 VS Online, 컨테이너, 혹은 원격 방화벽을 가진 SSH 호스트) 원격 작업 공간을 사용하는 것입니다. 
 
-Follow these steps:
+<!--
+Typically, your best starting point for testing is to use a remote environment that restricts port access (for example VS Online, a container, or remote SSH hosts with a restrictive firewall) since extensions that work in these environments tend to work in less restrictive ones like WSL.-->
 
-1. Install the [Visual Studio Online extension and sign in](https://aka.ms/vso-docs/vscode).
+### Visual Studio Online으로 디버그
 
-2. Create a new managed [cloud-hosted environment](https://aka.ms/vso-docs/vscode/cloud-hosted) (paid) or register your own desktop as a [self-hosted environment](https://aka.ms/vso-docs/vscode/self-hosted) (free).
+<!--
+### Debugging with Visual Studio Online -->
 
-    > **Note:** When using a self-hosted environment, you may have to restore your environment on restart or after a network glitch using the **VS Online: Restore Local Environment** command due to bugs. See [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5), [MicrosoftDocs/vsonline#14](https://github.com/MicrosoftDocs/vsonline/issues/14) for more information.
+테스트와 트러블 슈팅을 위해 VS Code와 VS Online의 브라우저 기반 에디터를 둘 다 사용할 수 있으므로, [Visual Studio Online](https://aka.ms/vso) 프리뷰에서 익스텐션을 디버그 하는 것은 좋은 시작 방법입니다. 주의 할 것은, 서비스의 클라우드 기반 작업 환경은 비용이 발생 하기 때문에, 여러분은 데스크탑/랩탑을 직접 호스팅하는 환경으로 비용 없이 사용할 수 있습니다. 
 
-3. If you have not already connected to your environment, select  **VS Online: Connect to Environment** from the Command Palette (`kbstyle(F1)`) in VS Code to connect.
+<!--
+Debugging your extension in [Visual Studio Online](https://aka.ms/vso) preview can be a great starting point since you can use both VS Code and VS Online's browser-based editor for testing and troubleshooting. Note that, while there is a cost to the service's cloud-based managed environments, you can use your own desktop/laptop as a self-hosted environment at no cost.-->
 
-4. Once connected, either use **File > Open... / Open Folder...** to select the environment folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it into the environment and open it.
+다음과 같이 따라하십시오:
 
-5. While VS Online's cloud-based environments should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
+<!-- Follow these steps:-->
 
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside in the Visual Studio Online environment.
+1. [Visual Studio Online 익스텐션을 설치](https://aka.ms/vso-docs/vscode)하고 가입하십시오
+<!--
+1. Install the [Visual Studio Online extension and sign in](https://aka.ms/vso-docs/vscode). -->
 
-    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the environment.
+2. 새 [클라우드 호스팅 작업 환경](https://aka.ms/vso-docs/vscode/cloud-hosted) (유료)을 생성하거나 여러분의 데스크톱을 [셀프 호스팅 작업환경](https://aka.ms/vso-docs/vscode/self-hosted)으로 등록 하십시오(무료). 
 
-The extension development host window that appears will include your extension running in a VS Online environment with the debugger attached to it.
+<!--
+2. Create a new managed [cloud-hosted environment](https://aka.ms/vso-docs/vscode/cloud-hosted) (paid) or register your own desktop as a [self-hosted environment](https://aka.ms/vso-docs/vscode/self-hosted) (free).-->
 
-**Using the VS Online browser-based editor**
 
-Once you have an environment with your extension source code, you can also use VS Online's browser-based editor by [going to the portal](https://aka.ms/vso) to connect or selecting **VS Online: Open in Browser** from VS Code's Command Palette (`kbstyle(F1)`) locally. Once connected to the environment, you can **edit and debug your extension in the browser** exactly like you can from VS Code.
+    > **주의:** 셀프 호스팅 작업 환경을 사용하는 경우 버그로 인해 재시작이나 네트워크 오류 발생시 작업 환경을 복원을 위해 **VS Online: Restore Local Environment** 커맨드를 사용해야 할 수도 있습니다. 자세한 내용은 [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5), [MicrosoftDocs/vsonline#14](https://github.com/MicrosoftDocs/vsonline/issues/14)을 참조하십시오. 
+    
+<!--
+    > **Note:** When using a self-hosted environment, you may have to restore your environment on restart or after a network glitch using the **VS Online: Restore Local Environment** command due to bugs. See [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5), [MicrosoftDocs/vsonline#14](https://github.com/MicrosoftDocs/vsonline/issues/14) for more information.-->
 
-### Debugging in a development container
+3. 환경에 연결되지 않았다면, VS Code의 Command Palette(`kbstyle(F1)`)에서 **VS Online: Connect to Environment**를 선택하여 연결하십시오. 
 
-Follow these steps:
+<!-- 3. If you have not already connected to your environment, select  **VS Online: Connect to Environment** from the Command Palette (`kbstyle(F1)`) in VS Code to connect. -->
 
-1. After [installing and configuring the Remote - Containers extension](/docs/remote/containers#_getting-started), use **File > Open... / Open Folder...** to open your source code locally in VS Code.
+4. 연결 된 이후에, **File > Open... / Open Folder...** 를 사용하여 익스텐션 소스 코드가 위치한 작업 공간 폴더를 선택하거나, Command Palette (`kbstyle(F1)`)에서 **Git: Clone**를 선택하여 환경에 클론한 다음 여십시오.
 
-2. Select **Remote-Containers: Add Development Container Configuration Files...** from the Command Palette (`kbstyle(F1)`), and pick **Node.js 8 & TypeScript** (or Node.js 8 if you are not using TypeScript) to add the needed container configuration files.
+<!--
+4. Once connected, either use **File > Open... / Open Folder...** to select the environment folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it into the environment and open it. -->
 
-3. **[Optional]** After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Remote - Containers](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) documentation for details.
+5. VS Online의 클라우드 기반 환경이 대부분의 익스텐션의 요구사항을 충족 하지만, 다른 필요 디펜던시를 (예를 들어 `yarn install`이나 `apt-get`을 사용하여 ) 새 VS Code 터미널 창 (`kb(workbench.action.terminal.new)`) 에서  설치 할 수 있습니다. 
 
-4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.
+<!--
+5. While VS Online's cloud-based environments should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). -->
 
-5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kb(workbench.action.terminal.new)`) to ensure the Linux versions Node.js native dependencies are install. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container.
+6. 마지막으로, `kb(workbench.action.debug.start)`를 누르거나 **Debug view**를 사용하여 Visual Studio Online 환경 내에서 익스텐션을 실행 하십시오. 
 
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside this same container and attach the debugger.
+<!--
+6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside in the Visual Studio Online environment. -->
 
-    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the container.
+    > **주의:** 표시되는 창에서 익스텐션의 소스 코드 폴더를 열 수는 없지만, 환경의 하위 폴더나 다른 곳을 열 수 있습니다. 
 
-The extension development host window that appears will include your extension running in the container you defined in step 2 with the debugger attached to it.
+<!--
+    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the environment. -->
 
-### Debugging using SSH
+나타나는 익스텐션 개발 호스트 창에는 디버거가 연결된 VS Online 환경에서 실행중인 익스텐션이 포함 될 것입니다. 
+
+<!--
+The extension development host window that appears will include your extension running in a VS Online environment with the debugger attached to it. -->
+
+**VS Online 브라우저 기반 에디터**
+
+<!-- 
+**Using the VS Online browser-based editor**-->
+
+익스텐션 소스코드를 환경에 포함시키고 난 다음, VS Online의 브라우저 기반 에디터를, [포털로 이동](https://aka.ms/vso)하여 연결하거나, 로컬 VS Code의 Command Palette (`kbstyle(F1)`)에서 **VS Online: Open in Browser**를 선택하여 사용 할 수 있습니다. 환경에 연결되고 나면, VS Code에서와 동일하게 **브라우저에서 익스텐션을 편집, 디버그** 할 수 있습니다. 
+
+<!-- Once you have an environment with your extension source code, you can also use VS Online's browser-based editor by [going to the portal](https://aka.ms/vso) to connect or selecting **VS Online: Open in Browser** from VS Code's Command Palette (`kbstyle(F1)`) locally. Once connected to the environment, you can **edit and debug your extension in the browser** exactly like you can from VS Code. -->
+
+### 개발 컨테이너에서 디버그
+
+<!--
+### Debugging in a development container -->
+
+다음을 따라 하십시오:
+<!--
+Follow these steps: -->
+
+1. [원격 - 컨테이너 익스텐션을 설치, 구성](/docs/remote/containers#_getting-started) 한 다음, **File > Open... / Open Folder...** 를 사용하여 로컬 VS Code에서 소스 코드를 여십시오. 
+<!--
+1. After [installing and configuring the Remote - Containers extension](/docs/remote/containers#_getting-started), use **File > Open... / Open Folder...** to open your source code locally in VS Code.-->
+
+2. Command Palette (`kbstyle(F1)`)에서 **Remote-Containers: Add Development Container Configuration Files...** 를 선택하고, **Node.js 8 & TypeScript** (타입스크립트를 사용 하지 않는 경우 Node.js 8)를 골라 필요한 컨테이너 구성 파일을 추가 하십시오. 
+
+<!--
+2. Select **Remote-Containers: Add Development Container Configuration Files...** from the Command Palette (`kbstyle(F1)`), and pick **Node.js 8 & TypeScript** (or Node.js 8 if you are not using TypeScript) to add the needed container configuration files.-->
+
+3. **[선택]** 이 커맨드의 실행 후, `.devcontainer` 폴더의 내용을 수정하여 추가 빌드 혹은 런타임 요구사항을 포함 시킬 수 있습니다. [원격 - 컨테이너](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container)문서를 통해 자세한 내용을 확인 하십시오.
+
+<!--
+3. **[Optional]** After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Remote - Containers](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) documentation for details. -->
+
+4. **Remote-Containers: Reopen Folder in Container**를 실행한뒤, VS Code는 컨테이너를 설정하고 연결 할 것입니다. 이제 로컬에서와 동일하게 소스 코드를 컨테이너에서 개발 할 수 있습니다. 
+
+<!--
+4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.-->
+
+5. `yarn install` 이나 `npm install`를 새 VS Code 터미널 창 (`kb(workbench.action.terminal.new)`)에서 실행하여 Linux 버전의 Node.js 의존성이 설치 되게 하십시오. 다른 OS나 런타임 의존성을 설치 할 수 있지만, 이를 `.devcontainer/Dockerfile`에도 추가하여 컨테이너를 다시 빌드 했을때도 사용 가능하게 할 수 있습니다.
+
+<!--
+5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kb(workbench.action.terminal.new)`) to ensure the Linux versions Node.js native dependencies are install. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container. -->
+
+6. 마지막으로 `kb(workbench.action.debug.start)`를 누르거나, **Debug view**를 사용하여 동일한 컨테이너내에서 익스텐션을 실행하고 디버거를 연결하십시오. 
+
+<!--
+6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside this same container and attach the debugger. -->
+
+    > **주의:** 표시되는 창에서 익스텐션의 소스 코드 폴더를 열 수는 없지만, 환경의 하위 폴더나 다른 곳을 열 수 있습니다. 
+<!--
+    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the container. -->
+    
+나타나는 익스텐션 개발 호스트 창에는 2번째 단계에서 정의한 컨테이너에서 디버거가 연결된 익스텐션이 포함됩니다.
+
+<!--
+The extension development host window that appears will include your extension running in the container you defined in step 2 with the debugger attached to it. -->
+
+### SSH에서 디버그
+
+<!--
+### Debugging using SSH -->
 
 Follow steps:
 
