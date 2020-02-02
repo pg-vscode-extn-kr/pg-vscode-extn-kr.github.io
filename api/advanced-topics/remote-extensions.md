@@ -84,43 +84,36 @@ Debugging your extension in [Visual Studio Online](https://aka.ms/vso) preview c
 <!-- Follow these steps:-->
 
 1. [Visual Studio Online 익스텐션을 설치](https://aka.ms/vso-docs/vscode)하고 가입하십시오
-<!--
-1. Install the [Visual Studio Online extension and sign in](https://aka.ms/vso-docs/vscode). -->
 
 2. 새 [클라우드 호스팅 작업 환경](https://aka.ms/vso-docs/vscode/cloud-hosted) (유료)을 생성하거나 여러분의 데스크톱을 [셀프 호스팅 작업환경](https://aka.ms/vso-docs/vscode/self-hosted)으로 등록 하십시오(무료). 
-
-<!--
-2. Create a new managed [cloud-hosted environment](https://aka.ms/vso-docs/vscode/cloud-hosted) (paid) or register your own desktop as a [self-hosted environment](https://aka.ms/vso-docs/vscode/self-hosted) (free).-->
-
-
-    > **주의:** 셀프 호스팅 작업 환경을 사용하는 경우 버그로 인해 재시작이나 네트워크 오류 발생시 작업 환경을 복원을 위해 **VS Online: Restore Local Environment** 커맨드를 사용해야 할 수도 있습니다. 자세한 내용은 [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5), [MicrosoftDocs/vsonline#14](https://github.com/MicrosoftDocs/vsonline/issues/14)을 참조하십시오. 
-    
-<!--
-    > **Note:** When using a self-hosted environment, you may have to restore your environment on restart or after a network glitch using the **VS Online: Restore Local Environment** command due to bugs. See [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5), [MicrosoftDocs/vsonline#14](https://github.com/MicrosoftDocs/vsonline/issues/14) for more information.-->
-
+   > **주의:** 셀프 호스팅 작업 환경을 사용하는 경우 버그로 인해 재시작이나 네트워크 오류 발생시 작업 환경을 복원을 위해 **VS Online: Restore Local Environment** 커맨드를 사용해야 할 수도 있습니다. 자세한 내용은 [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5), [MicrosoftDocs/vsonline#14](https://github.com/MicrosoftDocs/vsonline/issues/14)을 참조하십시오. 
 3. 환경에 연결되지 않았다면, VS Code의 Command Palette(`kbstyle(F1)`)에서 **VS Online: Connect to Environment**를 선택하여 연결하십시오. 
-
-<!-- 3. If you have not already connected to your environment, select  **VS Online: Connect to Environment** from the Command Palette (`kbstyle(F1)`) in VS Code to connect. -->
 
 4. 연결 된 이후에, **File > Open... / Open Folder...** 를 사용하여 익스텐션 소스 코드가 위치한 작업 공간 폴더를 선택하거나, Command Palette (`kbstyle(F1)`)에서 **Git: Clone**를 선택하여 환경에 클론한 다음 여십시오.
 
-<!--
-4. Once connected, either use **File > Open... / Open Folder...** to select the environment folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it into the environment and open it. -->
-
 5. VS Online의 클라우드 기반 환경이 대부분의 익스텐션의 요구사항을 충족 하지만, 다른 필요 디펜던시를 (예를 들어 `yarn install`이나 `apt-get`을 사용하여 ) 새 VS Code 터미널 창 (`kb(workbench.action.terminal.new)`) 에서  설치 할 수 있습니다. 
-
-<!--
-5. While VS Online's cloud-based environments should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). -->
 
 6. 마지막으로, `kb(workbench.action.debug.start)`를 누르거나 **Debug view**를 사용하여 Visual Studio Online 환경 내에서 익스텐션을 실행 하십시오. 
 
-<!--
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside in the Visual Studio Online environment. -->
-
-    > **주의:** 표시되는 창에서 익스텐션의 소스 코드 폴더를 열 수는 없지만, 환경의 하위 폴더나 다른 곳을 열 수 있습니다. 
+   > **주의:** 표시되는 창에서 익스텐션의 소스 코드 폴더를 열 수는 없지만, 환경의 하위 폴더나 다른 곳을 열 수 있습니다. 
 
 <!--
-    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the environment. -->
+1. Install the [Visual Studio Online extension and sign in](https://aka.ms/vso-docs/vscode).
+
+2. Create a new managed [cloud-hosted environment](https://aka.ms/vso-docs/vscode/cloud-hosted) (paid) or register your own desktop as a [self-hosted environment](https://aka.ms/vso-docs/vscode/self-hosted) (free).
+
+    > **Note:** When using a self-hosted environment, you may have to restore your environment on restart or after a network glitch using the **VS Online: Restore Local Environment** command due to bugs. See [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5), [MicrosoftDocs/vsonline#14](https://github.com/MicrosoftDocs/vsonline/issues/14) for more information.
+
+3. If you have not already connected to your environment, select  **VS Online: Connect to Environment** from the Command Palette (`kbstyle(F1)`) in VS Code to connect.
+
+4. Once connected, either use **File > Open... / Open Folder...** to select the environment folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it into the environment and open it.
+
+5. While VS Online's cloud-based environments should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
+
+6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside in the Visual Studio Online environment.
+
+  > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the environment. 
+-->
 
 나타나는 익스텐션 개발 호스트 창에는 디버거가 연결된 VS Online 환경에서 실행중인 익스텐션이 포함 될 것입니다. 
 
@@ -146,37 +139,34 @@ The extension development host window that appears will include your extension r
 Follow these steps: -->
 
 1. [원격 - 컨테이너 익스텐션을 설치, 구성](/docs/remote/containers#_getting-started) 한 다음, **File > Open... / Open Folder...** 를 사용하여 로컬 VS Code에서 소스 코드를 여십시오. 
-<!--
-1. After [installing and configuring the Remote - Containers extension](/docs/remote/containers#_getting-started), use **File > Open... / Open Folder...** to open your source code locally in VS Code.-->
 
 2. Command Palette (`kbstyle(F1)`)에서 **Remote-Containers: Add Development Container Configuration Files...** 를 선택하고, **Node.js 8 & TypeScript** (타입스크립트를 사용 하지 않는 경우 Node.js 8)를 골라 필요한 컨테이너 구성 파일을 추가 하십시오. 
 
-<!--
-2. Select **Remote-Containers: Add Development Container Configuration Files...** from the Command Palette (`kbstyle(F1)`), and pick **Node.js 8 & TypeScript** (or Node.js 8 if you are not using TypeScript) to add the needed container configuration files.-->
-
 3. **[선택]** 이 커맨드의 실행 후, `.devcontainer` 폴더의 내용을 수정하여 추가 빌드 혹은 런타임 요구사항을 포함 시킬 수 있습니다. [원격 - 컨테이너](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container)문서를 통해 자세한 내용을 확인 하십시오.
-
-<!--
-3. **[Optional]** After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Remote - Containers](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) documentation for details. -->
 
 4. **Remote-Containers: Reopen Folder in Container**를 실행한뒤, VS Code는 컨테이너를 설정하고 연결 할 것입니다. 이제 로컬에서와 동일하게 소스 코드를 컨테이너에서 개발 할 수 있습니다. 
 
-<!--
-4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.-->
-
 5. `yarn install` 이나 `npm install`를 새 VS Code 터미널 창 (`kb(workbench.action.terminal.new)`)에서 실행하여 Linux 버전의 Node.js 의존성이 설치 되게 하십시오. 다른 OS나 런타임 의존성을 설치 할 수 있지만, 이를 `.devcontainer/Dockerfile`에도 추가하여 컨테이너를 다시 빌드 했을때도 사용 가능하게 할 수 있습니다.
-
-<!--
-5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kb(workbench.action.terminal.new)`) to ensure the Linux versions Node.js native dependencies are install. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container. -->
 
 6. 마지막으로 `kb(workbench.action.debug.start)`를 누르거나, **Debug view**를 사용하여 동일한 컨테이너내에서 익스텐션을 실행하고 디버거를 연결하십시오. 
 
 <!--
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside this same container and attach the debugger. -->
+1. After [installing and configuring the Remote - Containers extension](/docs/remote/containers#_getting-started), use **File > Open... / Open Folder...** to open your source code locally in VS Code.
 
-    > **주의:** 표시되는 창에서 익스텐션의 소스 코드 폴더를 열 수는 없지만, 환경의 하위 폴더나 다른 곳을 열 수 있습니다. 
-<!--
-    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the container. -->
+2. Select **Remote-Containers: Add Development Container Configuration Files...** from the Command Palette (`kbstyle(F1)`), and pick **Node.js 8 & TypeScript** (or Node.js 8 if you are not using TypeScript) to add the needed container configuration files.
+
+3. **[Optional]** After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Remote - Containers](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) documentation for details.
+
+4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.
+
+5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kb(workbench.action.terminal.new)`) to ensure the Linux versions Node.js native dependencies are install. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container.
+
+6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside this same container and attach the debugger. 
+
+   > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the container. -->
+
+   > **주의:** 표시되는 창에서 익스텐션의 소스 코드 폴더를 열 수는 없지만, 환경의 하위 폴더나 다른 곳을 열 수 있습니다. 
+
     
 나타나는 익스텐션 개발 호스트 창에는 2번째 단계에서 정의한 컨테이너에서 디버거가 연결된 익스텐션이 포함됩니다.
 
@@ -194,27 +184,25 @@ The extension development host window that appears will include your extension r
 Follow steps: -->
 
 1. [원격 - SSH 익스텐션을 설치, 구성](/docs/remote/ssh#_getting-started) 한 이후에, VS Code의 Command Palette (`kbstyle(F1)`)에서 **Remote-SSH: Connect to Host...** 를 선택하여 호스트에 연결하십시오. 
-<!--
-1. After [installing and configuring the Remote - SSH extension](/docs/remote/ssh#_getting-started), select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) in VS Code to connect to a host.-->
 
 2. 연결되고 나면, **File > Open... / Open Folder...** 중 하나를 사용하여 익스텐션 소스 코드가 포함된 원격 폴더를 선택하거나 Command Palette (`kbstyle(F1)`)에서 **Git: Clone**을 선택, 클론하여 원격 호스트에서 여십시오.
 
-<!--
-2. Once connected, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it on the remote host. -->
-
 3. 새 VS Code 터미널 창에서 설치되지 않은 의존성 패키지를 (예를 들어 `yarn install` 이나 `apt-get`을 이용하여) 설치 하십시오. 
-
-<!--
-3. Install any required dependencies that might be missing (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).-->
 
 4. 마지막으로, `kb(workbench.action.debug.start)`를 누르거나 **디버그 뷰**를 사용하여 원격 호스트에서 익스텐션을 시작하고 디버거를 연결 하십시오. 
 
-<!--
-4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside on the remote host and attach the debugger. -->
-
     > **주의:** 표시되는 창에서 익스텐션의 소스 코드 폴더를 열 수는 없지만, 환경의 하위 폴더나 다른 곳을 열 수 있습니다. 
 
-    <!-- > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else on the SSH host.-->
+<!--
+1. After [installing and configuring the Remote - SSH extension](/docs/remote/ssh#_getting-started), select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) in VS Code to connect to a host.
+
+2. Once connected, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it on the remote host. 
+
+3. Install any required dependencies that might be missing (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
+
+4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside on the remote host and attach the debugger.
+
+     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else on the SSH host.-->
 
 나타나는 익스텐션 개발 호스트 창에는 디버거가 연결된 SSH 호스트에서 실행중인 익스텐션이 포함되어 있습니다. 
 
@@ -232,26 +220,24 @@ Follow these steps: -->
 
 1. [원격 - WSL 익스텐션 설치 및 구성](/docs/remote/wsl) 이후, VS Code의 Command Palette (`kbstyle(F1)`)에서 **Remote-WSL: New Window**를 선택하십시오. 
 
-<!--
-1. After [installing and configuring the Remote - WSL extension](/docs/remote/wsl), select **Remote-WSL: New Window** from the Command Palette (`kbstyle(F1)`) in VS Code.-->
-
 2. 나타나는 새 창에서, **File > Open... / Open Folder...** 를 사용하여 익스텐션 소스코드가 포함된 원격 폴더를 선택하거나, Command Palette (`kbstyle(F1)`)에서 **Git: Clone** 를 사용하여 클론한뒤 WSL에서 여십시오. 
-
-<!--
-2. In the new window that appears, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it in WSL. -->
 
     > **팁:** `/mnt/c` 폴더를 선택하여 윈도우쪽에서 클론된 소스코드에 액세스 할 수 있습니다. 
 
-    <!-- > **Tip:** You can select the `/mnt/c` folder to access any cloned source code you have on the Windows side. -->
-
 3. 새 VS Code 터미널 창(`kb(workbench.action.terminal.new)`)에서 필요한 의존성 패키지 (예로 `apt-get`을 사용하여) 를 설치하십시오. 리눅스 버전의 Node.js 의존성을 사용하기 위해 최소한 `yarn install`이나 `npm install`을 설치해야 할 것입니다.
-
-<!--
-3. Install any required dependencies that might be missing (for example using `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available. -->
 
 4. 마지막으로, `kb(workbench.action.debug.start)`를 누르거나 **디버그 뷰**를 사용하여, 익스텐션을 실행하고 디버거를 로컬에서와 같이 연결하십시오. 
 
 <!--
+1. After [installing and configuring the Remote - WSL extension](/docs/remote/wsl), select **Remote-WSL: New Window** from the Command Palette (`kbstyle(F1)`) in VS Code.
+
+2. In the new window that appears, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it in WSL.
+
+
+   > **Tip:** You can select the `/mnt/c` folder to access any cloned source code you have on the Windows side.
+
+3. Install any required dependencies that might be missing (for example using `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available.
+
 4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. -->
 
     > **주의:** 나타나는 창에서 익스텐션 소스 코드 폴더를 열 수는 없지만 하위 폴더나 다른 WSL의 다른 곳을 열 수 있습니다. 

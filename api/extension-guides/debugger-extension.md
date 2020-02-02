@@ -448,13 +448,7 @@ Since VS Code runs on different platforms, we have to make sure that the DA prog
 
 1. 프로그램이 플랫폼 독립적으로 구현된경우, 예를 들어 모든 플랫폼을 지원하는 런타임에서 돌아가는 경우, **runtime** 속성에 이 런타임을 명시하십시오. 현재 VS Code는 `node`와 `mono` 런타임을 지원합니다. 위의 연습용 debug adapter가 이 방식을 사용합니다.
 
-<!--
-1. If the program is implemented in a platform independent way, e.g. as program that runs on a runtime that is available on all supported platforms, you can specify this runtime via the **runtime** attribute. As of today, VS Code supports `node` and `mono` runtimes. Our Mock debug adapter from above uses this approach. -->
-
 1. 여러분의 DA 구현이 다른 플랫폼에서 다른 실행 방식을 필요하는 경우, 아래와 같이 **program** 속성을 통해 설정하십시오. 
-
-<!--
-1. If your DA implementation needs different executables on different platforms, the **program** attribute can be qualified for specific platforms like this: -->
 
    ```json
    "debuggers": [{
@@ -473,8 +467,40 @@ Since VS Code runs on different platforms, we have to make sure that the DA prog
 
 1. 위의 방식들을 조합 하는 것 또한 가능합니다. 아래의 예시는 Mono DA의 것으로 macOS와 Linux에서는 런타임을 필요로 하는 mono 어플리케이션으로 구현되었지만 윈도우에서는 그렇지 않습니다. 
 
+   ```json
+   "debuggers": [{
+       "type": "mono",
+       "program": "./bin/monoDebug.exe",
+       "osx": {
+           "runtime": "mono"
+       },
+       "linux": {
+           "runtime": "mono"
+       }
+   }]
+   ```
+
 <!--
-1. A combination of both approaches is possible too. The following example is from the Mono DA which is implemented as a mono application that needs a runtime on macOS and Linux but not on Windows: -->
+1. If the program is implemented in a platform independent way, e.g. as program that runs on a runtime that is available on all supported platforms, you can specify this runtime via the **runtime** attribute. As of today, VS Code supports `node` and `mono` runtimes. Our Mock debug adapter from above uses this approach.
+
+1. If your DA implementation needs different executables on different platforms, the **program** attribute can be qualified for specific platforms like this:
+
+   ```json
+   "debuggers": [{
+       "type": "gdb",
+       "windows": {
+           "program": "./bin/gdbDebug.exe",
+       },
+       "osx": {
+           "program": "./bin/gdbDebug.sh",
+       },
+       "linux": {
+           "program": "./bin/gdbDebug.sh",
+       }
+   }]
+   ```
+
+1. A combination of both approaches is possible too. The following example is from the Mono DA which is implemented as a mono application that needs a runtime on macOS and Linux but not on Windows:
 
    ```json
    "debuggers": [{
@@ -488,6 +514,7 @@ Since VS Code runs on different platforms, we have to make sure that the DA prog
        }
    }]
    ```
+-->
 
 **configurationAttributes**는 이 디버거에 사용 가능한 `launch.json`속성의 schema를 선언합니다. 이 schema는 `launch.json`을 검증하고, IntelliSense를 지원하고, 설정 구성을 수정할 때 호버링 도움말을 지원할때 사용됩니다.
 
