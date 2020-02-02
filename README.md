@@ -58,17 +58,31 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 4. VS Code -> VS Code 
 5. Visual Studio Code -> Visual Studio Code
 6. Stack Overflow -> 스택 오버플로우
-7. publish -> 퍼블리시, 퍼빌리싱
-8. topic -> 주제
-9. repository -> 저장소
-10. integration tests -> 통합 테스트
-11. workspace -> 작업 공간
-12. theme, theming -> 테마 
-13. you -> 당신
-14. customize -> 커스터마이즈 
-15. component -> 컴포넌트
-16. sample -> 예제
-17. ...
+7. Publish -> 퍼블리시, 퍼빌리싱
+8. Topic, Section -> 주제
+9. Repository -> 저장소
+10. Integration tests -> 통합 테스트
+11. Workspace -> 작업 공간
+12. Theme, Theming -> 테마 
+13. You -> 당신
+14. Customize -> 커스터마이즈 
+15. Component -> 컴포넌트
+16. Sample -> 예제
+17. Visual Studio Online -> Visual Studio Online
+18. VS Online -> VS Online
+19. Local -> 로컬
+20. Machine -> 머신
+21. API -> API
+22. Preview -> 프리뷰
+23. Host -> 호스트
+24. Environment -> 환경
+25. Note -> 주의, 유념
+26. Command -> 커맨드
+27. Array -> 어레이
+28. Object -> 오브젝트
+29. Clipboard -> 클립보드
+30. Third-party -> 써드파티
+31. 
 
 ## Progress
 
@@ -124,9 +138,9 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 #### Advanced Topics
 
-- [ ] [Extension Host])(api/advanced-topics/extension-host.md) : 초벌 번역 완료
-- [ ] Remote Development and VS Online
-- [ ] Using Proposed API
+- [ ] [Extension Host](api/advanced-topics/extension-host.md) : 초벌 번역 완료
+- [ ] [Remote Development and VS Online](api/advanced-topics/remote-extensions.md) : 초벌 번역 완료
+- [ ] [Using Proposed API](api/advanced-topics/using-proposed-api.md) : 초벌 번역 완료
 
 #### References
 
