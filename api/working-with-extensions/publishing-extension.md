@@ -168,22 +168,22 @@ Finally, scroll down the list of possible scopes until you find **Marketplace** 
 
 ![Personal access token details](images/publishing-extension/token4.png)
 
-**Create**를 선택하면 이제 새로운 Personal Access Token을 생성 할 것입니다. 토큰을 **Copy** 하십시오 퍼블리셔를 생성할때 필요합니다.
+**Create**를 선택하면 이제 새로운 Personal Access Token을 생성 할 것입니다. 토큰을 **Copy** 하십시오. 게시자를 생성할때 필요합니다.
 
 <!--
 Select **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 -->
 
-### 퍼블리셔 생성하기
+### 게시자 생성하기
 <!-- ### Create a publisher -->
 
-**퍼블리셔** 는 Visual Studio Code 마켓플레이스에 익스텐션을 게시할 수 있는 신분입니다. 모든 익스텐션은 [`package.json` 파일](/api/references/extension-manifest)에 `publisher` 이름이 포함되어있어야만 합니다. 
+**게시자** 는 Visual Studio Code 마켓플레이스에 익스텐션을 게시할 수 있는 신분입니다. 모든 익스텐션은 [`package.json` 파일](/api/references/extension-manifest)에 `publisher` 이름이 포함되어있어야만 합니다. 
 
 <!--
 A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
 -->
 
-[Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token)을 만들고 나면, 여러분은 `vsce`를 사용하여 새로운 퍼블리셔를 생성 할 수 있습니다.
+[Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token)을 만들고 나면, 여러분은 `vsce`를 사용하여 새로운 게시자를 생성 할 수 있습니다.
 
 <!--
 Once you have a [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token), you can create a new publisher using `vsce`: 
@@ -193,25 +193,25 @@ Once you have a [Personal Access Token](/api/working-with-extensions/publishing-
 vsce create-publisher (publisher name)
 ```
 
-`vsce`는 현재 퍼블리셔의 이후 사용을 위해 제공된 Personal Access Token 정보를 기억할 것입니다.
+`vsce`는 현재 게시자의 이후 사용을 위해 제공된 Personal Access Token 정보를 기억할 것입니다.
 
 <!--
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
 -->
 
-**메모** 다음 섹션에서 설명하는 대로 퍼블리셔를 마켓플레이스 퍼블리셔 [관리 페이지](https://marketplace.visualstudio.com/manage)에서 생성한 다음 `vsce`를 통해서 로그인 하는 방법도 있습니다 .
+**메모** 다음 섹션에서 설명하는 대로 게시자를 마켓플레이스 게시자 [관리 페이지](https://marketplace.visualstudio.com/manage)에서 생성한 다음 `vsce`를 통해서 로그인 하는 방법도 있습니다 .
 
 <!--
 **Note:** Alternatively, create your publisher in the Marketplace publisher [management page](https://marketplace.visualstudio.com/manage) and log in through `vsce`, as described in the next section.
 -->
 
-### 퍼블리셔로 로그인하기
+### 게시자로 로그인하기
 
 <!--
 ### Log in to a publisher
 -->
 
-이미 퍼블리셔를 생성했고 `vsce`에서 사용하려는 경우:
+이미 게시자를 생성했고 `vsce`에서 사용하려는 경우:
 
 <!-- If you already created a publisher before and want to use it with `vsce`: -->
 
@@ -537,7 +537,7 @@ One easy mistake to make when creating the PAT (Personal Access Token) is to not
 ### I can't unpublish my extension through the `vsce` tool?
 -->
 
-익스텐션 ID나 퍼블리셔 이름이 변경 되었을 수 있습니다. 대신 여러분의 익스텐션을 마켓플레이스에서 [관리 페이지](https://marketplace.visualstudio.com/manage)를 통해 직접 관리 할 수 있습니다. 여러분의 퍼블리셔 관리 페이지에서 익스텐션을 업데이트 하거나, 게시 취소하십시오.
+익스텐션 ID나 게시자 이름이 변경 되었을 수 있습니다. 대신 여러분의 익스텐션을 마켓플레이스에서 [관리 페이지](https://marketplace.visualstudio.com/manage)를 통해 직접 관리 할 수 있습니다. 여러분의 퍼블리셔 관리 페이지에서 익스텐션을 업데이트 하거나, 게시 취소하십시오.
 
 <!--
 You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage). You can update or unpublish your extension from your publisher manage page. 
