@@ -58,7 +58,7 @@ Read more about proposed API at: https://code.visualstudio.com/api/advanced-topi
 <!--
 ## Proposed API incompatibility -->
 
-마스터 브런치에서, `vscode.proposed.d.ts`는 `vscode.d.ts`와 항상 호환됩니다. 그러나 `@types/vscode`를 사용하여 프로젝트에 `vscode.proposed.d.ts를 더하는 경우, 최신 `vscode.proposed.d.ts` 는 `@types/vscode`의 버전과 호환되지 않을 수 있습니다. 
+마스터 브랜치에서, `vscode.proposed.d.ts`는 `vscode.d.ts`와 항상 호환됩니다. 그러나 `@types/vscode`를 사용하여 프로젝트에 `vscode.proposed.d.ts를 더하는 경우, 최신 `vscode.proposed.d.ts` 는 `@types/vscode`의 버전과 호환되지 않을 수 있습니다. 
 <!--
 On the master branch, the `vscode.proposed.d.ts` is always compatible with `vscode.d.ts`. However, when you add `vscode.proposed.d.ts` to your project that uses `@types/vscode`, the latest `vscode.proposed.d.ts` might be incompatible with the version in `@types/vscode`.
 -->
@@ -67,8 +67,8 @@ On the master branch, the `vscode.proposed.d.ts` is always compatible with `vsco
 <!--
 You can solve this issue by either: -->
 
-- `@types/vscode`의 의존성을 제거한 뒤, `npx vscode-dts master`를 사용하여 `microsoft/vscode` 마스터 브런치에서 `vscode.d.ts`를 다운로드 하십시오. 
-- `@types/vscode@<version>` 와 `npx vscode-dts dev <version>`를 모두 사용하여 `microsoft/vscode`의 구형 브런치에서 `vscode.proposed.d.ts`를 다운로드 하십시오. API는 최신 버전의 VS Code 개발용에서는 변경 될 수 있음에 주의하십시오. 
+- `@types/vscode`의 의존성을 제거한 뒤, `npx vscode-dts master`를 사용하여 `microsoft/vscode` 마스터 브랜치에서 `vscode.d.ts`를 다운로드 하십시오. 
+- `@types/vscode@<version>` 와 `npx vscode-dts dev <version>`를 모두 사용하여 `microsoft/vscode`의 구형 브랜치에서 `vscode.proposed.d.ts`를 다운로드 하십시오. API는 최신 버전의 VS Code 개발용에서는 변경 될 수 있음에 주의하십시오. 
 
 <!--
 - Remove dependency on `@types/vscode` and use `npx vscode-dts master` to download `vscode.d.ts` from `microsoft/vscode` master branch.
