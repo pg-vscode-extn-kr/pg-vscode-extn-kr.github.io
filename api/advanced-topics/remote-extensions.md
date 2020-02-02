@@ -541,15 +541,29 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-### Opening something in a local browser or application
+### 로컬 브라우저, 어플리케이션에서 열기
+<!--
+### Opening something in a local browser or application-->
 
-Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace Extensions run remotely, which can cause the application to launch on the wrong side. VS Code Remote Development **partially** shims the `opn` node module to allow existing extensions to function. You can call the module with a URI and VS Code will cause the default application for the URI to appear on the client side. However, this is not a complete implementation, as options are not support and a `child_process` object is not returned.
+프로세스를 생성하거나 `opn`같은 모듈을 사용하여 로컬에서 브라우저를 실행하거나 특정 URI를 사용 어플리케이션을 실행하면 로컬에서는 잘 작동하지만, 작업공간 익스텐션은 원격으로 실행되므로 어플리케이션이 다른 방향으로 작동 될 수 있습니다. VS Code 원격 개발은 **부분적으로** 기존 익스텐션의 작동을 위해 `opn` 노드 모듈을 사용합니다. URI를 사용하여 모듈을 호출 하면, VS Code는 URI에 해당하는 기본 어플리케이션이 클라이언트 쪽에서 나타나게 할 것입니다. 그러나 이는 옵션이 지원되지 않고 `child_process` 오브젝트가 반환되지 않기 때문에, 완전한 구현은 아닙니다. 
 
-Instead of relying on a third-party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic localhost port forwarding!** You can use it to point to a local web server on a remote machine or environment and serve up content even if that port is blocked externally.
+<!--
+Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace Extensions run remotely, which can cause the application to launch on the wrong side. VS Code Remote Development **partially** shims the `opn` node module to allow existing extensions to function. You can call the module with a URI and VS Code will cause the default application for the URI to appear on the client side. However, this is not a complete implementation, as options are not support and a `child_process` object is not returned. -->
 
-> **Note:** Currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
+써드파티 노드 모듈에 의존하는 대신, 익스텐션이 주어진 URI에 대해 `vscode.env.openExternal`메소드를 사용하여 로컬 운영체제에 등록된 기본 어플리케이션을 실행하기를 추천 합니다. 추가로 `vscode.env.openExternal`은 **자동 로컬호스트 포트포워딩**을 실행합니다. 이를 사용하여 원격 머신이나 환경에서 로컬 웹서버를 가리키고 해당 포인트가 외부에서 막힌 경우에도 컨텐츠를 제공할 수 있습니다.
 
-This API was added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+<!--
+Instead of relying on a third-party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic localhost port forwarding!** You can use it to point to a local web server on a remote machine or environment and serve up content even if that port is blocked externally.-->
+
+> **주의:** 현재 VS Online의 브라우저 기반 에디터의 포워딩 메커니즘은 **http 와 https 요청**만 지원합니다. 포워드 된 웹 컨텐츠에 제공되거나 자바스크립트 코드에서 사용 되는 경우 웹소켓은 작동 하지 않습니다. 그러나 VS Code를 위한 원격 개발과 VS Code Online 익스텐션은 이러한 제한이 없습니다. 자세한 내용은 [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19)를 참조하십시오.
+
+<!--
+> **Note:** Currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details. -->
+
+이 API는 VS Code 1.31에서 추가 되었습니다. 시작하기 위하여 `package.json`의 `engines.vscode`값을 이 버전 이상으로 업데이트 하고 [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) 가 설치 되어 있는지 확인하십시오:
+
+<!--
+This API was added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed: -->
 
 ```json
 "engines": {
@@ -557,9 +571,13 @@ This API was added in VS Code 1.31. To start, update the `engines.vscode` value 
 }
 ```
 
-Now when you publish your extension, only users on VS Code 1.31 or newer will get the updated version.
+이제 익스텐션을 퍼블리시 하면, VS Code 1.31 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+<!--
+Now when you publish your extension, only users on VS Code 1.31 or newer will get the updated version. -->
 
-To use the `vscode.env.openExternal` API:
+`vscode.env.openExternal` API를 사용하려면 :
+<!--
+To use the `vscode.env.openExternal` API: -->
 
 ```typescript
 import * as vscode from 'vscode';
@@ -579,13 +597,24 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-### Forwarding localhost
+### 로컬호스트 포워딩
 
-While the [localhost forwarding mechanism in `vscode.env.openExternal` is useful](#opening-something-in-a-local-browser-or-application), there may also be situations where you want to forward something without actually launching a new browser window or application. This is where the `vscode.env.asExternalUri` API comes in.
+<!--
+### Forwarding localhost -->
 
-> **Note:** Currently the forwarding mechanism in Visual Studio Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Online extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
+[`vscode.env.openExternal`의 로컬호스트 포워딩 메커니즘](#opening-something-in-a-local-browser-or-application)은 유용하지만, 새 브라우저 창이나 어플리케이션을 실제로 실행하지 않고 무언가를 포워드하려는 경우도 있을 수 있습니다. 이를 위해 `vscode.env.asExternalUri` API를 사용하십시오. 
 
-This API was added in VS Code 1.40. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+<!--
+While the [localhost forwarding mechanism in `vscode.env.openExternal` is useful](#opening-something-in-a-local-browser-or-application), there may also be situations where you want to forward something without actually launching a new browser window or application. This is where the `vscode.env.asExternalUri` API comes in. -->
+
+> **주의:** 현재 VS Online의 브라우저 기반 에디터의 포워딩 메커니즘은 **http 와 https 요청**만 지원합니다. 포워드 된 웹 컨텐츠에 제공되거나 자바스크립트 코드에서 사용 되는 경우 웹소켓은 작동 하지 않습니다. 그러나 VS Code를 위한 원격 개발과 VS Code Online 익스텐션은 이러한 제한이 없습니다. 자세한 내용은 [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19)를 참조하십시오.
+
+<!--
+> **Note:** Currently the forwarding mechanism in Visual Studio Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Online extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.-->
+
+이 API는 VS Code 1.40에서 추가 되었습니다. 시작하기 위하여 `package.json`의 `engines.vscode`값을 이 버전 이상으로 업데이트 하고 [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) 가 설치 되어 있는지 확인하십시오:
+
+<!--This API was added in VS Code 1.40. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed: -->
 
 ```json
 "engines": {
@@ -593,9 +622,13 @@ This API was added in VS Code 1.40. To start, update the `engines.vscode` value 
 }
 ```
 
-Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version.
+이제 익스텐션을 퍼블리시 하면, VS Code 1.31 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+<!--
+Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version. -->
 
-To use the `vscode.env.openExternal` API:
+`vscode.env.openExternal` API를 사용하려면:
+<!--
+To use the `vscode.env.openExternal` API: -->
 
 ```typescript
 import * as vscode from 'vscode';
@@ -617,15 +650,31 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-It is important to note that the URI that is passed back by the API **may not reference localhost at all**, so you should use it in its entirety. This is particularly important for VS Online's browser-based editor, where localhost cannot be used.
+API에 의해 전달된 URI는 **로컬호스트를 전혀 참조 하지 않을 수 있으므로**, 전체의 값을 사용해야 합니다. 이는 로컬호스트를 사용 할 수 없는 VS Online의 브라우저 기반 에디터에서 특히 중요합니다. 
 
-### Callbacks and URI handlers
+<!--
+It is important to note that the URI that is passed back by the API **may not reference localhost at all**, so you should use it in its entirety. This is particularly important for VS Online's browser-based editor, where localhost cannot be used. -->
 
-The `vscode.window.registerUriHandler` API allows your extension to register a custom URI that, if opened in a browser, will fire a callback function in your extension. A common use case for registering a URI handler is when implementing a service sign in with an [OAuth 2.0](https://oauth.net/2/) authentication provider (e.g Azure AD). However, it can be used for any scenario where you want an external application or the browser to send information to your extension.
+### 콜백과 URI 핸들러
 
-The Remote Development and VS Online extensions in VS Code will transparently handle passing the URI to your extension regardless of where it is actually running (local or remote). However, `vscode://` URIs will not work with VS Online's browser-based editor since opening these URIs in something like a browser would attempt to pass them to the local VS Code client rather than the browser-based editor. Fortunately, this can be easily remedied by using the `vscoode.env.asExternalUri` API.
+<!--
+### Callbacks and URI handlers -->
 
+`vscode.window.registerUriHandler` API를 사용하여 익스텐션에서 브라우저를 열면 콜백 함수를 실행하는 커스텀 URI를 등록할 수 있습니다. URI 핸들러를 등록하는 일반적인 경우는 [OAuth 2.0](https://oauth.net/2/) 인증 공급자 (예 Azure AD)로 서비스 로그인을 구현 하는 경우 입니다. 하지만 외부 어플리케이션이나 브라우저가 익스텐션에 정보를 보내는 모든 경우에도 사용 할 수 있습니다.
+
+<!--
+The `vscode.window.registerUriHandler` API allows your extension to register a custom URI that, if opened in a browser, will fire a callback function in your extension. A common use case for registering a URI handler is when implementing a service sign in with an [OAuth 2.0](https://oauth.net/2/) authentication provider (e.g Azure AD). However, it can be used for any scenario where you want an external application or the browser to send information to your extension. -->
+
+원격 개발과 VS Code의 VS Online 익스텐션은 실행 중인 위치에 관계 없이 (로컬 혹은 원격) 익스텐션에 URI를 전달하는 것을 투명하게 처리 합니다. 그러나 `vscode://` URI는 이러한 URI를 브라우저에서 여는 것은 브라우저 기반의 에디터가 아닌 로컬 VS Code 클라이언트에 전달 하기 때문에, VS Online의 브라우저 기반 에디터에서는 작동하지 않습니다. 다행히 이는 `vscode.env.asExternalUri` API를 사용하여 쉽게 해결 할 수 있습니다.
+
+<!--
+The Remote Development and VS Online extensions in VS Code will transparently handle passing the URI to your extension regardless of where it is actually running (local or remote). However, `vscode://` URIs will not work with VS Online's browser-based editor since opening these URIs in something like a browser would attempt to pass them to the local VS Code client rather than the browser-based editor. Fortunately, this can be easily remedied by using the `vscode.env.asExternalUri` API. -->
+
+`vscode.enve.asExternalUri` API는 VS Code 1.40에서 추가 되었습니다. 시작하기 위하여 `package.json`의 `engines.vscode`값을 이 버전 이상으로 업데이트 하고 [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) 가 설치 되어 있는지 확인하십시오:
+
+<!--
 The `vscode.env.asExternalUri` API was added in VS Code 1.40. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+-->
 
 ```json
 "engines": {
@@ -633,9 +682,15 @@ The `vscode.env.asExternalUri` API was added in VS Code 1.40. To start, update t
 }
 ```
 
-Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version.
+이제 익스텐션을 퍼블리시 하면, VS Code 1.40 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
 
-Next, let's use a combination of `vscode.window.registerUriHandler` and `vscode.env.asExternalUri` to wire up an example OAuth authentication callback:
+<!--
+Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version. -->
+
+다음으로 `vscode.window.registerUriHandler`와`vscode.env.asExternalUri`를 조합하여 예제 OAuth 인증 콜백을 연결해보겠습니다.
+
+<!--
+Next, let's use a combination of `vscode.window.registerUriHandler` and `vscode.env.asExternalUri` to wire up an example OAuth authentication callback: -->
 
 ```typescript
 import * as vscode from 'vscode';
@@ -670,15 +725,30 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-When running this sample in VS Code, it wires up a `vscode://` or `vscode-insiders://` URI that can be used as a callback for an authentication provider. When running in VS Online's browser-based editor, it wires up a `https://*.online.visualstudio.com` URI without any code changes or special conditions.
+VS Code에서 이 예시를 실행하면, 인증 공급자의 콜백으로 사용 될수 있는 `vscode://` 나 `vscode-insiders://` URI로 연결 됩니다. VS Online의 브라우저 기반 에디터에서 실행하면, 어떤 코드 변경이나  특정 조건 없이 `https://*.online.visualstudio.com` URI를 연결 합니다. 
 
-While OAuth is outside the scope of this document, note that if you adapted this sample to a real authentication provider, you may need to build a proxy service in front of the provider. This is because not all providers allow `vscode://` callback URIs and others do not allow wildcard host names for callbacks over HTTPS. We also recommend using an [OAuth 2.0 Authorization Code with PKCE flow](https://oauth.net/2/pkce/) wherever possible (e.g Azure AD supports PKCE) to improve the security of the callback.
+<!--
+When running this sample in VS Code, it wires up a `vscode://` or `vscode-insiders://` URI that can be used as a callback for an authentication provider. When running in VS Online's browser-based editor, it wires up a `https://*.online.visualstudio.com` URI without any code changes or special conditions. -->
 
-### Varying behaviors when running remotely or VS Online's browser editor
+OAuth는 이 문서의 범위를 벗어나지만, 예시를 실제 인증 공급자에 적용 하는 경우, 공급자 이전에 프록시 서비스를 작성해야 할 수도 있음을 유념하십시오. 이는 모든 제공자가  `vscode://` 콜백 URI를 허용하는 것은 아니며, 또 다른 공급자는 HTTPS를 통한 콜백에 와일드카드 호스트 이름을 허용 하지 않기 떄문입니다. 콜백의 보안을 개선하기 위해서 가능하면 (예 PKCE를 지원하는 Azure AD) [OAuth 2.0 Authorization Code with PKCE flow](https://oauth.net/2/pkce/)를 사용하는것을 추천합니다.
 
-In some cases, your Workspace Extension may need to vary the behavior when running remotely. In others, you might want to vary its behavior when running in VS Online's browser-based editor. VS Code provides three APIs to detect these situations: `vscode.env.uiKind`, `extension.extensionKind`, and `vscode.env.remoteName`.
+<!--
+While OAuth is outside the scope of this document, note that if you adapted this sample to a real authentication provider, you may need to build a proxy service in front of the provider. This is because not all providers allow `vscode://` callback URIs and others do not allow wildcard host names for callbacks over HTTPS. We also recommend using an [OAuth 2.0 Authorization Code with PKCE flow](https://oauth.net/2/pkce/) wherever possible (e.g Azure AD supports PKCE) to improve the security of the callback.-->
 
-The `vscode.env.uiKind` API was added to VS Code 1.40 while `extension.extensionKind` and `vscode.env.remoteName` were added in 1.36. To start, update the `engines.vscode` value in `package.json` to one of these versions and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+### 원격 또는 VS Online의 브라우저 에디터 사용시 다양한 동작
+
+<!--
+### Varying behaviors when running remotely or VS Online's browser editor-->
+
+경우에 따라, 작업공간 익스텐션은 원격으로 실행 할때 동작을 변경 해야 할 수도 있습니다. 마찬가지로, VS Online의 브라우저 기반 에디터에서 실행 할때 동작을 변경 해야 할 수도 있습니다. VS Code는 이 상황을 위한 3가지 API를 제공합니다 :  `vscode.env.uiKind`, `extension.extensionKind`, 그리고 `vscode.env.remoteName`.
+
+<!--
+In some cases, your Workspace Extension may need to vary the behavior when running remotely. In others, you might want to vary its behavior when running in VS Online's browser-based editor. VS Code provides three APIs to detect these situations: `vscode.env.uiKind`, `extension.extensionKind`, and `vscode.env.remoteName`.-->
+
+`vscode.env.uiKind` API 는 VS Code 1.40에서, `extension.extensionKind` 와 `vscode.env.remoteName`는 1.36 에서 추가 되었습니다. 시작하기 위하여 `package.json`의 `engines.vscode`값을 이 버전 이상으로 업데이트 하고 [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) 가 설치 되어 있는지 확인하십시오:
+
+<!--
+The `vscode.env.uiKind` API was added to VS Code 1.40 while `extension.extensionKind` and `vscode.env.remoteName` were added in 1.36. To start, update the `engines.vscode` value in `package.json` to one of these versions and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed: -->
 
 ```json
 "engines": {
@@ -686,9 +756,13 @@ The `vscode.env.uiKind` API was added to VS Code 1.40 while `extension.extension
 }
 ```
 
-Now when you publish your extension, only users of this version of VS Code or newer will get the updated version.
+이제 익스텐션을 퍼블리시 하면, 해당하는 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+<!--
+Now when you publish your extension, only users of this version of VS Code or newer will get the updated version. -->
 
-Next, you can use the three APIs as follows:
+3개의 API를 다음과 같이 사용하십시오:
+
+<!-- Next, you can use the three APIs as follows: -->
 
 ```typescript
 import * as vscode from 'vscode';
@@ -714,15 +788,28 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-### Communicating between extensions using commands
+### 익스텐션과 커뮤니케이션을 위한 커맨드
+<!--
+### Communicating between extensions using commands -->
 
-Some extensions return APIs as a part of their activation that are intended for use by other extensions (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI Extensions or all Workspace Extensions), these will not work between UI and Workspace Extensions.
+일부 익스텐션은 다른 익스텐션의 활성화에 쓰이기 위한 API를 반환합니다 (`vscode.extension.getExtension(extensionName).exports`를 통해). 관련된 모든 익스텐션이 같은 쪽 (전부 UI 익스텐션 혹은 전부 작업공간 익스텐션) 에 있으면 작동하지만 그렇지 않은 경우에는 작동하지 않습니다. 
 
-Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any command (including those provided by other extensions) without worrying about impacts.
+<!--
+Some extensions return APIs as a part of their activation that are intended for use by other extensions (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI Extensions or all Workspace Extensions), these will not work between UI and Workspace Extensions. -->
 
-If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. However, any objects you pass in as parameters will be "stringified" (`JSON.stringify`) before being transmitted, so the object cannot have cyclic references and will end up as a "plain old JavaScript object" on the other side.
+다행히도, VS Code는 위치에 관계 없이 실행된 모든 커맨드를 올바른 익스텐션으로 자동라우팅 합니다. 영향에 걱정하지 않고 모든 명령 (다른 익스텐션에서 제공된 것 포함)을 자유롭게 실행 할 수 있습니다.
 
-For example:
+<!--
+Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any command (including those provided by other extensions) without worrying about impacts.-->
+
+만약 서로 상호작용해야 하는 익스텐션 그룹이 있는 경우, 프라이빗 커맨드를 이용하여 기능을 노출시키는 것이 예상치 못한 영향을 피할 수 있습니다.그러나 파라미터로 전달된 오브젝트는 전달 되기 이전에 "문자열" 화 될 것입니다 (`JSON.stringify`), 그러므로 오브젝트는 순환 참조를 가질 수 없으며 다른 쪽에서는 "plain old 자바스크립트 오브젝트"가 됩니다. 
+
+<!--
+If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. However, any objects you pass in as parameters will be "stringified" (`JSON.stringify`) before being transmitted, so the object cannot have cyclic references and will end up as a "plain old JavaScript object" on the other side.-->
+
+예시로:
+
+<!-- For example:-->
 
 ```typescript
 import * as vscode from 'vscode';
@@ -738,17 +825,36 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-See the [command API guide](/api/extension-guides/command) for details on working with commands.
 
-## Using the Webview API
+[커맨드 API 가이드](/api/extension-guides/command)를 참조하여 커맨드 사용에 대한 자세한 정보를 확인하십시오. 
+<!--
+See the [command API guide](/api/extension-guides/command) for details on working with commands. -->
 
-Like the clipboard API, the [Webview API](/api/extension-guides/webview) is always run on the user's local machine or in the browser, even when used from a Workspace Extension. This means that many webview-based extensions should just work, even when used in remote workspaces or VS Online environments. However, there are some considerations to be aware of so that your webview extension works properly when run remotely.
+## 웹뷰 API
 
-### Always use asWebviewUri
+<!--
+## Using the Webview API -->
 
-VS Code 1.39 introduced a new `asWebviewUri` API to manage extension resources. Using this API instead of hard coding `vscode-resource://` URIs is required to ensure the VS Online browser-based editor works with your extension. See the [Webview API](/api/extension-guides/webview) guide for details, but here is a quick example.
+클립보드 API처럼, [웹뷰 API](/api/extension-guides/webview)는 작업공간 익스텐션에서 사용 된다고 해도 항상 사용자의 로컬머신이나 브라우저에서 사용됩니다. 이는 다수의 웹뷰 기반 익스텐션이 원격 작업공간이나 VS Online 환경에서도 작동한다는 것을 의미합니다. 그러나 웹뷰 익스텐션이 원격에서 잘 작동하기 위해 고려해야할 것이 몇가지 있습니다.
 
-To start, update the `engines.vscode` value in `package.json` to at least 1.39 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+<!--
+Like the clipboard API, the [Webview API](/api/extension-guides/webview) is always run on the user's local machine or in the browser, even when used from a Workspace Extension. This means that many webview-based extensions should just work, even when used in remote workspaces or VS Online environments. However, there are some considerations to be aware of so that your webview extension works properly when run remotely.-->
+
+### asWebviewUri 사용
+
+<!--
+### Always use asWebviewUri -->
+
+VS Code 1.39 에서는 익스텐션 리소스 관리를 위해 `asWebviewUri` API를 새로 추가했습니다. `vscode-resource://` URI 대신 이 API를 사용해야만 VS Online 브라우저 기반 에디터가 익스텐션과 작동 합니다. [웹뷰 API](/api/extension-guides/webview)를 참조하여 자세한 정보를 얻을 수 있지만 아래는 간단한 예시입니다. 
+
+<!--
+VS Code 1.39 introduced a new `asWebviewUri` API to manage extension resources. Using this API instead of hard coding `vscode-resource://` URIs is required to ensure the VS Online browser-based editor works with your extension. See the [Webview API](/api/extension-guides/webview) guide for details, but here is a quick example.-->
+
+
+시작하기 위해, `package.json`의 `engines.vscode`값을 1.39 버전 이상으로 업데이트 한 뒤, [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) 가 설치 되어 있는지 확인 하십시오:
+
+<!--
+To start, update the `engines.vscode` value in `package.json` to at least 1.39 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:-->
 
 ```json
 "engines": {
@@ -756,9 +862,14 @@ To start, update the `engines.vscode` value in `package.json` to at least 1.39 a
 }
 ```
 
-Now when you publish your extension, only users on VS Code 1.39 or newer will get the updated version.
+이제 익스텐션을 퍼블리시 하면, VS Code 1.39 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+<!--
+Now when you publish your extension, only users on VS Code 1.39 or newer will get the updated version.-->
 
-Next, you can use the API in your content as follows:
+컨텐츠에서 API를 다음과 같이 사용 할 수 있습니다:
+
+<!--
+Next, you can use the API in your content as follows:-->
 
 ```typescript
 // Create the webview
@@ -780,37 +891,79 @@ panel.webview.html = `<!DOCTYPE html>
 </html>`;
 ```
 
-### Use the message passing API for dynamic webview content
+### 동적 웹뷰 컨텐츠를 위한 메세지 전달 API
 
-The VS Code webview includes a [message passing](/api/extension-guides/webview#scripts-and-message-passing) API that allows you to dynamically update your webview content without the use of a local web server. Even if your extension is running some local web services that you want to interact with to update webview content, you can do this from the extension itself rather than directly from your HTML content.
+<!--
+### Use the message passing API for dynamic webview content-->
 
-This is an important pattern for Remote Development and VS Online to ensure your webview code works both from VS Code and VS Online's browser-based editor.
+VS Code 웹뷰는 로컬 웹 서버를 사용하지 않고 웹뷰 컨텐츠를 동적으로 업데이트하는 [메세지 전달](/api/extension-guides/webview#scripts-and-message-passing) API를 포함합니다. 상호작용을 통해 웹뷰 컨텐츠를 업데이트 하려는 익스텐션이 어떤 로컬 웹서비스에서 실행중인 경우에도 HTML 컨텐츠에서 직접 하기보다 익스텐션을 통해서 실행 할 수 있습니다.
 
-**Why message passing instead of a localhost web server?**
+<!--
+The VS Code webview includes a [message passing](/api/extension-guides/webview#scripts-and-message-passing) API that allows you to dynamically update your webview content without the use of a local web server. Even if your extension is running some local web services that you want to interact with to update webview content, you can do this from the extension itself rather than directly from your HTML content.-->
 
-The alternate pattern is to serve up web content in an `iframe` or have webview content directly interact with a localhost server. Unfortunately, by default, `localhost` inside a webview will resolve to a developer's local machine. This means that for a remotely running workspace extension, the webviews it creates would not be able to access local servers spawned by the extension. Even if you use the IP of the machine, the ports you are connecting to will typically be blocked by default in a cloud VM or a container. Even if this worked from VS Code, it would not work from VS Online's browser-based editor.
+이는 원격 개발과 VS Online에 있어 웹뷰 코드 작업이 VS Code와 VS Online의 브라우저 기반 에디터에서 둘다 작동하기 위한 중요한 패턴입니다. 
 
-Here's an illustration of the problem when using the Remote - SSH extension, but the problem also exists for Remote - Containers and Visual Studio Online:
+<!--
+This is an important pattern for Remote Development and VS Online to ensure your webview code works both from VS Code and VS Online's browser-based editor. -->
+
+**로컬 웹서버 대신 메세지 전달인 이유**
+
+<!--
+**Why message passing instead of a localhost web server?**-->
+
+다른 패턴으로는 `ifram`에서 웹 컨텐츠를 제공하거나, 웹뷰 컨텐츠가 로컬호스트 서버와 직접 상호작용 하게 하는 것입니다. 불행히도, 기본적으로 웹뷰의 `localhost`는 개발자의 로컬머신으로 해석됩니다 이는 원격에서 실행중인 작업공간 익스텐션의 경우, 웹뷰는 익스텐션에 의해 생성된 로컬 서버에 액세스 할 수 없음을 의미합니다. 머신의 IP를 사용한다해도 cloud VM이나 컨테이너의 기본설정에 의해 연결 포트는 차단 됩니다. VS Code에서 작동한다고 해도 VS Online의 브라우저 기반 에디터에서는 작동 하지 않습니다.
+
+<!--
+The alternate pattern is to serve up web content in an `iframe` or have webview content directly interact with a localhost server. Unfortunately, by default, `localhost` inside a webview will resolve to a developer's local machine. This means that for a remotely running workspace extension, the webviews it creates would not be able to access local servers spawned by the extension. Even if you use the IP of the machine, the ports you are connecting to will typically be blocked by default in a cloud VM or a container. Even if this worked from VS Code, it would not work from VS Online's browser-based editor.-->
+
+다음은 원격 - SSH 익스텐션을 사용할때의 문제에 대한 설명이지만, 원격 - 컨테이너 와 Visual Studio Online을 사용 하는 경우에도 동일한 문제가 발생 합니다. 
+
+<!--
+Here's an illustration of the problem when using the Remote - SSH extension, but the problem also exists for Remote - Containers and Visual Studio Online:-->
 
 ![Webview problem](images/remote-extensions/webview-problem.png)
 
-If at all possible, **you should avoid doing this** since it complicates your extension significantly. [Message passing](/api/extension-guides/webview#scripts-and-message-passing) API can enable the same type of user experience without these types of headaches. The extension itself will be running in VS Code Server on the remote side, so it can transparently interact with any web servers your extension starts up as a result of any messages passed to it from the webview.
+가능하다면 익스텐션을 상당히 복잡하게 하기 때문에 이 작업은 **하지 말아야 합니다**. [메세지 전달](/api/extension-guides/webview#scripts-and-message-passing) API는 이러한 유형의 문제 없이 사용자 경험을 가능하게 합니다. 익스텐션 자체는 VS Code Server에서 원격으로 실행 되므로, 웹뷰에서 전달된 메세지의 결과로 익스텐션이 시작되는 모든 웹 서버와 투명하게 상호작용 할 수 있습니다.
 
-### Workarounds for using localhost from a webview
+<!--
+If at all possible, **you should avoid doing this** since it complicates your extension significantly. [Message passing](/api/extension-guides/webview#scripts-and-message-passing) API can enable the same type of user experience without these types of headaches. The extension itself will be running in VS Code Server on the remote side, so it can transparently interact with any web servers your extension starts up as a result of any messages passed to it from the webview.-->
 
-If you can't use the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for some reason, there are two options that will work with the Remote Development and Visual Studio Online extensions in VS Code. Unfortunately, neither of these options currently work with the VS Online browser-based editor due to [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11).
+### 웹뷰에서 로컬호스트 사용
 
-Each option allows webview content to route through the same channel VS Code uses to talk to VS Code Server. For example, if we update the illustration in the previous section for Remote - SSH, you would have this:
+<!--
+### Workarounds for using localhost from a webview -->
+
+어떤 이유로 [메세지 전달](/api/extension-guides/webview#scripts-and-message-passing) API를 사용 할 수 없는 경우,VS Code에서 원격 개발과 Visual Studio Online 익스텐션을 실행하는 방법은 2가지가 있습니다. 불행히도 두 방법 모두 VS Online 브라우저 기반 에디터에서는  [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11)로 인해 현재 작동 하지 않습니다. 
+
+<!--
+If you can't use the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for some reason, there are two options that will work with the Remote Development and Visual Studio Online extensions in VS Code. Unfortunately, neither of these options currently work with the VS Online browser-based editor due to [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11).-->
+
+각 방법은 웹뷰 컨텐츠가 VS Code가 VS Code Server와 통신하는데 사용하는 채널을 통해 라우팅 할 수 있게 합니다. 예를 들어, 이전 섹션의 원격 - SSH에 대한 그림을 업데이트 하면, 다음과 같은 결과가 나타납니다:
+
+<!--
+Each option allows webview content to route through the same channel VS Code uses to talk to VS Code Server. For example, if we update the illustration in the previous section for Remote - SSH, you would have this: -->
 
 ![Webview Solution](images/remote-extensions/webview-solution.png)
 
-### Option 1 - Use asExternalUri
+### 방법 1 - asExternalUri 사용
 
-VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local http and https requests remotely in a programmatic way. You can be use this same API to forward requests to localhost web servers from the webview when your extension is running in VS Code. In the future, if you intend to **only serve up content in an iframe**, you will be able to use this API to support VS Online's browser-based editor but this is **currently blocked** by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11).
+<!--
+### Option 1 - Use asExternalUri-->
 
-> **Note:** In addition to the issue above, currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for the VS Code client do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
+VS Code 1.40에서는 익스텐션으로 로컬 http와 https 요청을 프로그래밍 방식으로 전달 할 수 있는 `vscode.env.asExternalUri`API를 추가하였습니다. 이 API를 사용하여 익스텐션이 VS Code에서 실행 될때 웹뷰 에서 로컬 호스트 웹 서버로 요청을 전달 할 수 있습니다. 추후에는, **iframe 에서만 컨텐츠를 제공하는 경우** 이 API를 사용하여 VS Online 의 브라우저 기반 에디터를 지원 할 수 있지만 [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11)로 인해 **현재는 불가능** 합니다. 
 
-To start, update the `engines.vscode` value in `package.json` to at least 1.40 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+<!--
+VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local http and https requests remotely in a programmatic way. You can be use this same API to forward requests to localhost web servers from the webview when your extension is running in VS Code. In the future, if you intend to **only serve up content in an iframe**, you will be able to use this API to support VS Online's browser-based editor but this is **currently blocked** by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). -->
+
+> **주의:** 위 이슈에 더하여, VS Online의 브라우저 기반 에디터의 포워딩 메커니즘은 오직 **http와 https요청**만 지원합니다. 포워드 된 웹 컨텐츠에 제공되거나 자바스크립트 코드에서 사용 되는 경우 웹소켓은 작동 하지 않습니다. 그러나 VS Code를 위한 원격 개발과 VS Code Online 익스텐션은 이러한 제한이 없습니다. 자세한 내용은 [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19)를 참조하십시오.
+
+<!--
+> **Note:** In addition to the issue above, currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for the VS Code client do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.-->
+
+시작하기 위해, `package.json`의 `engines.vscode`값을 1.40 버전 이상으로 업데이트 한 뒤, [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) 가 설치 되어 있는지 확인 하십시오:
+
+<!--
+To start, update the `engines.vscode` value in `package.json` to at least 1.40 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed: -->
 
 ```json
 "engines": {
@@ -818,9 +971,13 @@ To start, update the `engines.vscode` value in `package.json` to at least 1.40 a
 }
 ```
 
-Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version.
+이제 익스텐션을 퍼블리시 하면, VS Code 1.40 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+<!--
+Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version. -->
 
-Next, use the API to get a full URI for the iframe and add it to your HTML. You will also need to enable scripts in your webview and add a CSP to your HTML content.
+다음으로, API를 사용하여 iframe을 위한 전체 URI를 얻어 HTML에 추가 하십시오. 또한 웹뷰에서 스크립트를 허용하는것과 HTML 컨텐츠에 CSP를 추가해야 합니다. 
+<!--
+Next, use the API to get a full URI for the iframe and add it to your HTML. You will also need to enable scripts in your webview and add a CSP to your HTML content.-->
 
 ```typescript
 // Use asExternalUri to get the URI for the web server
@@ -852,13 +1009,24 @@ panel.webview.html = `<!DOCTYPE html>
     </html>`;
 ```
 
-Note that any HTML content served up in the `iframe` in the example above **needs to use relative pathing** rather than hard coding `localhost`.
+위의 예시에서 `iframe`에 제공된 모든 HTML 컨텐츠는 `localhost`를 하드 코딩 하는 대신 **상대 경로**를 사용해야 하는것에 주의하십시오.
+
+<!--
+Note that any HTML content served up in the `iframe` in the example above **needs to use relative pathing** rather than hard coding `localhost`.-->
+
+### 방법 2 - 포트 매핑 사용
 
 ### Option 2 - Use a port mapping
 
-If you do **not intend to support VS Online's browser-based editor**, you can use the `portMapping` option available in the webview API. (This approach will also work with VS Online from the VS Code client, but not in the browser).
+**VS Online의 브라우저 기반 에디터를 지원하지 않는 경우**, 웹뷰 API에서 `portMapping` 옵션을 허용십시오. (이는 VS Code 클라이언트의 VS Onlie에서도 작동하지만, 브라우저에서는 작동하지 않습니다.)
 
-The port mapping API was added in VS Code 1.34. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+<!--
+If you do **not intend to support VS Online's browser-based editor**, you can use the `portMapping` option available in the webview API. (This approach will also work with VS Online from the VS Code client, but not in the browser).-->
+
+포트 매핑 API는 VS Code 1.34 에서 추가 되었습니다. 시작하기 위해, `package.json`의 `engines.vscode`값을 이 버전 이상으로 업데이트 한 뒤, [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) 가 설치 되어 있는지 확인 하십시오:
+
+<!--
+The port mapping API was added in VS Code 1.34. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:-->
 
 ```json
 "engines": {
@@ -866,9 +1034,14 @@ The port mapping API was added in VS Code 1.34. To start, update the `engines.vs
 }
 ```
 
-Now when you publish your extension, only users on VS Code 1.34 or newer will get the updated version.
+이제 익스텐션을 퍼블리시 하면, VS Code 1.34 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+<!--
+Now when you publish your extension, only users on VS Code 1.34 or newer will get the updated version. -->
 
-To use a port mapping, pass in a `portMapping` object when you create your webview:
+포트 매핑을 사용하려면, 웹뷰를 생성할때 `portMapping` 오브젝트를 전달 하십시오:
+
+<!--
+To use a port mapping, pass in a `portMapping` object when you create your webview: -->
 
 ```typescript
 const LOCAL_STATIC_PORT = 3000;
@@ -894,45 +1067,102 @@ panel.webview.html = `<!DOCTYPE html>
     </html>`;
 ```
 
-In this example, in both the remote and local cases, any requests made to `http://localhost:3000` will automatically be mapped to the dynamic port an Express.js web server is running on.
+이 예제에서, 원격과 로컬 모든 경우, `http://localhost:3000`에 대한 모든 요청은 자동적으로 Express.js 웹 서버가 실행중인 동적 포트에 매핑 됩니다.
 
-## Using native Node.js modules
+<!--
+In this example, in both the remote and local cases, any requests made to `http://localhost:3000` will automatically be mapped to the dynamic port an Express.js web server is running on. -->
 
-Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
+## 네이티브 Node.js 모듈 사용
 
-To solve this problem:
+<!--
+## Using native Node.js modules -->
 
+VS Code 익스텐션과 함께 번들된 ( 혹은 동적으로 얻은 ) 네이티브 모듈은 반드시 [Electron의 `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules)를 사용하여 다시 컴파일해야 합니다. 그러나 VS Code 서버는 표준 (non-Electron) 버전의 Node.js를 사용하므로, 원격으로 실행시 바이너리로 실패 할 수 있습니다. 
+
+<!--
+Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely. -->
+
+이 문제를 해결하기 위해:
+
+<!-- To solve this problem: -->
+
+1. VS Code가 제공하는 Node.js의 "모듈" 버전을 위한 두 바이너리를 (Electron과 표준 Node.js)를 모두 포함 (혹은 동적으로 획득)하십시오.
+2. `vscode.extensions.getExtension('your.extensionId').extensionKind === vscode.ExtensionKind.Workspace`인지 확인하여 익스텐션이 원격이나 로컬에서 실행되는지에 따라 올바른 바이너리를 설정하십시오.
+3. [유사 로직에 따라](#supporting-nonx8664-hosts-or-alpine-linux-containers) non-x86_64 타겟과 Alpine Linux에 대한 지원을 추가 할 수 있습니다. 
+
+<!--
 1. Include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships.
 2. Check to see if `vscode.extensions.getExtension('your.extensionId').extensionKind === vscode.ExtensionKind.Workspace` to set up the correct binaries based on whether the extension is running remotely or locally.
-3. You may also want to add support for non-x86_64 targets and Alpine Linux at the same time by [following similar logic](#supporting-nonx8664-hosts-or-alpine-linux-containers)
+3. You may also want to add support for non-x86_64 targets and Alpine Linux at the same time by [following similar logic](#supporting-nonx8664-hosts-or-alpine-linux-containers)-->
 
-You can find the "modules" version VS Code uses by going to **Help > Developer Tools** and typing `process.versions.modules` in the console. However, to make sure native modules work seamlessly in different Node.js environments, you may want to compile the native modules against all possible Node.js "modules" versions and platforms you want support (Electron Node.js, official Node.js Windows/Darwin/Linux, all versions). The [node-tree-sitter](https://github.com/tree-sitter/node-tree-sitter/releases/tag/v0.14.0) module is a good example of a module that does this well.
+콘솔에서 **Help > Developer Tools**로 이동한뒤, `process.versions.modules`를 입력하여 "모듈"의 버전을 확인 할 수 있습니다. 그러나 네이티브 모듈이 다른 Node.js 환경에서 원활하게 작동 하도록, 지원 하려는 모든 가능한 Node.js "모듈" 버전과 플랫폼 ( Electron Node.js, Official Node.js Windows/Darwin/Linux, 모든 버전)에 대해 컴파일 할 수도 있습니다. [node-tree-sitter](https://github.com/tree-sitter/node-tree-sitter/releases/tag/v0.14.0)모듈은 이를 수행하는 좋은 예시입니다.
 
-## Supporting non-x86_64 hosts or Alpine Linux containers
+<!--
+You can find the "modules" version VS Code uses by going to **Help > Developer Tools** and typing `process.versions.modules` in the console. However, to make sure native modules work seamlessly in different Node.js environments, you may want to compile the native modules against all possible Node.js "modules" versions and platforms you want support (Electron Node.js, official Node.js Windows/Darwin/Linux, all versions). The [node-tree-sitter](https://github.com/tree-sitter/node-tree-sitter/releases/tag/v0.14.0) module is a good example of a module that does this well. -->
 
-If your extension is purely written in JavaScript/TypeScript, you may not need to do anything to add support for other processor architectures or the `musl` based Alpine Linux to your extension.
+## non-x86_64 호스트 혹은 Alpine Linux 컨테이너 지원
+<!--
+## Supporting non-x86_64 hosts or Alpine Linux containers -->
 
-However, if your extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (for example ARMv7l) or Alpine Linux containers, the extension may include x86_64 `glibc` specific native code or runtimes that will fail on these architectures/operating systems.
+익스텐션이 순수하게 자바스크립트/타입스크립트로 작성된 경우, 익스텐션을 다른 프로세서 아키텍쳐나 `musl` 기반의 Alpine Linux에서 지원되기 위해 어느것도 추가 하지 않아도 됩니다.
 
-For example, your extension may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
+<!--
+If your extension is purely written in JavaScript/TypeScript, you may not need to do anything to add support for other processor architectures or the `musl` based Alpine Linux to your extension.-->
 
-To resolve this problem:
+그러나 익스텐션이 Debian 9+, Ubuntu 16.04+, 혹은 RHEL / CentOS 7+ 원격 SSH 호스트, 컨테이너 혹은 WSL에서 작동하지만 non-x86_64 호스트 (예로 ARMv71) 나 Alpine Linux 컨테이너에서 작동하지 않는 경우, 익스텐션은 x86_64 `glibc` 의 네이티브 코드나 런타임이 포함되어 이러한 아키텍쳐 / 운영체제에서 작동 하지 않습니다. 
 
-1. If you are dynamically acquiring compiled code, you can add support by detecting non-x86_64 targets using `process.arch` and downloading versions compiled for the right architecture. If you are including binaries for all supported architectures inside your extension instead, you can use this logic to use the correct one.
+<!--
+However, if your extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (for example ARMv7l) or Alpine Linux containers, the extension may include x86_64 `glibc` specific native code or runtimes that will fail on these architectures/operating systems.-->
 
-2. For Alpine Linux, you can detect the operating system using  `await fs.exists('/etc/alpine-release')` and once again download or use the correct binaries for a `musl` based operating system.
+예를 들어, 익스텐션은 네이티브 모듈 혹은 런타임의 x86_64 컴파일 버전만 포함 할 수 있습니다. Alpine Linux의 경우 포함된 네이티브 코드 또는 런타임이  `libc`가 Alpine Linux (`musl`)과 다른 배포판에서 (`glibc`) 구현된 [기본적 차이]https://wiki.musl-libc.org/functional-differences-from-glibc.html)에 따라 작동 하지 않을 수 있습니다. 
 
-3. If you'd prefer not to support these platforms, you can use the same logic to provide a good error message instead.
+<!--
+For example, your extension may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).-->
 
-It is important to note that some third-party npm modules include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets.
+이 문제를 풀기 위해:
+<!--
+To resolve this problem: -->
 
-## Avoid using Electron modules
+1. 컴파일 된 코드를 동적으로 획득한 경우, `process.arch`를 사용하여 non-x86_64 타겟을 감지하고, 올바른 아키텍쳐를 위해 컴파일된 버전을 다운로드 받아 지원할 수 있습니다. 대신 익스텐션 내에서 지원되는 모든 아키텍처에 대한 바이너리를 포함하는 경우, 올바른 것을 사용하기 위해 이 로직을 사용 할 수 있습니다. 
 
-While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely. There are a few exceptions, [like `keytar`](#persisting-secrets), where there is specific code in place to make them work.
+<!--
+1. If you are dynamically acquiring compiled code, you can add support by detecting non-x86_64 targets using `process.arch` and downloading versions compiled for the right architecture. If you are including binaries for all supported architectures inside your extension instead, you can use this logic to use the correct one.-->
 
-Use base Node.js modules or modules in your extension VSIX to avoid these problems. If you absolutely have to use an Electron module, be sure to have a fallback if the module is missing.
+2. Alpine Linux의 경우, `await fs.exists('/etc/alpine-release')`를 통해 운영체제를 감지하고, 다시 다운로드 하거나 `musl`기반의 운영체제에 대한 올바른 바이너리를 사용 할 수 있습니다. 
 
+<!--
+2. For Alpine Linux, you can detect the operating system using  `await fs.exists('/etc/alpine-release')` and once again download or use the correct binaries for a `musl` based operating system.-->
+
+3. 이러한 플랫폼을 지원하지 않으려는 경우, 대신 좋은 에러 메세지를 제공 할 수 있습니다. 
+
+<!--
+3. If you'd prefer not to support these platforms, you can use the same logic to provide a good error message instead.-->
+
+일부 써드파티 npm 모듈은 이러한 문제를 일으키는 네이티브 코드가 포함 되어 있을수 있음을 주의하십시오. 경우에 따라 npm 모듈 작성자와 같이 추가 컴파일 타겟을 작업 해야 할 수도 있습니다. 
+
+<!--
+It is important to note that some third-party npm modules include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. -->
+
+## Electron 모듈 비사용
+
+<!--
+## Avoid using Electron modules -->
+
+익스텐션 API에 노출 되지 않은 빌트인 Electron이나 VS Code 모듈에 의존하는 것이 편리 할 수 있지만, VS Code 서버가 표준 (non-Electron) 버전의 Node.js를 실행 하는 것에 주의 하십시오. 이러한 모듈은 원격에서 실행될때 누락됩니다. [`keytar`](#persisting-secrets) 와 같은 몇가지 예외가 있는데, 이 경우 작동하게 하는 특정한 코드가 포함 되어 있습니다.
+
+<!--
+While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely. There are a few exceptions, [like `keytar`](#persisting-secrets), where there is specific code in place to make them work. -->
+
+익스텐션 VSIX에서 기본 Node.js 모듈을 사용하여 이러한 문제를 피하십시오. Electron 모듈을 반드시 사용해야 하는 경우 모듈이 없는 경우에 대한 폴백을 사용해야 합니다.
+
+<!--
+Use base Node.js modules or modules in your extension VSIX to avoid these problems. If you absolutely have to use an Electron module, be sure to have a fallback if the module is missing.-->
+
+아래의 예시는 Electron `original-fs` 노드 모듈이 있는 경우 이를 사용하며, 그렇지 않은 경우 기본 Node.js의 `fs`모듈로 폴백 합니다. 
+
+<!--
 The example below will use the Electron `original-fs` node module if found, and fall back to the base Node.js `fs` module if not.
+-->
 
 ```typescript
 function requireWithFallback(electronModule: string, nodeModule: string) {
@@ -946,24 +1176,55 @@ function requireWithFallback(electronModule: string, nodeModule: string) {
 const fs = requireWithFallback('original-fs', 'fs');
 ```
 
-Try to avoid these situations whenever possible.
+가능한 위와 같은 상황을 피하십시오. 
 
-## Known issues
+<!--
+Try to avoid these situations whenever possible.-->
 
-There are a few extension problems that could be resolved with some added functionality for Workspace Extensions. The following table is a list of known issues under consideration:
+## 알려진 이슈
 
+<!--
+## Known issues -->
+
+작업공간 익스텐션의 일부 추가 기능으로 해결 될 수 있는 몇몇 익스텐션 문제가 있습니다. 아래의 테이블은 고려중인 알려진 이슈의 목록입니다:
+<!--
+There are a few extension problems that could be resolved with some added functionality for Workspace Extensions. The following table is a list of known issues under consideration: -->
+
+
+| 문제 | 설명 |
+|---------|-------------|
+| **웹뷰 HTML 컨텐츠가 VS Online의 브라우저 기반 에디터에서 포트포워드 된 서버에 직접 액세스 불가** | 현재 이는 [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11)에 의해 차단 되었습니다. (이는 VS Code 클라이언트를 위한 원격개발 이나 VS Online 익스텐션에는 적용 되지 않는것에 주의하십시오) 일반적으로 웹뷰 컨텐츠와 익스텐션이 서버와 상호작용 하는것에 대해서 문제를 피하기 위해 [메세지 전달](/api/extension-guides/webview#scripts-and-message-passing) API를 참조하길 권장합니다. 추후에는, 로컬 웹서버 컨텐츠가 [iframe 에서 내장되어](#webview-localhost-option-2---use-asexternaluri)웹뷰에서 작동하도록 고려중입니다.|
+| **VS Online의 브라우저 기반 에디터에서 포트포워드된 웹소켓이 작동 불가** | 현재 VS Online의 브라우저 기반 포워딩 메커니즘에선, http와 https 프로토콜만 지원합니다. 웹 컨텐츠에서 제공되는 경우에도 웹소켓과 다른 프로토콜은 작동 하지 않습니다. 자세한 내용은  [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19)를 참조하십시오. (이는 VS Code 클라이언트를 위한 원격개발 이나 VS Online 익스텐션에는 적용 되지 않는것에 주의하십시오)|
+| **원격 작업공간에서 로컬 머신으로 액세스 / 전달 불가** | 외부 어플리케이션에서 작업공간 파일을 여는 익스텐션은 외부 익스텐션이 원격 파일에 직접 액세스 할 수 없기 때문에 에러를 발생 할 수도 있습니다. 이 문제를 해결 하기 위해 익스텐션이 원격 작업공간에서 파일을 전송하는 방법에 대한 선택지를 조사중입니다. |
+| **작업공간 익스텐션에서 연결된 장치에 액세스 불가** | 로컬에 연결된 장치에 액세스 하는 익스텐션은 원격으로 실행할때 연결 될수 없습니다. 이를 해결하기 위한 최적의 방법을 조사중입니다. |
+
+<!--
 | Problem | Description |
 |---------|-------------|
 | **Webview HTML content cannot directly access port forwarded servers in VS Online's browser-based editor** | Currently this is blocked by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). (Note that this does not affect the Remote Development or VS Online extensions for the VS Code client.) We generally suggest moving to the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for webview content and interacting with any servers your extension spins up since this avoids the problem. In the future, we hope to allow local web server content [housed in an iframe](#webview-localhost-option-2---use-asexternaluri) to work from a webview. |
 | **Websockets do not work in port forwarded content in VS Online's browser-based editor** | Currently, only the http and https protocols are supported by VS Online's browser-based forwarding mechanism. Web sockets and other protocols will not work even if served up in web content. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details. (Note that this does not affect the Remote Development or VS Online extensions for the VS Code client.) |
 | **Cannot access / transfer remote workspace files to local machine** | Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem. |
 | **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. We are investigating the best approach to solve this problem. |
+-->
 
-## Questions and feedback
+## 질문과 피드백
 
+<!--
+## Questions and feedback-->
+
+
+- [Tips and Tricks](/docs/remote/troubleshooting) 이나 [FAQ](/docs/remote/faq)를 참조하십시오.
+- [스택 오버플로우](https://stackoverflow.com/questions/tagged/vscode-remote)에서 답변을 검색하십시오.
+- [기능 지원 혹은 새로운 기능 요청](https://aka.ms/vscode-remote/feature-requests)하거나, [기존 이슈](https://aka.ms/vscode-remote/issues)를 검색하거나, 혹은 [문제를 리포트](https://aka.ms/vscode-remote/issues/new)하십시오.
+- 다른 사람이 사용 할 수 있도록 [개발자 컨테이너 정의](https://aka.ms/vscode-dev-containers)에 기여하십시오.
+- [우리의 문서](https://github.com/Microsoft/vscode-docs) 또는 [VS Code](https://github.com/Microsoft/vscode)에 기여하십시오.
+- 자세한 것은 [기여가이드](https://aka.ms/vscode-remote/contributing)를 참조하십시오.
+
+<!--
 - See [Tips and Tricks](/docs/remote/troubleshooting) or the [FAQ](/docs/remote/faq).
 - Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 - [Upvote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new).
 - Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
 - Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code](https://github.com/Microsoft/vscode).
 - See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+-->
