@@ -104,7 +104,6 @@ However, let's focus on `package.json` and `extensions.ts`, which are essential 
 - `main`: 익스텐션의 시작점.
 - `activationEvents` 와 `contributes`: [Activation Events](/api/references/activation-events) 와 [Contribution Points](/api/references/contribution-points).
 - `engines.vscode`: 이것은 익스텐션이 의존하는 VS Code API의 최소 버전을 명시합니다.
-- `postinstall` 스크립트: 이것은 `engines.vscode`에 명시한 VS Code API의 1.34.0 버전을 설치합니다. 일단 `vscode.d.ts` 파일이 `node_modules/vscode/vscode.d.ts` 에 다운로드 되고 난 뒤, 여러분은 모든 VS Code API에 대한 인텔리센스, 정의로 이동하는 기능, 에러 체크 기능을 사용할 수 있습니다.
 
 <!--
 ### Extension Manifest
@@ -115,7 +114,6 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
 - `main`: The extension entry point.
 - `activationEvents` and `contributes`: [Activation Events](/api/references/activation-events) and [Contribution Points](/api/references/contribution-points).
 - `engines.vscode`: This specifies the minimum version of VS Code API that the extension depends on.
-- The `postinstall` script: This would install the 1.34.0 version of VS Code API as specified in `engines.vscode`. Once the `vscode.d.ts` file is downloaded to `node_modules/vscode/vscode.d.ts`, you will get IntelliSense, jump to definition and error checking for all usage of VS Code API.
 -->
 
 ```json
@@ -144,7 +142,6 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
   },
   "devDependencies": {
     "@types/node": "^8.10.25",
@@ -156,7 +153,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
 ```
 ## 익스텐션 시작 파일
 
-익스텐션 파일은 두 개의 함수 `activate` and `deactivate` 로 익스포트 됩니다. `activate`은 여러분이 등록한 **Activation Event** 이 발생했을 때 실행됩니다. `deactivate`는 여러분의 익스텐션이 비활성화 되기 전에, 정리할 기회를 제공합니다.
+익스텐션 파일은 두 개의 함수 `activate` 와 `deactivate` 로 내보내집니다. `activate`은 여러분이 등록한 **Activation Event** 이 발생했을 때 실행됩니다. `deactivate`는 여러분의 익스텐션이 비활성화 되기 전에, 정리할 기회를 제공합니다.
 
 [`vscode`](https://www.npmjs.com/package/vscode) 모듈은 `node ./node_modules/vscode/bin/install` 에 위치한 하나의 스크립트를 가지고 있습니다. 이 스크립트는 `package.json` 파일 안에 `engines.vscode` 필드에 정의된 VS Code API 정의 파일을 가져옵니다. 이 스크립트를 실행한 후에, 여러분들은 인텔리센스, 코드에서 정의로 이동하는 기능, 다른 타입스크립트 언어 특징을 얻게 됩니다.
 

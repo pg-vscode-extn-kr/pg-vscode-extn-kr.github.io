@@ -11,7 +11,7 @@ description: ""
 # Wrapping Up
 -->
 
-[당신의 첫번째 익스텐션](/api/get-started/your-first-extension) 주제에서, 익스텐션을 어떻게 만들고, 실행하고, 디버그 하는지에 대해 배웠습니다. [익스텐션 구조](/api/get-started/extension-anatomy) 주제에서는, VS Code 익스텐션 개발의 근본적인 개념에 대해서 배웠습니다. 그러나, 우리가 본것은 빙산의 일각입니다. 이 글에서는 Visual Studio Code 익스텐션 개발 기술을 향상시키기 위한 길을 제안해 줄 것입니다.
+[당신의 첫번째 익스텐션](/api/get-started/your-first-extension) 주제에서, 익스텐션을 어떻게 만들고, 실행하고, 디버그 하는지에 대해 배웠습니다. [익스텐션 구조](/api/get-started/extension-anatomy) 주제에서는, VS Code 익스텐션 개발의 근본적인 개념에 대해서 배웠습니다. 그러나, 우리가 본 것은 빙산의 일각입니다. 이 글에서는 Visual Studio Code 익스텐션 개발 기술을 향상시키기 위한 길을 제안해 줄 것입니다.
 <!--
 In the [Your First Extension](/api/get-started/your-first-extension) topic, you learned how to create, run and debug an extension. In the [Extension Anatomy](/api/get-started/extension-anatomy) topic, you learned fundamental concepts to Visual Studio Code extension development. However, we have only seen the tip of the iceberg, and here are some suggested routes for furthering your VS Code extension development skills.
 -->
@@ -41,7 +41,7 @@ This section includes topics that help you develop high-quality VS Code extensio
 ## Extension Capabilities
 -->
 
-이 섹션에선, [VS Code API](/api/references/vscode-api) 와 [기여 포인트](/api/references/contribution-points) 를 이용해, 당신의 익스텐션이 달성할 수 있는 것들에 대한 간단한 설명이 있습니다. VS Code API로 익스텐션 아이디어가 달성 가능한지 확인하고, 새로운 익스텐션 아이디어를 찾아 보세요.
+이 섹션에선, [VS Code API](/api/references/vscode-api) 와 [기여 포인트](/api/references/contribution-points) 를 이용해, 당신이 익스텐션으로 만들 수 있는 것들에 대한 간단한 설명이 있습니다. VS Code API로 익스텐션 아이디어가 실현 가능한지 확인하고, 새로운 익스텐션 아이디어를 찾아 보세요.
 
 <!--
 In this section, we split the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points) into a few categories, each with short descriptions as to what your extension could achieve. Validate that your extension idea is achievable with VS Code API or look for new extension ideas here.

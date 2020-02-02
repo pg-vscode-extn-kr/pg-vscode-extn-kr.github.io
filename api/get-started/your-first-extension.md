@@ -149,7 +149,7 @@ You can learn more about debugging Node.js apps in VS Code in the [Node.js Debug
 In the next topic, [Extension Anatomy](/api/get-started/extension-anatomy), we'll take a closer look at the source code of the `Hello World` sample and explain key concepts.
 -->
 
-이번 튜토리얼의 소스 코드는 https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-sample 에서 확인 할 수 있습니다.
+이번 튜토리얼의 소스 코드는 [https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-sample) 에서 확인 할 수 있습니다.
 [Extension Guides](/api/extension-guides/overview)주제에서는, 각각 다른 VS Code API 혹은 Contribution Point를 설명하는 다른 예제들을 포함하고 있습니다.
 
 <!-- 
