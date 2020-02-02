@@ -82,7 +82,8 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 28. Object -> 오브젝트
 29. Clipboard -> 클립보드
 30. Third-party -> 써드파티
-31. 
+31. Branch -> 브랜치
+32. 
 
 ## Progress
 
