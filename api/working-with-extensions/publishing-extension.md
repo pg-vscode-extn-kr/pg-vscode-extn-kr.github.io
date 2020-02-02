@@ -7,13 +7,13 @@ description: ""
 ---
 
 
-# 익스텐션 퍼블리시하기
+# 익스텐션 게시하기
 
 <!-- 
 # Publishing Extensions
 -->
 
-익스텐션을 완성한 경우에, 다른 사람들이 익스텐션을 찾고 다운로드하고 사용할 수 있게 [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode)에 퍼블리시 할 수 있습니다. 다른 방법으로, 익스텐션을 설치 가능한 VSIX 포맷의 [패키지](#packaging-extensions)로 만들어 다른 사람들과 공유 할 수 있습니다. 
+익스텐션을 완성한 경우에, 다른 사람들이 익스텐션을 찾고 다운로드하고 사용할 수 있게 [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode)에 게시 할 수 있습니다. 다른 방법으로, 익스텐션을 설치 가능한 VSIX 포맷의 [패키지](#packaging-extensions)로 만들어 다른 사람들과 공유 할 수 있습니다. 
 
 <!--
 Once you have made a high-quality extension, you can publish it to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode) so others can find, download, and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
@@ -26,8 +26,8 @@ This topics covers:
 -->
 
 - VS Code 익스텐션을 관리 하는 CLI 툴인 [`vsce`](#vsce)를 사용하기
-- 익스텐션을 [패키징](#packaging-extensions), [퍼블리싱](#publishing-extensions) 그리고 [퍼블리싱 취소](#unpublishing-extensions)하기.
-- 익스텐션 퍼블리시를 위한 [`publisherId` 등록](#create-a-publisher) 하기
+- 익스텐션을 [패키징](#packaging-extensions), [게시](#publishing-extensions) 그리고 [게시 취소](#unpublishing-extensions)하기.
+- 익스텐션 게시를 위한 [`publisherId` 등록](#create-a-publisher) 하기
 
 <!--
 - Using [`vsce`](#vsce), the CLI tool for managing VS Code extensions
@@ -37,7 +37,7 @@ This topics covers:
 
 ## vsce
 
-[vsce](https://github.com/Microsoft/vsce)는 'Visual Studio Code Extension'의 줄임말로 VS Code 익스텐션을 패키징, 퍼블리싱, 관리하는 커맨드라인 도구 입니다. 
+[vsce](https://github.com/Microsoft/vsce)는 'Visual Studio Code Extension'의 줄임말로 VS Code 익스텐션을 패키징, 게시, 관리하는 커맨드라인 도구 입니다. 
 
 <!-- 
 [vsce](https://github.com/Microsoft/vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
@@ -61,7 +61,7 @@ npm install -g vsce
 
 <!-- ### Usage -->
 
-`vsce`를 사용하여 익스텐션을 쉽게 패키징하고 퍼블리시 할 수 있습니다. 
+`vsce`를 사용하여 익스텐션을 쉽게 패키징하고 게시 할 수 있습니다. 
 
 <!--
 You can use `vsce` to easily [package](#packaging-extensions) and [publish](#publishing-extensions) your extensions:
@@ -75,25 +75,25 @@ $ vsce publish
 # <publisherID>.myExtension published to VS Code MarketPlace
 ```
 
-또한 `vsce`로 익스텐션 검색, 메타데이터 검색, 퍼블리시 취소를 할 수 있습니다. 가능한 모든 `vsce` 명령어를 확인하려면, `vsce --help` 를 실행하십시오.
+또한 `vsce`로 익스텐션 검색, 메타데이터 검색, 게시 취소를 할 수 있습니다. 가능한 모든 `vsce` 명령어를 확인하려면, `vsce --help` 를 실행하십시오.
 
 <!--
 `vsce` can also search, retrieve metadata, and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
 -->
 
-## 익스텐션 퍼블리싱하기
+## 익스텐션 게시하기
 
 <!-- ## Publishing extensions -->
 
 ---
 
-**메모** 보안 문제로 인해, `vsce`는 사용자 제공 SVG 이미지를 포함하는 익스텐션을 퍼블리시 할 수 없습니다.  
+**메모** 보안 문제로 인해, `vsce`는 사용자 제공 SVG 이미지를 포함하는 익스텐션을 게시 할 수 없습니다.  
 
 <!--
 **Note:** Due to security concerns, `vsce` will not publish extensions which contain user-provided SVG images.
 -->
 
-퍼블리싱 도구는 다음 상황들을 만족해야합니다.  
+게시 도구는 다음 상황들을 만족해야합니다.  
 
 <!-- The publishing tool checks the following constraints: -->
 
@@ -118,7 +118,7 @@ Visual Studio Code 는 마켓플레이스 서비스를 위해 [Azure DevOps](htt
 Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 -->
 
-`vsce`는 [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats)를 사용해야만 익스텐션을 퍼블리시 할 수 있습니다. 익스텐션 퍼블리시를 위해서 적어도 한개 이상을 생성하십시오.
+`vsce`는 [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats)를 사용해야만 익스텐션을 게시할 수 있습니다. 익스텐션 게시를 위해서 적어도 한개 이상을 생성하십시오.
 
 <!--
 `vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
@@ -177,7 +177,7 @@ Select **Create** and you'll be presented with your newly created Personal Acces
 ### 퍼블리셔 생성하기
 <!-- ### Create a publisher -->
 
-**퍼블리셔** 는 Visual Studio Code 마켓플레이스에 익스텐션을 퍼블리시 할 수 있는 신분입니다. 모든 익스텐션은 [`package.json` 파일](/api/references/extension-manifest)에 `publisher` 이름이 포함되어있어야만 합니다. 
+**퍼블리셔** 는 Visual Studio Code 마켓플레이스에 익스텐션을 게시할 수 있는 신분입니다. 모든 익스텐션은 [`package.json` 파일](/api/references/extension-manifest)에 `publisher` 이름이 포함되어있어야만 합니다. 
 
 <!--
 A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
@@ -241,7 +241,7 @@ vsce publish -p <token>
 ## Auto-incrementing the extension version
 -->
 
-사용자는 익스텐션을 퍼블리시할때 [SemVer](https://semver.org/)에 호환 되는 버전을 표기하는 것 : `major`, `minor`, `patch` 으로 버전 넘버를 관리 할 수 있습니다. 
+사용자는 익스텐션을 게시할때 [SemVer](https://semver.org/)에 호환 되는 버전을 표기하는 것 : `major`, `minor`, `patch` 으로 버전 넘버를 관리 할 수 있습니다. 
 
 <!--
 You can auto-increment an extension's version number when you publish by specifying the [SemVer](https://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
@@ -257,7 +257,7 @@ For example, if you want to update an extension's version from 1.0.0 to 1.1.0, y
 vsce publish minor
 ```
 
-이는 익스텐션을 퍼블리시 하기 전에, 익스텐션의 `package.json` [version] 항목을 수정할 것입니다.
+이는 익스텐션을 게시 하기 전에, 익스텐션의 `package.json` [version] 항목을 수정할 것입니다.
 
 <!--
 This will modify the extension's `package.json` [version](/api/references/extension-manifest#fields) attribute before publishing the extension.
@@ -280,13 +280,13 @@ vsce publish 2.0.1
 the commit message with `%s`.)
 -->
 
-## 익스텐션 퍼블리싱 취소하기
+## 익스텐션 게시 취소하기
 
 <!--
 ## Unpublishing extensions
 -->
 
-`vsce` 에서 익스텐션 ID `publisher.extension`을 통해 익스텐션 퍼블리싱을 취소할 수 있습니다.
+`vsce` 에서 익스텐션 ID `publisher.extension`을 통해 익스텐션 게시를 취소할 수 있습니다.
 
 <!-- You can unpublish an extension with the vsce tool by specifying the extension ID `publisher.extension`. -->
 
@@ -294,7 +294,7 @@ the commit message with `%s`.)
 vsce unpublish (publisher name).(extension name)
 ```
 
-> **메모:** 익스텐션 퍼블리싱을 취소할 때, 마켓플레이스에서 수집된 익스텐션 통계가 제거 될 것입니다. 경우에 따라 퍼블리싱을 취소하기보단 업데이트 하십시오.
+> **메모:** 익스텐션 게시를 취소할 때, 마켓플레이스에서 수집된 익스텐션 통계가 제거 될 것입니다. 경우에 따라 퍼블리싱을 취소하기보단 업데이트 하십시오.
 
 <!-- 
 > **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
@@ -306,7 +306,7 @@ vsce unpublish (publisher name).(extension name)
 ## Packaging extensions
 -->
 
-만약 익스텐션을 로컬 VS Code에서 설치 후 테스트 하려 하거나 혹은 VS Code 마켓플레이스에 퍼블리시 하지 않고 익스텐션을 배포 하고자 하는 경우, 익스텐션을 패키징 하는 방법을 선택 하십시오. `vsce` 는 사용자가 쉽게 설치 할 수 있는 `VSIX` 파일로 익스텐션을 패키징 할 수 있습니다. 어떤 익스텐션들은 VSIX 파일을 깃허브 릴리즈를 통해 퍼블리시 하기도 합니다.
+만약 익스텐션을 로컬 VS Code에서 설치 후 테스트 하려 하거나 혹은 VS Code 마켓플레이스에 게시 하지 않고 익스텐션을 배포 하고자 하는 경우, 익스텐션을 패키징 하는 방법을 선택 하십시오. `vsce` 는 사용자가 쉽게 설치 할 수 있는 `VSIX` 파일로 익스텐션을 패키징 할 수 있습니다. 어떤 익스텐션들은 VSIX 파일을 깃허브 릴리즈를 통해 퍼블리시 하기도 합니다.
 
 <!-- 
 If you want to test an extension on your local install of VS Code or distribute an extension without publishing it to VS Code MarketPlace, you can choose to package your extension. `vsce` can package your extension into a `VSIX` file, from which users can easily install. Some extensions publish VSIX files to each GitHub release. 
@@ -384,7 +384,7 @@ A value of `1.8.0` means that your extension is compatible only with VS Code `1.
 You can use the `engines.vscode` field to make sure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well with the Stable release as well as the Insiders one.
 -->
 
-예를 들어, 최근의 VS Code Stable 버전이 `1.8.0`이고 새로운 API를 포함하는 `1.9.0` 버전에서 개발 중인 경우 `1.9.0-insider`를 통해 릴리스 할 수 있습니다. 만약 익스텐션 버전을 `1.9.0` 의 새로운 API를 활용할 수 있게 퍼블리시 하려는 경우, 버전 의존성을 `^1.9.0`으로 표기해야 합니다. 새로운 익스텐션 버전으로 인해 VS Code `>=1.9.0` 에서만 설치 가능할 것이고, 이는 현재 `1.9.0`의 사용자는 사용 가능하지만, Stable 버전을 사용 하는 다른 사용자의 경우 Stable 버전이 `1.9.0`가 될 때 사용 가능함을 의미합니다.
+예를 들어, 최근의 VS Code Stable 버전이 `1.8.0`이고 새로운 API를 포함하는 `1.9.0` 버전에서 개발 중인 경우 `1.9.0-insider`를 통해 릴리스 할 수 있습니다. 만약 익스텐션 버전을 `1.9.0` 의 새로운 API를 활용할 수 있게 게시 하려는 경우, 버전 의존성을 `^1.9.0`으로 표기해야 합니다. 새로운 익스텐션 버전으로 인해 VS Code `>=1.9.0` 에서만 설치 가능할 것이고, 이는 현재 `1.9.0`의 사용자는 사용 가능하지만, Stable 버전을 사용 하는 다른 사용자의 경우 Stable 버전이 `1.9.0`가 될 때 사용 가능함을 의미합니다.
 
 <!--
 For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
@@ -416,7 +416,7 @@ Here are some tips for making your extension look great on the Marketplace:
 
 - `README.md`파일은 익스텐션의 마켓플레이스 페이지의 보여지는 핵심입니다. `vsce`는 README 링크를 2가지 방법을 통해 수정 할 수 있습니다.
   - 만약 여러분의 깃허브 저장소로 `package.json`의 `repository` 필드를 더하는 경우, `vsce`에서 자동으로 감지하여 링크를 조정 할 것입니다.
-  - `vsce package` 명령어를 사용하면서 `--baseContentUrl` 과 `--baseImagesUrl` 플래그를 사용해서 오버라이드 할 수 있습니다. 그 후 패키지된 `.vsix`파일의 경로를 `vsce publish`의 인수로 제공하여 익스텐션을 퍼블리시 하십시오.
+  - `vsce package` 명령어를 사용하면서 `--baseContentUrl` 과 `--baseImagesUrl` 플래그를 사용해서 오버라이드 할 수 있습니다. 그 후 패키지된 `.vsix`파일의 경로를 `vsce publish`의 인수로 제공하여 익스텐션을 게시 하십시오.
 - `LICENSE`파일은 익스텐션의 라이센스를 명시하기 위해 사용됩니다.
 - `CHANGELOG.md`파일은 익스텐션의 change log를 기록하기 위해 사용됩니다.
 - `package.json`의 `galleryBanner.color`를 의도한 hex값으로 설정하여 배너 배경색을 설정할 수 있습니다.
@@ -519,25 +519,25 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 ## Common questions
 -->
 
-### 익스텐션을 퍼블리시 할때 403 Forbidden (또는 401 Unauthorized) 에러가 발생하는 경우?
+### 익스텐션을 게시 할때 403 Forbidden (또는 401 Unauthorized) 에러가 발생하는 경우?
 
 <!--
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 -->
 
-PAT(Personal Access Token)을 생성할때 쉬운 실수 중 하나는 계정 필드에서 `all accessible accounts`를 선택하지 않는것입니다. (대신 특정 계정을 선택) 또한 작업물을 퍼블리시 하기 위해 Authorized 범위를 `All scopes`로 설정하십시오.
+PAT(Personal Access Token)을 생성할때 쉬운 실수 중 하나는 계정 필드에서 `all accessible accounts`를 선택하지 않는것입니다. (대신 특정 계정을 선택) 또한 작업물을 게시 하기 위해 Authorized 범위를 `All scopes`로 설정하십시오.
 
 <!--
 One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field drop-down (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
 -->
 
-### `vsce`를 이용하여 내 익스텐션 퍼블리싱을 취소 할 수 없는 경우?
+### `vsce`를 이용하여 내 익스텐션 게시를 취소 할 수 없는 경우?
 
 <!-- 
 ### I can't unpublish my extension through the `vsce` tool?
 -->
 
-익스텐션 ID나 퍼블리셔 이름이 변경 되었을 수 있습니다. 대신 여러분의 익스텐션을 마켓플레이스에서 [관리 페이지](https://marketplace.visualstudio.com/manage)를 통해 직접 관리 할 수 있습니다. 여러분의 퍼블리셔 관리 페이지에서 익스텐션을 업데이트 하거나, 퍼블리시 취소하십시오.
+익스텐션 ID나 퍼블리셔 이름이 변경 되었을 수 있습니다. 대신 여러분의 익스텐션을 마켓플레이스에서 [관리 페이지](https://marketplace.visualstudio.com/manage)를 통해 직접 관리 할 수 있습니다. 여러분의 퍼블리셔 관리 페이지에서 익스텐션을 업데이트 하거나, 게시 취소하십시오.
 
 <!--
 You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage). You can update or unpublish your extension from your publisher manage page. 
@@ -548,19 +548,19 @@ You may have changed your extension ID or publisher name. You can also manage yo
 ### Why does vsce not preserve file attributes?
 -->
 
-익스텐션을 Windows에서 만들고 퍼블리시 하는 경우에 유념해주십시오, 모든 익스텐션 패키지에 포함되어 있는 파일은 POSFIX 파일 속성이 없는, 다시말해 실행가능한 비트 입니다. 어떤 `node_modules`는 정상적으로 작동하기 위해 이러한 속성에 의존하기 때문에. Linux와 macOS에서 퍼블리싱 하는 것을 권장됩니다.
+익스텐션을 Windows에서 만들고 게시하는 경우에 유념해주십시오, 모든 익스텐션 패키지에 포함되어 있는 파일은 POSFIX 파일 속성이 없는, 다시말해 실행가능한 비트 입니다. 어떤 `node_modules`는 정상적으로 작동하기 위해 이러한 속성에 의존하기 때문에. Linux와 macOS에서 게시하는 것을 권장됩니다.
 
 <!--
 Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.
 -->
 
-### Continuous integration (CI) 빌드에서 퍼블리시 할 수 있습니까? 
+### Continuous integration (CI) 빌드에서 게시할 수 있습니까? 
 
 <!--
 ### Can I publish from a continuous integration (CI) build?
 -->
 
-가능합니다, [Continuous Integration](/api/working-with-extensions/continuous-integration) 주제의 [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) 섹션을 참조하여 Azure DevOps를 설정하고 자동으로 마켓플레이스에 익스텐션을 퍼블리시 하는 방법을 배우십시오.
+가능합니다, [Continuous Integration](/api/working-with-extensions/continuous-integration) 주제의 [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) 섹션을 참조하여 Azure DevOps를 설정하고 자동으로 마켓플레이스에 익스텐션을 게시 하는 방법을 배우십시오.
 
 <!--
 Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps to automatically publish your extension to the Marketplace.

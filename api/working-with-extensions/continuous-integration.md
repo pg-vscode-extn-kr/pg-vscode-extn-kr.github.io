@@ -126,17 +126,17 @@ script:
 cache: yarn
 ```
 
-## 자동 퍼블리싱
+## 자동 게시
 
 <!-- ## Automated publishing -->
 
-여러분은 익스텐션의 새 버전을 자동으로 퍼블리시 하게 CI를 구성할 수 있습니다.
+여러분은 익스텐션의 새 버전을 자동으로 게시하기 위해 CI를 구성할 수 있습니다.
 
 <!--
 You can configure the CI to publish a new version of the extension automatically.
 -->
 
-퍼블리시 커맨드는 [`vsce`](https://github.com/Microsoft/vsce) 서비스를 이용해 로컬 환경에서 퍼블리시하는 것과 비슷하지만 커맨드에 Personal Access Token (PAT)도 같이 제공해야 합니다. 
+게시하기 커맨드는 [`vsce`](https://github.com/Microsoft/vsce) 서비스를 이용해 로컬 환경에서 퍼블리시하는 것과 비슷하지만 커맨드에 Personal Access Token (PAT)도 같이 제공해야 합니다. 
 
 <!--
 The publish command is similar to publishing from a local environment using the [`vsce`](https://github.com/Microsoft/vsce) service but the command needs to also include the Personal Access Token (PAT).
@@ -200,7 +200,7 @@ trigger:
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
 ```
 
-[`condition`](https://docs.microsoft.com/azure/devops/pipelines/process/conditions) 속성은 CI가 퍼블리시 단계를 특정 상황에서만 실행하도록 합니다. 
+[`condition`](https://docs.microsoft.com/azure/devops/pipelines/process/conditions) 속성은 CI가 게시 단계를 특정 상황에서만 실행하도록 합니다. 
 
 <!-- 
 The [`condition`](https://docs.microsoft.com/azure/devops/pipelines/process/conditions) property tells the CI to run the publish step only in certain cases.
@@ -210,8 +210,8 @@ The [`condition`](https://docs.microsoft.com/azure/devops/pipelines/process/cond
 
 <!-- In our example, the condition has three checks: -->
 
-- `succeeded()` - 테스트에 성공 했을때만 퍼블리시합니다. 
-- `startsWith(variables['Build.SourceBranch'], 'refs/tags/')` - tags가 붙은(릴리스) 빌드일 때만 퍼블리시 합니다. 
+- `succeeded()` - 테스트에 성공 했을때만 게시합니다. 
+- `startsWith(variables['Build.SourceBranch'], 'refs/tags/')` - tags가 붙은(릴리스) 빌드일 때만 게시 합니다. 
 - `eq(variables['Agent.OS'], 'Linux')` - 빌드가 여러 agent(Windows, Linux 등등)에서 실행 되는 경우에만 포함시킵니다. 그렇지 않은 경우 condition의 해당 부분을 제거 하십시오. 
 
 <!--

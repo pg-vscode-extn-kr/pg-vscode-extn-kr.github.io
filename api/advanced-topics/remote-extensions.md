@@ -272,7 +272,7 @@ VS Code가 SSH 호스트, 컨테이너 내부, WSL, 혹은 VS Online을 통해 �
 <!--
 Any time VS Code automatically installs an extension on an SSH host, inside a container or WSL, or through VS Online, the Marketplace version is used (and not the version already installed on your local machine). -->
 
-이는 일반적인 상황에서는 문제가 없지만, 아직 퍼블리시 되지 않은 버전의 익스텐션을 사용 (혹은 공유) 하여 디버깅 환경을 설치 하지 않고 테스트 하려 할 수 있습니다. 익스텐션의 퍼블리시 되지 않은 버전을 설치 하기 위해서는, 익스텐션을 `VSIX`로 패키징하고, 이미 실행중인 원격 환경에 연결된 VS Code 윈도우를 통해 수동으로 익스텐션을 설치 하십시오. 
+이는 일반적인 상황에서는 문제가 없지만, 아직 게시 되지 않은 버전의 익스텐션을 사용 (혹은 공유) 하여 디버깅 환경을 설치 하지 않고 테스트 하려 할 수 있습니다. 익스텐션의 게시 되지 않은 버전을 설치 하기 위해서는, 익스텐션을 `VSIX`로 패키징하고, 이미 실행중인 원격 환경에 연결된 VS Code 윈도우를 통해 수동으로 익스텐션을 설치 하십시오. 
 
 <!--
 While this makes sense in most situations, you may want to use (or share) an unpublished version of your extension for testing without having to set up a debugging environment. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.-->
@@ -281,7 +281,7 @@ While this makes sense in most situations, you may want to use (or share) an unp
 
 <!-- Follow these steps: -->
 
-1. 만약 퍼블리시된 익스텐션이라면, `settings.json`에 `"extensions.autoUpdate": false`를 추가하여 최신의 마켓플레이스 버전으로 자동 업데이트 하는것을 방지하십시오.
+1. 만약 게시된 익스텐션이라면, `settings.json`에 `"extensions.autoUpdate": false`를 추가하여 최신의 마켓플레이스 버전으로 자동 업데이트 하는것을 방지하십시오.
 2. 다음으로, `vsce package`를 사용하여 익스텐션을 VSIX로 패키징 하십시오. 
 3. [Visual Studio Online 환경](https://aka.ms/vso), [개발 컨테이너](/docs/remote/containers), [SSH 호스트](/docs/remote/ssh), 혹은 [WSL 환경](/docs/remote/wsl)에 연결 하십시오. 
 4. 익스텐션 뷰의 **More Actions** 메뉴 에 있는 **Install from VSIX...** 커맨드를 이용하여 익스텐션을 해당 창에 설치 하십시오 (로컬 아님).
@@ -374,7 +374,7 @@ You can also quickly **test** the effect of changing an extension's kind with th
 }
 ```
 
-`remote.extensionKind`를 사용하여 익스텐션의 퍼블리시된 버전을 `package.json`을 수정하고 재작성하지 않고 테스트 할 수 있습니다. 
+`remote.extensionKind`를 사용하여 익스텐션의 게시된 버전을 `package.json`을 수정하고 재작성하지 않고 테스트 할 수 있습니다. 
 
 <!--
 Using `remote.extensionKind` allows you to quickly test published versions of extensions without having to modify their `package.json` and rebuild them. -->
@@ -412,7 +412,7 @@ These APIs were added in VS Code 1.31. To start, update the `engines.vscode` val
 }
 ```
 
-이제 익스텐션을 퍼블리시 할 경우, VS Code 1.31 이상의 사용자만이 업데이트 된 버전을 사용 할 수 있습니다. 
+이제 익스텐션을 게시 할 경우, VS Code 1.31 이상의 사용자만이 업데이트 된 버전을 사용 할 수 있습니다. 
 
 <!--
 Now when you publish your extension, only users on VS Code 1.31 or newer will get the updated version. -->
@@ -518,7 +518,7 @@ This API was added in VS Code 1.30. To start, update the `engines.vscode` value 
 }
 ```
 
-이제 익스텐션을 퍼블리시 하면, VS Code 1.30 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+이제 익스텐션을 게시 하면, VS Code 1.30 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
 
 <!--
 Now when you publish your extension, only users on VS Code 1.30 or newer will get the updated version. -->
@@ -571,7 +571,7 @@ This API was added in VS Code 1.31. To start, update the `engines.vscode` value 
 }
 ```
 
-이제 익스텐션을 퍼블리시 하면, VS Code 1.31 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+이제 익스텐션을 게시 하면, VS Code 1.31 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
 <!--
 Now when you publish your extension, only users on VS Code 1.31 or newer will get the updated version. -->
 
@@ -622,7 +622,7 @@ While the [localhost forwarding mechanism in `vscode.env.openExternal` is useful
 }
 ```
 
-이제 익스텐션을 퍼블리시 하면, VS Code 1.31 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+이제 익스텐션을 게시 하면, VS Code 1.31 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
 <!--
 Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version. -->
 
@@ -682,7 +682,7 @@ The `vscode.env.asExternalUri` API was added in VS Code 1.40. To start, update t
 }
 ```
 
-이제 익스텐션을 퍼블리시 하면, VS Code 1.40 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+이제 익스텐션을 게시 하면, VS Code 1.40 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
 
 <!--
 Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version. -->
@@ -756,7 +756,7 @@ The `vscode.env.uiKind` API was added to VS Code 1.40 while `extension.extension
 }
 ```
 
-이제 익스텐션을 퍼블리시 하면, 해당하는 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+이제 익스텐션을 게시 하면, 해당하는 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
 <!--
 Now when you publish your extension, only users of this version of VS Code or newer will get the updated version. -->
 
@@ -862,7 +862,7 @@ To start, update the `engines.vscode` value in `package.json` to at least 1.39 a
 }
 ```
 
-이제 익스텐션을 퍼블리시 하면, VS Code 1.39 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+이제 익스텐션을 게시 하면, VS Code 1.39 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
 <!--
 Now when you publish your extension, only users on VS Code 1.39 or newer will get the updated version.-->
 
@@ -971,7 +971,7 @@ To start, update the `engines.vscode` value in `package.json` to at least 1.40 a
 }
 ```
 
-이제 익스텐션을 퍼블리시 하면, VS Code 1.40 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+이제 익스텐션을 게시 하면, VS Code 1.40 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
 <!--
 Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version. -->
 
@@ -1034,7 +1034,7 @@ The port mapping API was added in VS Code 1.34. To start, update the `engines.vs
 }
 ```
 
-이제 익스텐션을 퍼블리시 하면, VS Code 1.34 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
+이제 익스텐션을 게시 하면, VS Code 1.34 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
 <!--
 Now when you publish your extension, only users on VS Code 1.34 or newer will get the updated version. -->
 

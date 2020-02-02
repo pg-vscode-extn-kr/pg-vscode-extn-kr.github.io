@@ -597,12 +597,12 @@ A better approach for expensive debug extensions is to use more fine-grained act
 <!--
 **Rule of thumb:** If activation of a debug extensions is cheap, use `onDebug`. If it is expensive, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`. -->
 
-## 디버거 익스텐션 퍼블리싱
+## 디버거 익스텐션 게시
 
 <!--
 ## Publishing your debugger extension -->
 
-디버거 익스텐션을 생성한 이후에는 마켓플레이스에 퍼블리시 할 수 있습니다:
+디버거 익스텐션을 생성한 이후에는 마켓플레이스에 게시 할 수 있습니다:
 
 <!--
 Once you have created your debugger extension you can publish it to the Marketplace: -->
