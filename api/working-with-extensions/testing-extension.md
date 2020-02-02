@@ -76,7 +76,7 @@ code \
 --extensionTestsPath=<TEST-RUNNER-SCRIPT-PATH>
 ```
 
-**테스트 스크립트** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts))는 익스텐션 테스트 매개 변수와 함께 다운로드, 압축 해제, VS Code 실행을 간소화 하기 위해`vscode-test` API를 사용합니다:
+**테스트 스크립트** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts))는 익스텐션 테스트 매개 변수와 함께 다운로드, 압축 해제, VS Code 실행을 간소화 하기 위해 `vscode-test` API를 사용합니다:
 <!--
 The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts)) uses the `vscode-test` API to simplify the process of downloading, unzipping, and launching VS Code with extension test parameters:
 -->

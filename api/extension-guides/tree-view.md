@@ -60,7 +60,7 @@ To contribute a View Container, you should first register it using [`contributes
 <!--
 ## Tree View -->
 
-뷰는 뷰 컨테이너 내부에서 보여지는 UI 를 지칭합니다. [`contributes.views`](/api/references/contribution-points#contributes.views) Contribution Point 를 통해 여러분은 새로운 뷰를 빌트인 혹은 작성한 뷰 컨테이너에 더할 수 있습니다.
+뷰는 뷰 컨테이너 내부에서 보여지는 UI 를 지칭합니다. [`contributes.views`](/api/references/contribution-points#contributes.views) Contribution Point를 통해 여러분은 새로운 뷰를 빌트인 혹은 작성한 뷰 컨테이너에 더할 수 있습니다.
 
 <!--
 A view is an UI section that is shown inside the View Container. With the [`contributes.views`](/api/references/contribution-points#contributes.views) Contribution Point, you can add new views to the built-in or contributed View Containers. -->
