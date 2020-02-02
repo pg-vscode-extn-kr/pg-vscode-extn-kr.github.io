@@ -70,11 +70,17 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 16. Sample -> 예제
 17. Visual Studio Online -> Visual Studio Online
 18. VS Online -> VS Online
-19. local -> 로컬
-20. machine -> 머신
+19. Local -> 로컬
+20. Machine -> 머신
 21. API -> API
 22. Preview -> 프리뷰
-23. ...
+23. Host -> 호스트
+24. Environment -> 환경
+25. Note -> 주의, 유념
+26. Command -> 커맨드
+27. Array -> 어레이
+28. Object -> 오브젝트
+29. Clipboard -> 클립보드
 
 
 ## Progress
