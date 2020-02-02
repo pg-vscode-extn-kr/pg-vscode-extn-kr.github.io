@@ -11,7 +11,7 @@ description: ""
 # Wrapping Up
 -->
 
-[당신의 첫번째 익스텐션](/api/get-started/your-first-extension) 주제에서, 익스텐션을 어떻게 만들고, 실행하고, 디버그 하는지에 대해 배웠습니다. [익스텐션 구조](/api/get-started/extension-anatomy) 주제에서는, VS Code 익스텐션 개발의 근본적인 개념에 대해서 배웠습니다. 그러나, 우리가 본것은 빙산의 일각입니다. 이 글에서는 Visual Studio Code 익스텐션 개발 기술을 향상시키기 위한 길을 제안해 줄 것입니다.
+[당신의 첫번째 익스텐션](/api/get-started/your-first-extension) 주제에서, 익스텐션을 어떻게 만들고, 실행하고, 디버그 하는지에 대해 배웠습니다. [익스텐션 구조](/api/get-started/extension-anatomy) 주제에서는, VS Code 익스텐션 개발의 근본적인 개념에 대해서 배웠습니다. 그러나, 우리가 본 것은 빙산의 일각입니다. 이 글에서는 Visual Studio Code 익스텐션 개발 기술을 향상시키기 위한 길을 제안해 줄 것입니다.
 <!--
 In the [Your First Extension](/api/get-started/your-first-extension) topic, you learned how to create, run and debug an extension. In the [Extension Anatomy](/api/get-started/extension-anatomy) topic, you learned fundamental concepts to Visual Studio Code extension development. However, we have only seen the tip of the iceberg, and here are some suggested routes for furthering your VS Code extension development skills.
 -->
