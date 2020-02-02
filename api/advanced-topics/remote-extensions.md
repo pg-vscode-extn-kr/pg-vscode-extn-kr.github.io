@@ -188,65 +188,147 @@ The extension development host window that appears will include your extension r
 <!--
 ### Debugging using SSH -->
 
-Follow steps:
+다음을 따라 하십시오:
 
-1. After [installing and configuring the Remote - SSH extension](/docs/remote/ssh#_getting-started), select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) in VS Code to connect to a host.
+<!--
+Follow steps: -->
 
-2. Once connected, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it on the remote host.
+1. [원격 - SSH 익스텐션을 설치, 구성](/docs/remote/ssh#_getting-started) 한 이후에, VS Code의 Command Palette (`kbstyle(F1)`)에서 **Remote-SSH: Connect to Host...** 를 선택하여 호스트에 연결하십시오. 
+<!--
+1. After [installing and configuring the Remote - SSH extension](/docs/remote/ssh#_getting-started), select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) in VS Code to connect to a host.-->
 
-3. Install any required dependencies that might be missing (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
+2. 연결되고 나면, **File > Open... / Open Folder...** 중 하나를 사용하여 익스텐션 소스 코드가 포함된 원격 폴더를 선택하거나 Command Palette (`kbstyle(F1)`)에서 **Git: Clone**을 선택, 클론하여 원격 호스트에서 여십시오.
 
-4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside on the remote host and attach the debugger.
+<!--
+2. Once connected, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it on the remote host. -->
 
-    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else on the SSH host.
+3. 새 VS Code 터미널 창에서 설치되지 않은 의존성 패키지를 (예를 들어 `yarn install` 이나 `apt-get`을 이용하여) 설치 하십시오. 
 
-The extension development host window that appears will include your extension running on the SSH host with the debugger attached to it.
+<!--
+3. Install any required dependencies that might be missing (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).-->
 
-### Debugging using WSL
+4. 마지막으로, `kb(workbench.action.debug.start)`를 누르거나 **디버그 뷰**를 사용하여 원격 호스트에서 익스텐션을 시작하고 디버거를 연결 하십시오. 
 
-Follow these steps:
+<!--
+4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside on the remote host and attach the debugger. -->
 
-1. After [installing and configuring the Remote - WSL extension](/docs/remote/wsl), select **Remote-WSL: New Window** from the Command Palette (`kbstyle(F1)`) in VS Code.
+    > **주의:** 표시되는 창에서 익스텐션의 소스 코드 폴더를 열 수는 없지만, 환경의 하위 폴더나 다른 곳을 열 수 있습니다. 
 
-2. In the new window that appears, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it in WSL.
+    <!-- > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else on the SSH host.-->
 
-    > **Tip:** You can select the `/mnt/c` folder to access any cloned source code you have on the Windows side.
+나타나는 익스텐션 개발 호스트 창에는 디버거가 연결된 SSH 호스트에서 실행중인 익스텐션이 포함되어 있습니다. 
 
-3. Install any required dependencies that might be missing (for example using `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available.
+<!--
+The extension development host window that appears will include your extension running on the SSH host with the debugger attached to it.-->
 
-4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension and attach the debugger as you would locally.
+### WSL로 디버그
 
-    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in WSL.
+<!--
+### Debugging using WSL -->
 
-The extension development host window that appears will include your extension running in WSL with the debugger attached to it.
+다음을 따라 하십시오: 
+<!--
+Follow these steps: -->
 
-## Installing a development version of your extension
+1. [원격 - WSL 익스텐션 설치 및 구성](/docs/remote/wsl) 이후, VS Code의 Command Palette (`kbstyle(F1)`)에서 **Remote-WSL: New Window**를 선택하십시오. 
 
-Any time VS Code automatically installs an extension on an SSH host, inside a container or WSL, or through VS Online, the Marketplace version is used (and not the version already installed on your local machine).
+<!--
+1. After [installing and configuring the Remote - WSL extension](/docs/remote/wsl), select **Remote-WSL: New Window** from the Command Palette (`kbstyle(F1)`) in VS Code.-->
 
-While this makes sense in most situations, you may want to use (or share) an unpublished version of your extension for testing without having to set up a debugging environment. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.
+2. 나타나는 새 창에서, **File > Open... / Open Folder...** 를 사용하여 익스텐션 소스코드가 포함된 원격 폴더를 선택하거나, Command Palette (`kbstyle(F1)`)에서 **Git: Clone** 를 사용하여 클론한뒤 WSL에서 여십시오. 
 
-Follow these steps:
+<!--
+2. In the new window that appears, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it in WSL. -->
 
-1. If this is a published extension, you may want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest Marketplace version.
+    > **팁:** `/mnt/c` 폴더를 선택하여 윈도우쪽에서 클론된 소스코드에 액세스 할 수 있습니다. 
+
+    <!-- > **Tip:** You can select the `/mnt/c` folder to access any cloned source code you have on the Windows side. -->
+
+3. 새 VS Code 터미널 창(`kb(workbench.action.terminal.new)`)에서 필요한 의존성 패키지 (예로 `apt-get`을 사용하여) 를 설치하십시오. 리눅스 버전의 Node.js 의존성을 사용하기 위해 최소한 `yarn install`이나 `npm install`을 설치해야 할 것입니다.
+
+<!--
+3. Install any required dependencies that might be missing (for example using `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available. -->
+
+4. 마지막으로, `kb(workbench.action.debug.start)`를 누르거나 **디버그 뷰**를 사용하여, 익스텐션을 실행하고 디버거를 로컬에서와 같이 연결하십시오. 
+
+<!--
+4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. -->
+
+    > **주의:** 나타나는 창에서 익스텐션 소스 코드 폴더를 열 수는 없지만 하위 폴더나 다른 WSL의 다른 곳을 열 수 있습니다. 
+
+    <!-- > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in WSL. -->
+    
+나타나는 익스텐션 개발 호스트 창에는 디버거가 연결된 WSL에서 실행중인 익스텐션이 포함되어 있습니다.     
+<!--
+The extension development host window that appears will include your extension running in WSL with the debugger attached to it.-->
+
+## 익스텐션의 개발 버전 설치
+
+<!--
+## Installing a development version of your extension -->
+
+VS Code가 SSH 호스트, 컨테이너 내부, WSL, 혹은 VS Online을 통해 익스텐션을 자동으로 설치 할때마다, 마켓플레이스 버전이 사용 됩니다. (로컬 머신에 이미 설치된 버전 아님).
+
+<!--
+Any time VS Code automatically installs an extension on an SSH host, inside a container or WSL, or through VS Online, the Marketplace version is used (and not the version already installed on your local machine). -->
+
+이는 일반적인 상황에서는 문제가 없지만, 아직 퍼블리시 되지 않은 버전의 익스텐션을 사용 (혹은 공유) 하여 디버깅 환경을 설치 하지 않고 테스트 하려 할 수 있습니다. 익스텐션의 퍼블리시 되지 않은 버전을 설치 하기 위해서는, 익스텐션을 `VSIX`로 패키징하고, 이미 실행중인 원격 환경에 연결된 VS Code 윈도우를 통해 수동으로 익스텐션을 설치 하십시오. 
+
+<!--
+While this makes sense in most situations, you may want to use (or share) an unpublished version of your extension for testing without having to set up a debugging environment. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.-->
+
+다음을 따라 하십시오:
+
+<!-- Follow these steps: -->
+
+1. 만약 퍼블리시된 익스텐션이라면, `settings.json`에 `"extensions.autoUpdate": false`를 추가하여 최신의 마켓플레이스 버전으로 자동 업데이트 하는것을 방지하십시오.
+2. 다음으로, `vsce package`를 사용하여 익스텐션을 VSIX로 패키징 하십시오. 
+3. [Visual Studio Online 환경](https://aka.ms/vso), [개발 컨테이너](/docs/remote/containers), [SSH 호스트](/docs/remote/ssh), 혹은 [WSL 환경](/docs/remote/wsl)에 연결 하십시오. 
+4. 익스텐션 뷰의 **More Actions** 메뉴 에 있는 **Install from VSIX...** 커맨드를 이용하여 익스텐션을 해당 창에 설치 하십시오 (로컬 아님).
+5. 프롬프트가 표기되면 다시 로드 하십시오.
+
+
+<!--
+1. If this is a published extension, you may want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest Marketplace version. 
 2. Next, use `vsce package` to package your extension as a VSIX.
 3. Connect to a [Visual Studio Online environment](https://aka.ms/vso), [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
 4. Use the **Install from VSIX...** command available in the Extensions view **More Actions** (`...`) menu to install the extension in this specific window (not a local one).
-5. Reload when prompted.
+5. Reload when prompted. -->
 
-> **Tip:** Once installed, you can use the **Developer: Show Running Extensions** command to see whether VS Code is running the extension locally or remotely.
+> **팁:** 설치 된 이후, **Developer: Show Running Extensions** 커맨드를 사용하여 VS Code가 익스텐션을 로컬에서 실행하는지 혹은 원격에서 실행하는제 확인 할 수 있습니다. 
 
-## Common problems
+<!--
+> **Tip:** Once installed, you can use the **Developer: Show Running Extensions** command to see whether VS Code is running the extension locally or remotely. -->
 
-VS Code's APIs are designed to automatically run in the right location regardless of where your extension happens to be located. With this in mind, there are a few APIs that will help you avoid unexpected behaviors.
+## 일반적인 문제들
 
-### Incorrect execution location
+<!-- 
+## Common problems-->
 
-If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command from the Command Palette (`kbstyle(F1)`) to see where an extension is running.
+VS Code의 API는 익스텐션의 위치에 관계 없이 올바른 위치에서 자동으로 실행되게 디자인 되었습니다. 이를 염두하여, 예기치 않은 행동을 예방하는 몇가지 API가 있습니다.
 
-If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest):
+<!--
+VS Code's APIs are designed to automatically run in the right location regardless of where your extension happens to be located. With this in mind, there are a few APIs that will help you avoid unexpected behaviors. -->
 
-As of VS Code 1.40, this value is an array which means extensions can specify more than one kind. For example:
+### 잘못된 실행 위치
+
+<!--
+### Incorrect execution location -->
+
+익스텐션이 예상대로 작동하지 않는 경우, 이는 잘못된 위치에서 실행중일 수 있습니다. 일반적으로, 이는 익스텐션이 로컬에서 실행되게 기대했지만 원격으로 실행되는 경우 발생합니다. Command Palette (`kbstyle(F1)`)에서 **Developer: Show Running Extensions** 커맨드를 사용하여 익스텐션이 어디에서 실행되는지 확인 할 수 있습니다.
+
+<!--
+If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command from the Command Palette (`kbstyle(F1)`) to see where an extension is running. -->
+
+만약 **Developer: Show Running Extensions** 커맨드를 통해 UI 익스텐션을 작업공간 익스텐션으로 취급하거나, 그 반대의 경우를 확인 했을때 익스텐션의 [`package.json`](/api/get-started/extension-anatomy#extension-manifest)의 `extensionKind` 속성을 설정하십시오:
+
+<!--
+If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest): -->
+
+VS Code 1.40을 기준으로, 이 값은 여러 종류를 담을수 있는 어레이 형태 입니다. 예를 들면:
+
+<!--
+As of VS Code 1.40, this value is an array which means extensions can specify more than one kind. For example: -->
 
 ```json
 {
@@ -254,16 +336,34 @@ As of VS Code 1.40, this value is an array which means extensions can specify mo
 }
 ```
 
-**Note:** Prior releases allowed an extension to specify single location as a string and it is deprecated in favor of multiple location support (array).
+**주의:** 이전 릴리스에서는 익스텐션에서 하나의 위치를 문자열의 형태로 허용했지만, 다중 위치 (어레이)를 지원하기 위해 더 이상 사용 되지 않습니다. 
 
-Following combination of locations are supported:
+<!--
+**Note:** Prior releases allowed an extension to specify single location as a string and it is deprecated in favor of multiple location support (array). -->
 
+다음 위치들의 조합이 지원됩니다:
+
+<!--
+Following combination of locations are supported: -->
+
+
+- `"extensionKind": ["workspace"]` — 익스텐션이 작업공간 컨텐츠에 액세스를 요구하여, 원격 작업 공간에 연결된 VS Code Server나 VS Online에서 
+실행되는 지를 표기합니다. 대부분의 익스텐션이 이 범위에 속합니다. 
+- `"extensionKind": ["ui"]` — 익스텐션이 로컬 자산, 장치 또는 기능에 액세스 해야하므로 **반드시** UI 익스텐션으로 실행되어야 하는지를 표기합니다. 그러므로 VS Code의 로컬 익스텐션 호스트 에서만 실행 될수 있으며 VS Online의 브라우저 기반 에디터에서는 실행 되지 않습니다. (사용 가능한 로컬 익스텐션 호스트가 없음)
+- `"extensionKind": ["ui", "workspace"]` — 익스텐션이 UI 익스텐션으로 실행되 는것을 **선호** 하지만, 로컬 자원, 장치, 기능에 대한 높은 요구사항이 없습니다. VS Code를 사용할때, 익스텐션은 포콜에 존재한다면,  VS Code의 로컬 익스텐션 호스트에서 실행될 것이며 그 외의 경우 존재하는 VS Code의 작업공간 익스텐션 호스트에서 실행 될 것입니다. VS Online의 브라우저 기반 에디터를 사용할경우, 익스텐션은 항상 원격 익스텐션 호스트에서 실행 될것입니다 (사용가능한 로컬 익스텐션 호스트 없음). 이전의 `"ui"` 값 (문자열)이 이전 버전과의 호환성을 위해 이 유형에 매핑 되지만 더 이상 사용 되지 않는 것으로 간주 됩니다. 
+- `"extensionKind": ["workspace", "ui"]` — 익스텐션이 작업공간 익스텐션으로 실행 되는것을 **선호** 하지만, 작업공간 컨텐츠에 대한 높은 요구상항이 없습니다. VS Code를 사용할때 만약 원격 작업공간에 존재한다면 익스텐션은 VS Code의 작업공간 익스텐션 호스트에서 실행 될것이며, 그 외의 경우 로컬에 존재 한다면,  VS Code의 로컬 익스텐션 호스트 에서 실행될 것입니다. VS Online의 브라우저 기반 에디터를 사용할때, 익스텐션은 항상 원격 익스텐션 호스트에서 실행 될 것입니다. (사용가능한 로컬 익스텐션 호스트 없음)
+
+<!--
 - `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore will run in VS Code Server when connected to a remote workspace or VS Online. Most extensions fall into this category.
 - `"extensionKind": ["ui"]` — Indicates the extension **must** run as a UI extension because it requires access to local assets, devices, or capabilities. Therefore, it can only run in VS Code's local extension host and will not work in VS Online's browser-based editor (as there is no local extension host available).
 - `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host if it exists locally, otherwise will run in VS Code's workspace extension host if it exists there. When using VS Online's browser-based editor, it will run in the remote extension host always (as no local extension host is available). The old  `"ui"`  value (as a string) maps to this type for backwards compatibility, but is considered deprecated.
 - `"extensionKind": ["workspace", "ui"]` — Indicates the extension **prefers** to run as a workspace extension, but does not have any hard requirements on accessing workspace contents. When using VS Code, the extension will run in VS Code's workspace extension host if it exists in remote workspace, otherwise will run in VS Code's local extension host if it exists locally. When using VS Online's browser-based editor, it will run in the remote extension host always (as no local extension host is available).
+-->
 
-You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you wish to force the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to be a workspace extension (instead of its UI default), you would set:
+`remote.extensionKind` [설정](/docs/getstarted/settings)을 사용하여 익스텐션의 종류 변경의 효과를 빠르게 확인 할 수 있습니다. 이 설정은 익스텐션의 ID를 익스텐션 종류에 매핑하는 것입니다. 예를 들어, 만약 [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)익스텐션을 UI 익스텐션으로 설정하고자 할 경우 (기본값인 작업공간 익스텐션 대신)나 [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) 익스텐션을 작업공간 익스텐션으로 설정하려는 경우( 기본값인 UI 익스텐션 대신), 다음과 같이 설정 하십시오:
+
+<!--
+You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you wish to force the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to be a workspace extension (instead of its UI default), you would set: -->
 
 ```json
 {
@@ -274,17 +374,35 @@ You can also quickly **test** the effect of changing an extension's kind with th
 }
 ```
 
-Using `remote.extensionKind` allows you to quickly test published versions of extensions without having to modify their `package.json` and rebuild them.
+`remote.extensionKind`를 사용하여 익스텐션의 퍼블리시된 버전을 `package.json`을 수정하고 재작성하지 않고 테스트 할 수 있습니다. 
 
-### Persisting extension data or state
+<!--
+Using `remote.extensionKind` allows you to quickly test published versions of extensions without having to modify their `package.json` and rebuild them. -->
 
-In some cases, your extension may need to persist state information that does not belong in `settings.json` or a separate workspace configuration file (for example `.eslintrc`). To solve this problem, VS Code provides a set of helpful storage properties on the `vscode.ExtensionContext` object passed to your extension during activation. If your extension already takes advantage of these properties, it should continue to function regardless of where it runs.
+### 익스텐션의 데이터와 상태 유지
 
-However, if your extension relies on current VS Code pathing conventions (for example `~/.vscode`) or the presence of certain OS folders (for example `~/.config/Code` on Linux) to persist data, you may run into problems. Fortunately, it should be simple to update your extension and avoid these challenges.
+<!--
+### Persisting extension data or state -->
 
-If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStoragePath` and `storagePath` properties provide "safe" paths that you can use to read/write global workspace-specific information in a file.
+경우에 따라 익스텐션은 `settings.json`에 포함되지 않거나 분리된 작업공간 구성 파일에 (예로 `.eslintrc`) 속하지 않은 상태 정보를 유지 해야 할 수도 있습니다. 이를 해결하기 위해, VS Code는 활성화 중인 익스텐션에 전달된 `vscode.ExtensionContext` 오브젝트에 유용한 저장 속성 세트를 제공합니다. 
 
-These APIs were added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+<!--
+In some cases, your extension may need to persist state information that does not belong in `settings.json` or a separate workspace configuration file (for example `.eslintrc`). To solve this problem, VS Code provides a set of helpful storage properties on the `vscode.ExtensionContext` object passed to your extension during activation. If your extension already takes advantage of these properties, it should continue to function regardless of where it runs. -->
+
+그러나, 익스텐션이 현재 VS Code의 경로 지정 규칙 (예로, `~/.vscode`)이나 특정 OS 폴더 (예로 리눅스의 `~./config/Code`)에 의존하여 데이터를 유지 하는 경우, 문제가 발생 할 수 있습니다. 다행히 익스텐션을 업데이트 하여 이런 문제를 해결하는 것은 간단합니다. 
+
+<!--
+However, if your extension relies on current VS Code pathing conventions (for example `~/.vscode`) or the presence of certain OS folders (for example `~/.config/Code` on Linux) to persist data, you may run into problems. Fortunately, it should be simple to update your extension and avoid these challenges. -->
+
+단순한 key-value 쌍을 유지하는 경우, 각각 `vscode.ExtensionContext.workspaceState` 과 `vscode.ExtensionContext.globalState`를 사용하여 작업공간의 특정 혹은 전체 상태 정보를 저장 할 수 있습니다. 데이터가 이보다 Key-value 쌍보다 복잡한 경우, `globalStoragePath` 와 `storagePath` 속성은 파일에서 전역 작업공간에서 특정 정보를 읽고 쓰는데 사용 할 수 있는 "안전한" 경로를 제공합니다. 
+
+<!--
+If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStoragePath` and `storagePath` properties provide "safe" paths that you can use to read/write global workspace-specific information in a file.-->
+
+이러한 API는 VS Code 1.31 에서 추가 되었습니다. 시작하기 위해, `package.json`의 `engines.vscode`값을 이 버전 이상으로 업데이트 한 뒤, [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) 가 설치 되어 있는지 확인 하십시오:
+
+<!--
+These APIs were added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed: -->
 
 ```json
 {
@@ -294,9 +412,14 @@ These APIs were added in VS Code 1.31. To start, update the `engines.vscode` val
 }
 ```
 
-Now when you publish your extension, only users on VS Code 1.31 or newer will get the updated version.
+이제 익스텐션을 퍼블리시 할 경우, VS Code 1.31 이상의 사용자만이 업데이트 된 버전을 사용 할 수 있습니다. 
 
-To use the APIs:
+<!--
+Now when you publish your extension, only users on VS Code 1.31 or newer will get the updated version. -->
+
+API를 사용하기 위해서:
+
+<!-- To use the APIs:-->
 
 ```TypeScript
 import * as vscode from 'vscode';
@@ -334,13 +457,24 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-### Persisting secrets
+### 기밀사항 유지
 
-If your extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a `libsecret`-based keyring on Linux, or a browser-based equivalent) rather than the one on the remote machine environment. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container.
+<!-- ### Persisting secrets -->
 
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in a Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
+익스텐션이 패스워드나 다른 기밀 사항을 유지해야 하는 경우, 원격 머신의 환경이 아닌 로컬 운영체제의 비밀 저장소 (Windows Cert Store, macOS KeyChain, Linux의 `libsecret`기반 keyring, 혹은 브라우저 기반의 동등한 것)를 사용하는 것도 고려할 수 있습니다. 추가로, Linux에서는 `libsecret`과 `gnome-keyring` 익스텐션을 사용하여 기밀 사항을 저장 할 수 있으며, 이는 일반적으로 서버 배포판이나 컨테이너에서 잘 작동하지 않습니다.  
 
-For example:
+<!--
+If your extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a `libsecret`-based keyring on Linux, or a browser-based equivalent) rather than the one on the remote machine environment. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container. -->
+
+Visual Studio Code는 비밀 유지 메커니즘을 자체 제공 하지 않지만, 많은 익스텐션 작성자는 이 목적으로 [`keytar` node module](https://www.npmjs.com/package/keytar)를 사용하도록 선택 했습니다. 이러한 이유로, VS Code는 `keytar`를 포함하며 작업공간 익스텐션에서 참조한 경우, **자동으로, 투명하게** 로컬에서 실행됩니다. 이렇게 하면 로컬 OS / keychain / keyring / cert store 의 장점을 활용하면서 위의 문제를 피할 수 있습니다.
+
+<!--
+Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in a Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.-->
+
+예를 들어: 
+
+<!--
+For example: -->
 
 ```typescript
 import * as vscode from 'vscode';
@@ -363,11 +497,20 @@ await keytar.setPassword('my-service-name','my-account','iamal337d00d');
 const password = await keytar.getPassword('my-service-name','my-account');
 ```
 
-### Using the clipboard
+### 클립보드 사용
 
-Historically, extension authors have used Node.js modules such as `clipboardy` to interact with the clipboard. Unfortunately, if you use these modules in a Workspace Extension, they will use the remote clipboard instead of the user's local one. The VS Code clipboard API solves this problem. It is always run locally, regardless of the type of extension that calls it.
+<!--
+### Using the clipboard -->
 
-This API was added in VS Code 1.30. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+역사적으로, 익스텐션 작성자는 클립보드와 상호 작용 하기 위해 `clipboardy` 같은 Node.js 모듈을 사용 했습니다. 불행하게도, 이러한 모듈을 작업공간 익스텐션에서 사용 할 경우, 사용자의 로컬 클립보드가 아닌 원격 클립보드를 사용 할 것입니다. VS Code 클립보드 API는 이러한 문제를 해결 합니다. 이는 호출 하는 익스텐션의 유형에 관계 없이 항상 로컬에서 실행 됩니다.
+
+<!--
+Historically, extension authors have used Node.js modules such as `clipboardy` to interact with the clipboard. Unfortunately, if you use these modules in a Workspace Extension, they will use the remote clipboard instead of the user's local one. The VS Code clipboard API solves this problem. It is always run locally, regardless of the type of extension that calls it. -->
+
+이 API는 VS Code 1.30에서 추가 되었습니다. 시작하기 위해 `package.json`의 `engines.vscode`값을 이 버전 이상으로 업데이트 한 다음, [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest)가 설치 되어 있는지 확인하십시오: 
+
+<!--
+This API was added in VS Code 1.30. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed: -->
 
 ```json
 "engines": {
@@ -375,9 +518,14 @@ This API was added in VS Code 1.30. To start, update the `engines.vscode` value 
 }
 ```
 
-Now when you publish your extension, only users on VS Code 1.30 or newer will get the updated version.
+이제 익스텐션을 퍼블리시 하면, VS Code 1.30 이상의 버전을 사용하는 사용자만 업데이트 된 버전을 사용 할 수 있습니다. 
 
-To use the VS Code clipboard API in an extension:
+<!--
+Now when you publish your extension, only users on VS Code 1.30 or newer will get the updated version. -->
+
+익스텐션에서 VS Code 클립보드 API를 이용하려면:
+<!--
+To use the VS Code clipboard API in an extension: -->
 
 ```typescript
 import * as vscode from 'vscode';
