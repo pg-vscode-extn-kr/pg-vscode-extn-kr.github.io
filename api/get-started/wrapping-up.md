@@ -41,7 +41,7 @@ This section includes topics that help you develop high-quality VS Code extensio
 ## Extension Capabilities
 -->
 
-이 섹션에선, [VS Code API](/api/references/vscode-api) 와 [기여 포인트](/api/references/contribution-points) 를 이용해, 당신이 익스텐션으로 만들 수 있는 것들에 대한 간단한 설명이 있습니다. VS Code API로 익스텐션 아이디어가 달성 가능한지 확인하고, 새로운 익스텐션 아이디어를 찾아 보세요.
+이 섹션에선, [VS Code API](/api/references/vscode-api) 와 [기여 포인트](/api/references/contribution-points) 를 이용해, 당신이 익스텐션으로 만들 수 있는 것들에 대한 간단한 설명이 있습니다. VS Code API로 익스텐션 아이디어가 실현 가능한지 확인하고, 새로운 익스텐션 아이디어를 찾아 보세요.
 
 <!--
 In this section, we split the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points) into a few categories, each with short descriptions as to what your extension could achieve. Validate that your extension idea is achievable with VS Code API or look for new extension ideas here.
