@@ -21,7 +21,7 @@ Visual Studio Code supports running and debugging tests for your extension. Thes
 ## Overview
 -->
 
-_만약  당신이 `vscode`로부터 마이그레이션 했다면, [`vscode`로부터 마이그레이션 하기]를 먼저 보세요(#migrating-from-vscode)_.
+_만약  당신이 `vscode`로부터 마이그레이션 했다면, [`vscode`로부터 마이그레이션 하기](#migrating-from-vscode)를 먼저 보세요.
 
 만약 당신이 [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension)를 이용해 익스텐션을 스캐폴딩 했다면, 통합 테스트는 이미 당신을 위해 만들어져 있을 것입니다.
 

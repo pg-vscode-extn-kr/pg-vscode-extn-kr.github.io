@@ -1100,7 +1100,7 @@ If your extension is purely written in JavaScript/TypeScript, you may not need t
 <!--
 However, if your extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (for example ARMv7l) or Alpine Linux containers, the extension may include x86_64 `glibc` specific native code or runtimes that will fail on these architectures/operating systems.-->
 
-예를 들어, 익스텐션은 네이티브 모듈 혹은 런타임의 x86_64 컴파일 버전만 포함 할 수 있습니다. Alpine Linux의 경우 포함된 네이티브 코드 또는 런타임이  `libc`가 Alpine Linux (`musl`)과 다른 배포판에서 (`glibc`) 구현된 [기본적 차이]https://wiki.musl-libc.org/functional-differences-from-glibc.html)에 따라 작동 하지 않을 수 있습니다. 
+예를 들어, 익스텐션은 네이티브 모듈 혹은 런타임의 x86_64 컴파일 버전만 포함 할 수 있습니다. Alpine Linux의 경우 포함된 네이티브 코드 또는 런타임이  `libc`가 Alpine Linux (`musl`)과 다른 배포판에서 (`glibc`) 구현된 [기본적 차이](https://wiki.musl-libc.org/functional-differences-from-glibc.html)에 따라 작동 하지 않을 수 있습니다. 
 
 <!--
 For example, your extension may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).-->

@@ -10,7 +10,7 @@ description: ""
 <!-- 
 # Tree View Guide -->
 
-이번 가이드에서는 Visual Studio Code에 뷰 컨테이너와 트리 뷰를 사용하는 익스텐션을 작성하는 방법을 설명할 것입니다. 여러분은 소스 코드를 포함한 예시 익스텐션을 여기서 확인 할 수 있습니다 : https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample.
+이번 가이드에서는 Visual Studio Code에 뷰 컨테이너와 트리 뷰를 사용하는 익스텐션을 작성하는 방법을 설명할 것입니다. 여러분은 소스 코드를 포함한 예시 익스텐션을 여기서 확인 할 수 있습니다 : [https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
 
 <!-- This guide teaches you how to write an extension that contributes view containers and tree views to Visual Studio Code. You can find a sample extension with source code at: https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample. -->
 
