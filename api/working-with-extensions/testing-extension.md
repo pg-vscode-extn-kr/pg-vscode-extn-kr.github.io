@@ -249,6 +249,7 @@ export function run(): Promise<void> {
 테스트 실행 스크립트와 `*.test.js`파일들은 모두 VS Code API에 접근할 수 있습니다.
 
 여기에 실행 예제가 있습니다. ([src/test/suite/extension.test.ts](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/extension.test.ts)):
+
 <!--
 Both the test runner script and the `*.test.js` files have access to the VS Code API.
 

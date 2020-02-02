@@ -27,6 +27,7 @@ Think of a webview as an `iframe` within VS Code that your extension controls. A
 ## Links-->
 
 - [웹 뷰 예제](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md)
+
 <!--
 - [Webview Sample](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md) -->
 
@@ -497,6 +498,7 @@ function updateWebviewForCat(panel: vscode.WebviewPanel, catName: keyof typeof c
 ![Responding to onDidChangeViewState events](images/webview/basics-ondidchangeviewstate.gif)
 
 웹 뷰 검토 및 디버그
+
 <!-- 
 ### Inspecting and debugging webviews-->
 
