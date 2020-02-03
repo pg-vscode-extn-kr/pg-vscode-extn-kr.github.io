@@ -10,12 +10,12 @@ description: ""
 <!--
 # Using Proposed API -->
 
-Visual Studio Code에서는, 익스텐션 API의 호환성을 중요하게 생각합니다. API 변경을 피하기 위해 최선을 다하고 있으며 익스텐션 작성자는 퍼블리시된 익스텐션이 지속적인 작동을 기대 할 수 있습니다. 그러나 이는 큰 제약이 됩니다: API를 도입하면 더이상 쉽게 변경 할 수 없습니다. 
+Visual Studio Code에서는, 익스텐션 API의 호환성을 중요하게 생각합니다. API 변경을 피하기 위해 최선을 다하고 있으며 익스텐션 작성자는 게시된 익스텐션이 지속적인 작동을 기대 할 수 있습니다. 그러나 이는 큰 제약이 됩니다: API를 도입하면 더이상 쉽게 변경 할 수 없습니다. 
 
 <!--
 At Visual Studio Code, we take Extension API compatibility seriously. We give our best effort to avoid breaking API changes, and extension authors could expect published extensions to continue to work. However, this puts great limitation on us: once we introduce an API, we cannot easily change it any more.-->
 
-제안된 API는 이러한 문제를 해결 합니다. 제안된 API는 VS Code에서 구현되었지만 안정적인 API처럼 퍼블릭에 노출되지않은 불안정한 API들입니다. 이는 **변경 될 수 있으며**, **내부 배포에서만 가능하며** 그리고 **퍼블리시된 익스텐션에서는 사용불가**합니다. 그럼에도 불구하고 익스텐션 작성자는 새로운 API를 로컬 개발에서 테스트 할 수 있으며 VS Code 팀에게 API를 반복하도록 피드백을 제공 할 수 있습니다. 이를 통해 제안된 API는 안정된 API가 되어 일반적인 경우에도 사용 가능 할 수 있게 됩니다. 
+제안된 API는 이러한 문제를 해결 합니다. 제안된 API는 VS Code에서 구현되었지만 안정적인 API처럼 퍼블릭에 노출되지않은 불안정한 API들입니다. 이는 **변경 될 수 있으며**, **내부 배포에서만 가능하며** 그리고 **게시된 익스텐션에서는 사용불가**합니다. 그럼에도 불구하고 익스텐션 작성자는 새로운 API를 로컬 개발에서 테스트 할 수 있으며 VS Code 팀에게 API를 반복하도록 피드백을 제공 할 수 있습니다. 이를 통해 제안된 API는 안정된 API가 되어 일반적인 경우에도 사용 가능 할 수 있게 됩니다. 
 
 <!--
 Proposed API solves the problem for us. Proposed API is a set of unstable API that are implemented in VS Code but not exposed to the public as stable API does. They are **subject to change**, **only available in Insider distribution** and **cannot be used in published extensions**. Nevertheless, extension authors could test these new API in local development and provide feedback for VS Code team to iterate on the API. Eventually, Proposed API finds their way into the stable API and becomes available for general use. -->

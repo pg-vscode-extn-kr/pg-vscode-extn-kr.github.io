@@ -27,7 +27,7 @@ This section includes topics that help you develop high-quality VS Code extensio
 -->
 
 - 어떻게 만든 익스텐션을 [통합 테스트](/api/working-with-extensions/testing-extension) 하는지
-- 어떻게 VS Code [Marketplace](https://marketplace.visualstudio.com/) 를 통해 [익스텐션을 퍼블리싱](/api/working-with-extensions/publishing-extension) 하는지 
+- 어떻게 VS Code [Marketplace](https://marketplace.visualstudio.com/) 를 통해 [익스텐션을 게시](/api/working-with-extensions/publishing-extension) 하는지 
 - 어떻게 익스텐션을 [지속적 통합(CI)](/api/working-with-extensions/continuous-integration) 할 수 있는지
 
 <!--

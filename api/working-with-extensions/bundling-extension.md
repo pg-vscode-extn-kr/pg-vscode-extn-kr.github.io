@@ -142,7 +142,7 @@ With the `webpack.config.js` file created, webpack can be invoked. You can run w
     "test-compile": "tsc -p ./"
 },
 ```
-`webpack`과 `webpack-dev` 스크립트는 번들파일을 개발, 생성하는데 사용됩니다. `vsce`에서 사용되는 `vscode:prepublish`는 VS Code를 패키징, 퍼블리싱 하는 툴이며 익스텐션을 퍼블리시 하기 전에 실행됩니다. 둘의 차이는 최적화의 정도를 조절하는 [mode](https://webpack.js.org/concepts/mode/)입니다. `mode`에 `production`을 사용하면 번들은 작지만 시간이 오래걸리며, 반대로 `development`를 사용 할 수 있습니다. 위의 스크립트를 실행하기 위해서 터미널을 열고, `npmrun webpack` 혹은 Command Pallette에서 (`kb(workbench.action.showCommands)`) **Tasks: Run Task** 를 선택하십시오.
+`webpack`과 `webpack-dev` 스크립트는 번들파일을 개발, 생성하는데 사용됩니다. `vsce`에서 사용되는 `vscode:prepublish`는 VS Code를 패키징, 게시하는 툴이며 익스텐션을 게시 하기 전에 실행됩니다. 둘의 차이는 최적화의 정도를 조절하는 [mode](https://webpack.js.org/concepts/mode/)입니다. `mode`에 `production`을 사용하면 번들은 작지만 시간이 오래걸리며, 반대로 `development`를 사용 할 수 있습니다. 위의 스크립트를 실행하기 위해서 터미널을 열고, `npmrun webpack` 혹은 Command Pallette에서 (`kb(workbench.action.showCommands)`) **Tasks: Run Task** 를 선택하십시오.
 
 <!--
 The `webpack` and `webpack-dev` scripts are for development and they produce the bundle file. The `vscode:prepublish` is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. The difference is in the [mode](https://webpack.js.org/concepts/mode/) and that controls the level of optimization. Using `production` yields the smallest bundle but also takes longer, so else `development` is used. To run above scripts, open a terminal and type `npm run webpack` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`). -->
@@ -187,11 +187,11 @@ Extension authors often write unit tests for their extension source code. With t
 
 <!-- This configuration for running tests is the same for non-webpacked extensions. There is no reason to webpack unit tests because they are not part of the published portion of an extension. -->
 
-## 퍼블리싱
+## 게시
 
 <!-- ## Publishing -->
 
-퍼블리싱 하기 이전에, 여러분은 `.vscodeignore`파일을 업데이트 해야 합니다. `dist/extension.js`에 번들된 모든 파일이 배제되어야 하며, `out`폴더와 (아직 삭제 하지 않은 경우) 가장 중요한 `node_module`폴더를 배제하십시오. 
+게시하기 이전에, 여러분은 `.vscodeignore`파일을 업데이트 해야 합니다. `dist/extension.js`에 번들된 모든 파일이 배제되어야 하며, `out`폴더와 (아직 삭제 하지 않은 경우) 가장 중요한 `node_module`폴더를 배제하십시오. 
 
 <!-- Before publishing, you should update the `.vscodeignore` file. Everything that's now bundled into the `dist/extension.js` file can be excluded, usually the `out` folder (in case you didn't delete it yet) and most importantly, the `node_modules` folder. -->
 

@@ -174,12 +174,12 @@ There, open the Color Theme picker with **File** > **Preferences** > **Color The
 <!-- 
 Changes to the theme file are applied live in the `Extension Development Host` window.-->
 
-## 익스텐션 마켓플레이스에 테마 퍼블리시
+## 익스텐션 마켓플레이스에 테마 게시하기
 
 <!-- 
 ## Publishing a Theme to the Extension Marketplace -->
 
-여러분의 새 테마를 커뮤니티에 공유 하길 원한다면, [Extension Marketplace](/docs/editor/extension-gallery)에 퍼블리시 할 수 있습니다. [vsce publishing tool](/api/working-with-extensions/publishing-extension)를 사용하여 테마를 패키징 하고 VS Code 마켓플레이스에 퍼블리싱 하십시오. 
+여러분의 새 테마를 커뮤니티에 공유 하길 원한다면, [Extension Marketplace](/docs/editor/extension-gallery)에 게시 할 수 있습니다. [vsce publishing tool](/api/working-with-extensions/publishing-extension)를 사용하여 테마를 패키징 하고 VS Code 마켓플레이스에 게시하십시오. 
 
 <!-- 
 If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery). Use the [vsce publishing tool](/api/working-with-extensions/publishing-extension) to package your theme and publish it to the VS Code Marketplace. -->
