@@ -21,7 +21,7 @@ Visual Studio Code supports running and debugging tests for your extension. Thes
 ## Overview
 -->
 
-_만약  당신이 `vscode`로부터 마이그레이션 했다면, [`vscode`로부터 마이그레이션 하기]를 먼저 보세요(#migrating-from-vscode)_.
+_만약  당신이 `vscode`로부터 마이그레이션 했다면, [`vscode`로부터 마이그레이션 하기](#migrating-from-vscode)를 먼저 보세요.
 
 만약 당신이 [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension)를 이용해 익스텐션을 스캐폴딩 했다면, 통합 테스트는 이미 당신을 위해 만들어져 있을 것입니다.
 
@@ -76,7 +76,7 @@ code \
 --extensionTestsPath=<TEST-RUNNER-SCRIPT-PATH>
 ```
 
-**테스트 스크립트** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts))는 익스텐션 테스트 매개 변수와 함께 다운로드, 압축 해제, VS Code 실행을 간소화 하기 위해`vscode-test` API를 사용합니다:
+**테스트 스크립트** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts))는 익스텐션 테스트 매개 변수와 함께 다운로드, 압축 해제, VS Code 실행을 간소화 하기 위해 `vscode-test` API를 사용합니다:
 <!--
 The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts)) uses the `vscode-test` API to simplify the process of downloading, unzipping, and launching VS Code with extension test parameters:
 -->
@@ -249,6 +249,7 @@ export function run(): Promise<void> {
 테스트 실행 스크립트와 `*.test.js`파일들은 모두 VS Code API에 접근할 수 있습니다.
 
 여기에 실행 예제가 있습니다. ([src/test/suite/extension.test.ts](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/extension.test.ts)):
+
 <!--
 Both the test runner script and the `*.test.js` files have access to the VS Code API.
 

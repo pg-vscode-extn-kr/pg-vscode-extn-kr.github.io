@@ -402,6 +402,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 > **기본**
 >
 > 시그니쳐 도움말에 함수 혹은 메소드에 파라미터에 관한 문서가 포함되어있는지 확인하십시오. 
+
 <!--
 > **Basic**
 >
@@ -449,6 +450,7 @@ In the response to the `initialize` method, your language server needs to announ
 ```
 
 추가로, 언어 서버는 `textDocument/definition` 요청에 응답하여야 합니다. 
+
 <!--
 In addition, your language server needs to respond to the `textDocument/definition` request. -->
 
@@ -635,6 +637,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 > **고급**
 >
 > 추가 될 것이 없습니다. 
+
 <!--
 > **Basic**
 >

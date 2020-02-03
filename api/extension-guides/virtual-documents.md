@@ -10,7 +10,7 @@ description: ""
 
 <!--# Virtual Documents -->
 
-텍스트 문서 컨텐츠 제공 API는 여러분이 읽기 전용 문서를 임의의 소스로부터 Visual Studio Code를 통해 생성 할 수 있게 합니다. 소스코드가 제공된 예시 익스텐션을 여기서 확인하십시오: https://github.com/Microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md
+텍스트 문서 컨텐츠 제공 API는 여러분이 읽기 전용 문서를 임의의 소스로부터 Visual Studio Code를 통해 생성 할 수 있게 합니다. 소스코드가 제공된 예시 익스텐션을 여기서 확인하십시오: [https://github.com/Microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md](https://github.com/Microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md)
 
 <!--
 The text document content provider API allows you to create readonly documents in Visual Studio Code from arbitrary sources. You can find a sample extension with source code at: https://github.com/Microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md-->
@@ -104,7 +104,7 @@ const myProvider = class implements vscode.TextDocumentContentProvider {
 <!--
 The event emitter has a `fire` method which is can be used to notify VS Code when a change has happened in a document. The document which has changed is identified by its uri given as argument to the `fire` method. The provider will then be called again to provide the updated content, assuming the document is still open. -->
 
-이것이 VS Code 가 가상 문서에서 변경을 감지하기위해 필요한 전부 입니다. 이 기능을 사용한 더 복잡한 예시를 이곳에서 참조하십시오 : https://github.com/Microsoft/vscode-extension-samples/blob/master/contentprovider-sample/README.md
+이것이 VS Code 가 가상 문서에서 변경을 감지하기위해 필요한 전부 입니다. 이 기능을 사용한 더 복잡한 예시를 이곳에서 참조하십시오 : [https://github.com/Microsoft/vscode-extension-samples/blob/master/contentprovider-sample/README.md](https://github.com/Microsoft/vscode-extension-samples/blob/master/contentprovider-sample/README.md)
 
 <!--
 That's all what's needed to make VS Code listen for changes of virtual document. To see a more complex example making use of this feature, look at: https://github.com/Microsoft/vscode-extension-samples/blob/master/contentprovider-sample/README.md -->

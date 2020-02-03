@@ -10,7 +10,7 @@ description: ""
 <!-- 
 # Tree View Guide -->
 
-이번 가이드에서는 Visual Studio Code에 뷰 컨테이너와 트리 뷰를 사용하는 익스텐션을 작성하는 방법을 설명할 것입니다. 여러분은 소스 코드를 포함한 예시 익스텐션을 여기서 확인 할 수 있습니다 : https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample.
+이번 가이드에서는 Visual Studio Code에 뷰 컨테이너와 트리 뷰를 사용하는 익스텐션을 작성하는 방법을 설명할 것입니다. 여러분은 소스 코드를 포함한 예시 익스텐션을 여기서 확인 할 수 있습니다 : [https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
 
 <!-- This guide teaches you how to write an extension that contributes view containers and tree views to Visual Studio Code. You can find a sample extension with source code at: https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample. -->
 
@@ -60,7 +60,7 @@ To contribute a View Container, you should first register it using [`contributes
 <!--
 ## Tree View -->
 
-뷰는 뷰 컨테이너 내부에서 보여지는 UI 를 지칭합니다. [`contributes.views`](/api/references/contribution-points#contributes.views) Contribution Point 를 통해 여러분은 새로운 뷰를 빌트인 혹은 작성한 뷰 컨테이너에 더할 수 있습니다.
+뷰는 뷰 컨테이너 내부에서 보여지는 UI 를 지칭합니다. [`contributes.views`](/api/references/contribution-points#contributes.views) Contribution Point를 통해 여러분은 새로운 뷰를 빌트인 혹은 작성한 뷰 컨테이너에 더할 수 있습니다.
 
 <!--
 A view is an UI section that is shown inside the View Container. With the [`contributes.views`](/api/references/contribution-points#contributes.views) Contribution Point, you can add new views to the built-in or contributed View Containers. -->
