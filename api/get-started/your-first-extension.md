@@ -60,7 +60,7 @@ Run the `Hello World` command from the Command Palette (`kb(workbench.action.sho
 -->
 
 <video autoplay loop muted playsinline controls title="Launch your first VS Code extension video">
-  <source src="/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
+  <source src="https://code.visualstudio.com/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
 </video>
 
 `Hello World` 알림이 뜨는걸 볼 수 있습니다. 성공했습니다 !
@@ -98,7 +98,7 @@ You should see the updated message showing up.
 -->
 
 <video autoplay loop muted playsinline controls title="Reload VS Code extension video">
-  <source src="/api/get-started/your-first-extension/reload.mp4" type="video/mp4">
+  <source src="https://code.visualstudio.com/api/get-started/your-first-extension/reload.mp4" type="video/mp4">
 </video>
 
 여기 몇 가지 시도 해볼만한 아이디어가 있습니다:
@@ -129,7 +129,7 @@ VS Code's built-in debugging functionality makes it easy to debug extensions. Se
 -->
 
 <video autoplay loop muted playsinline controls title="Debug VS Code extension video">
-  <source src="/api/get-started/your-first-extension/debug.mp4" type="video/mp4">
+  <source src="https://code.visualstudio.com/api/get-started/your-first-extension/debug.mp4" type="video/mp4">
 </video>
 
 VS Code 에서 Node.js 앱 디버깅하는걸 [Node.js Debugging Topic](/docs/nodejs/nodejs-debugging)에서 더 알아볼 수 있습니다.
