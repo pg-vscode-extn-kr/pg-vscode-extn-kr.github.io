@@ -88,7 +88,7 @@ Finally, [create a new pipeline](https://docs.microsoft.com/azure/devops/pipelin
 
 ![pipelines](images/continuous-integration/pipelines.png)
 
-여러분은 브런치에 푸시하거나, 풀 리퀘스트의 경우에도 빌드가 계속 진행되게할 수 있습니다. 더 많은 정보를 위해 [파이프라인 트리거 생성](https://docs.microsoft.com/azure/devops/pipelines/build/triggers)을 참조하십시오. 
+여러분은 브랜치에 푸시하거나, 풀 리퀘스트의 경우에도 빌드가 계속 진행되게할 수 있습니다. 더 많은 정보를 위해 [파이프라인 트리거 생성](https://docs.microsoft.com/azure/devops/pipelines/build/triggers)을 참조하십시오. 
 
 <!-- 
 You can enable the build to run continuously when pushing to a branch and even on pull requests. See [Build pipeline triggers](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
@@ -172,7 +172,7 @@ Next steps will be: -->
 }
 ```
 
-3. `azure-pipelines.yml`에 `trigger` 섹션을 추가하여, 태그가 포함된 모든 브런치에 빌드가 작동하게 CI를 구성하십시오.
+3. `azure-pipelines.yml`에 `trigger` 섹션을 추가하여, 태그가 포함된 모든 브랜치에 빌드가 작동하게 CI를 구성하십시오.
 
 <!--
 3. Configure the CI so the build will run for all the branches that include tags by adding a `trigger` section in `azure-pipelines.yml`: -->
