@@ -14,6 +14,6 @@
     "@primer/css": "^12.7.0"
   },
   "scripts": {
-    "test": "stylelint '**/*.scss'"
+    "test": "stylelint **/*.scss"
   }
 }
