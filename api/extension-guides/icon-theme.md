@@ -93,6 +93,7 @@ The following properties are supported: -->
 - `fontColor`: 글리프 폰트를 사용하는 경우: 글리프의 색상을 지정합니다.
 - `fontSize`: 폰트를 사용하는 경우: 폰트의 크기이며, 폰트에서 지정하는 값이 기본값입니다. 부모 폰트 사이즈를 기준으로 상대 값을 가져야 합니다(예 150%)
 - `fontId`: 폰트를 사용하는 경우: 폰트의 식별자입니다. 지정되지 않았다면, 폰트 지정 섹션의 첫번째 폰트가 사용됩니다. 
+
 <!--
 - `iconPath`: When using a svg/png: the path to the image.
 - `fontCharacter`: When using a glyph font: The character in the font to use.

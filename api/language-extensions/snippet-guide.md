@@ -42,7 +42,7 @@ The [Creating snippets](https://code.visualstudio.com/docs/editor/userdefinedsni
 }
 ```
 
-완전한 소스코드를 이곳에서 확인 할 수 있습니다: https://github.com/Microsoft/vscode-extension-samples/tree/master/snippet-sample
+완전한 소스코드를 이곳에서 확인 할 수 있습니다: [https://github.com/Microsoft/vscode-extension-samples/tree/master/snippet-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/snippet-sample)
 
 <!--
 You can find the complete source code at: https://github.com/Microsoft/vscode-extension-samples/tree/master/snippet-sample-->
