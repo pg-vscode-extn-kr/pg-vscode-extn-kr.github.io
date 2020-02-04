@@ -83,7 +83,10 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 29. Clipboard -> 클립보드
 30. Third-party -> 써드파티
 31. Branch -> 브랜치
-32. 
+32. Promises -> 프로미스
+33. IntelliSense -> IntelliSense
+34. Subscribe -> 구독 
+35. Null -> Null
 
 ## Progress
 
@@ -145,7 +148,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 #### References
 
-- [ ] VS Code API
+- [ ] [VS Code API](api/references/vscode-api.md) : 초벌 번역 완료
 - [ ] Contribution Points
 - [ ] Activation Events
 - [ ] Extension Manifest
