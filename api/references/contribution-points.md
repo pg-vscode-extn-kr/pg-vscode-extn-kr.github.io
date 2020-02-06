@@ -8,7 +8,11 @@ description: ""
 
 # Contribution Points
 
-**Contribution Points** are a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
+**Contribution Points** 는 `package.json` [Extension Manifest](/api/references/extension-manifest)의 `contributes` 필드에서 작성하는 JSON 선언의 모음입니다. 익스텐션은 **Contribution Points** 를 등록하여, Visual Studio Code에서의 다양한 기능을 확장합니다. 다음은 사용가능한 모든 **Contribution Points** 의 목록입니다:
+
+
+<!--
+**Contribution Points** are a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:-->
 
 - [`configuration`](/api/references/contribution-points#contributes.configuration)
 - [`configurationDefaults`](/api/references/contribution-points#contributes.configurationDefaults)
@@ -33,9 +37,16 @@ description: ""
 
 ## contributes.configuration
 
-Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the Settings UI or by editing the JSON settings file directly.
+사용자에게 노출되는 Contribute 구성 키입니다. 사용자는 UI 설정을 사용하거나 JSON 설정 파일을 직접 편집하는 것으로, 이러한 구성 옵션을 사용자 설정이나 작업공간 설정으로 지정할 수 있습니다. 
 
-### Configuration example
+<!--
+Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the Settings UI or by editing the JSON settings file directly.
+-->
+
+### 구성 예시
+
+<!--
+### Configuration example-->
 
 ```json
 {
@@ -61,17 +72,27 @@ Contribute configuration keys that will be exposed to the user. The user will be
 
 ![configuration extension point example](images/contribution-points/configuration.png)
 
-You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
+`vscode.workspace.getConfiguration('myExtension')`를 사용하여 익스텐션의 이러한 값들을 읽을 수 있습니다. 
+<!--
+You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.-->
 
-### Configuration schema
+## 구성 스키마
+<!--
+### Configuration schema -->
 
-Your configuration entry is used both to provide intellisense when editing your settings in the JSON editor, and to define the way they appear in the settings UI.
+구성 항목은 JSON 에디터에서 설정을 편집할때 intellisense를 제공하고, UI 설정에서 나타나는 방식을 정의하기 위해 사용됩니다. 
+
+<!--
+Your configuration entry is used both to provide intellisense when editing your settings in the JSON editor, and to define the way they appear in the settings UI. -->
 
 ![settings UI screenshot with numbers](images/contribution-points/settings-ui.png)
 
 **title**
 
-The `title` 1️⃣️ is the main heading that will be used for your configuration section. Normally you will only have one section for your extension.
+`title` 1️⃣️ 은 구성 섹션에 사용되는 주요 제목입니다. 보통 익스텐션에는 한개의 섹션만 있습니다.
+
+<!--
+The `title` 1️⃣️ is the main heading that will be used for your configuration section. Normally you will only have one section for your extension. --?
 
 ```json
 {
@@ -81,7 +102,11 @@ The `title` 1️⃣️ is the main heading that will be used for your configurat
 }
 ```
 
-The title should be the exact name of your extension. Words like "Extension", "Configuration", and "Settings" are redundant.
+Title은 익스텐션의 이름과 정확하게 일치해야 합니다. "Extension", "Configuration", 그리고 "Settings"와 같은 단어는 불필요합니다. 
+
+<!--
+The title should be the exact name of your extension. Words like "Extension", "Configuration", and "Settings" are redundant. -->
+
 
 - ✔ `"title": "GitMagic"`
 - ❌ `"title": "GitMagic Extension"`
@@ -90,13 +115,21 @@ The title should be the exact name of your extension. Words like "Extension", "C
 
 **properties**
 
-The `properties` 2️⃣ in your configuration will be a dictionary of configuration properties.
+구성의 2️⃣ `properties`은 구성 속성들을 표현하는 딕셔너리입니다. 
 
-In the Settings UI, your configuration key will be used to namespace and construct a title. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this:
+<!--
+The `properties` 2️⃣ in your configuration will be a dictionary of configuration properties. -->
+
+UI 설정에서, 구성 키는 네임스페이스와 title을 만들때 사용됩니다. 키의 대문자는 단어 구분을 위해 사용 됩니다. 예를 들어 키가  `gitMagic.blame.dateFormat` 라면, 해당 설정으로 생성된 title은 다음과 같습니다:
+
+<!--
+In the Settings UI, your configuration key will be used to namespace and construct a title. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this: -->
 
 > Blame: **Date Format**
 
-Entries will be grouped according to the hierarchy established in your keys. So for example, these entries
+항목은 키에 설정된 계층에 따라 나누어집니다. 예를 들어 이러한 항목들은 
+
+<!-- Entries will be grouped according to the hierarchy established in your keys. So for example, these entries -->
 
 ```
 gitMagic.blame.dateFormat
@@ -105,7 +138,9 @@ gitMagic.blame.heatMap.enabled
 gitMagic.blame.heatMap.location
 ```
 
-will appear in a single group like this:
+한개의 그룹에서 다음과 같이 나타납니다:
+
+<!-- will appear in a single group like this: -->
 
 > Blame: **Date Format**
 >
@@ -115,16 +150,27 @@ will appear in a single group like this:
 >
 > Blame › Heatmap: **Location**
 
-Otherwise, properties appear in alphabetical order (**not** the order in which they're listed in the manifest).
+그렇지 않은 경우, 속성은 알파벳 순서대로 나타납니다. (manifest에 나열된 순서가 **아닌**)
 
-### Configuration property schema
+<!--
+Otherwise, properties appear in alphabetical order (**not** the order in which they're listed in the manifest). -->
 
+### 구성 속성 스키마
+<!--
+### Configuration property schema -->
+
+구성 키는 [JSON 스키마](https://json-schema.org/understanding-json-schema/reference/index.html)의 상위 집합을 이용하여 정의됩니다.
+
+<!--
 Configuration keys are defined using a superset of [JSON
-Schema](https://json-schema.org/understanding-json-schema/reference/index.html).
+Schema](https://json-schema.org/understanding-json-schema/reference/index.html). -->
 
 **description** / **markdownDescription**
 
-Your `description` 3️⃣ appears after the title and before the input field, except for booleans, where the description is used as the label for the checkbox. 6️⃣
+`description` 3️⃣ 은 description 이 체크박스를 위한 라벨에 쓰이는 boolean을 제외하고, title 과 input field 사이에 나타납니다. 6️⃣
+
+<!--
+Your `description` 3️⃣ appears after the title and before the input field, except for booleans, where the description is used as the label for the checkbox. 6️⃣ -->
 
 ```json
 {
@@ -134,7 +180,10 @@ Your `description` 3️⃣ appears after the title and before the input field, e
 }
 ```
 
-If you use `markdownDescription` instead of `description`, your setting description will be rendered as Markdown in the settings UI.
+`description` 대신 `markdownDescription`을 사용하는 경우, description은 설정 UI에 Markdown 형태로 렌더링 될 것입니다. 
+
+<!--
+If you use `markdownDescription` instead of `description`, your setting description will be rendered as Markdown in the settings UI.-->
 
 ```json
 {
@@ -146,7 +195,9 @@ If you use `markdownDescription` instead of `description`, your setting descript
 
 **type**
 
-Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the Settings UI.
+`number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ 타입의 항목은 설정 UI에서 직접 편집 될 수 있습니다. 
+
+<!-- Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the Settings UI. -->
 
 ```json
 {
@@ -157,6 +208,8 @@ Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be e
   }
 }
 ```
+
+`boolean` 항목의 경우, `description` (혹은 `markdownDescription`)이 체크박스를 위한 라벨로 쓰일 것입니다.
 
 For `boolean` entries, the `description` (or `markdownDescription`) will be used as the label for the checkbox.
 
@@ -169,15 +222,26 @@ For `boolean` entries, the `description` (or `markdownDescription`) will be used
 }
 ```
 
+다른 타입, 예를 들면 `object`와 `array` 같은 경우, 설정 UI에 직접 노출 되지 않으며 오직 JSON을 직접 편집하는 방식으로만 수정 될 수 있습니다. 
+사용자는 이들을 편집하는 대신, 위의 스크린샷과 같이 `Edit in settings.json`에 대한 링크를 확인 할 수 있습니다. 8️⃣
+
+<!--
 Other types, such as `object` and `array`, aren't exposed directly in the settings UI, and can only be modified by editing the JSON directly. Instead of controls for editing them, users will see a link to `Edit in settings.json` as shown in the screenshot above. 8️⃣
+-->
 
 **enum** / **enumDescriptions**
 
-If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu.
+`enum` 7️⃣ 속성으로 배열을 제공할 경우, 설정 UI는 드롭다운 메뉴의 형태로 렌더링 할 것입니다.
+
+<!--
+If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu. -->
 
 ![settings UI screenshot of dropdown](images/contribution-points/settings-ui-enum.png)
 
-You can also provide an `enumDescriptions` property, which provides descriptive text rendered at the bottom of the dropdown:
+`enumDescriptions` 속성을 제공하여, 드롭다운 메뉴의 아래 부분에 설명 글을 제공 할 수 있습니다:
+
+<!--
+You can also provide an `enumDescriptions` property, which provides descriptive text rendered at the bottom of the dropdown: -->
 
 ```json
 {
@@ -193,10 +257,23 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 }
 ```
 
-**Other JSON Schema properties**
+**다른 JSON 스키마 속성**
+<!--
+**Other JSON Schema properties** -->
 
-You can use any the properties defined by JSON Schema to describe other constraints on configuration values.
+JSON 스키마에서 정의된 특성을 사용하여 구성 값에 대한 다른 제한 조건을 설명 할 수 있습니다.
 
+<!--
+You can use any the properties defined by JSON Schema to describe other constraints on configuration values. -->
+
+- `default` : 속성의 기본값 정의
+- `minimum`, `maximum` : 숫자 값 제한
+- `maxLength`, `minLength` : 문자열 길이 제한
+- `pattern` : 정규식으로 문자열 제한
+- `format` : `date`, `time`, `ipv4`, `email` 그리고 `uri` 와 같은, 알려진 형태로 문자열 제한
+- `maxItems`, `minItems` : 배열 길이 제한
+
+<!--
 - `default` for defining the default value of a property
 - `minimum` and `maximum` for restricting numeric values
 - `maxLength`, `minLength` for restricting string length
@@ -204,22 +281,42 @@ You can use any the properties defined by JSON Schema to describe other constrai
 - `format` for restricting strings to well-known formats, such as `date`, `time`, `ipv4`, `email`,
   and `uri`
 - `maxItems`, `minItems` for restricting array length
+-->
 
-For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html).
+이러한 기능 및 기타 기능에 대한 자세한 내용은, [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html)를 참조 하십시오.
+
+<!--
+For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html). -->
 
 **scope**
 
-A configuration setting can have one of the following possible scopes:
+구성 설정은 다음과 같은 범위를 가질 수 있습니다:
+<!--
+A configuration setting can have one of the following possible scopes: -->
 
+
+- `application` - 모둔 VS Code 인스턴스에 적용되며 사용자 설정에서만 구성 할 수 있습니다.
+- `machine` - 사용자 혹은 기기 설정에서 구성할 수 있는 기기 별 설정입니다. 예를 들어 여러 컴퓨터에서 공유 될 수 없는 설치 경로가 있습니다.
+- `machine-overridable` - 작업 공간 또는 폴더 설정으로 대체 할 수 있는 기기 별 설정입니다. 
+- `window` - 사용자, 작업공간 또는 원격 설정에서 구성 할 수 있는 Windows(인스턴스) 별 설정입니다.
+- `resource` - 파일 및 폴더에 적용되며, 폴더 설정을 포함한 모든 설정 수준에서 구성 할 수 있는 리소스 설정입니다. 
+
+<!--
 - `application` - Settings that apply to all instances of VS Code and can only be configured in user settings.
 - `machine` - Machine specific settings that can be set in user or remote settings. For example, an installation path which shouldn't be shared across machines.
 - `machine-overridable` - Machine specific settings that can be overridden by workspace or folder settings.
 - `window` - Windows (instance) specific settings which can be configured in user, workspace, or remote settings.
 - `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
+-->
 
-Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
+구성 범위는 설정 에디터를 통해 사용자가 설정을 사용 할 수 있는 시기와 설정 적용 가능 여부를 결정합니다. `scope`가 선언 되지 않은 경우, 기본값은 `window`입니다.
 
-Below are example configuration scopes from the built-in Git extension:
+<!--
+Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.-->
+
+아래는 빌트인 Git 익스텐션에 대한 구성 설정입니다:
+<!--
+Below are example configuration scopes from the built-in Git extension: -->
 
 ```json
 {
@@ -245,7 +342,10 @@ Below are example configuration scopes from the built-in Git extension:
 }
 ```
 
-You can see that `git.alwaysSignOff` has `resource` scope and can be set per user, workspace, or folder, while the ignored repositories list with `window` scope applies more globally for the VS Code window or workspace (which might be multi-root).
+`git.alwaysSignOff`에는 `resource` 범위가 있어 사용자, 작업공간, 폴더 별로 설정 될 수 있으며 `window` 범위를 가진 무시되는 저장소 목록은 VS Code window 혹은 작업공간에 더 광범위 하게 적용 됩니다(다중 루트 포함).
+
+<!--
+You can see that `git.alwaysSignOff` has `resource` scope and can be set per user, workspace, or folder, while the ignored repositories list with `window` scope applies more globally for the VS Code window or workspace (which might be multi-root). -->
 
 ## contributes.configurationDefaults
 
