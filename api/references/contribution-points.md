@@ -347,13 +347,21 @@ Below are example configuration scopes from the built-in Git extension: -->
 <!--
 You can see that `git.alwaysSignOff` has `resource` scope and can be set per user, workspace, or folder, while the ignored repositories list with `window` scope applies more globally for the VS Code window or workspace (which might be multi-root). -->
 
+
 ## contributes.configurationDefaults
 
-Contribute default language-specific editor configurations. This will override default editor configurations for the provided language.
+기본 언어 별 에디터 구성을 제공합니다. 이는 제공된 언어의 기본 에디터 구성을 덮어쓰기 합니다. 
+<!--
+Contribute default language-specific editor configurations. This will override default editor configurations for the provided language. -->
 
-The following example contributes default editor configurations for the `markdown` language:
+아래의 예시는 `markdown` 언어의 기본 에디터 구성입니다:
 
-### Configuration default example
+<!--
+The following example contributes default editor configurations for the `markdown` language: -->
+
+### 기본 구성 예시
+<!--
+### Configuration default example -->
 
 ```json
 {
@@ -370,16 +378,27 @@ The following example contributes default editor configurations for the `markdow
 
 ## contributes.commands
 
-Contribute the UI for a command consisting of a title and (optionally) an icon, category, and enabled state. Enablement is expressed with `when` [clauses](/docs/getstarted/keybindings#_when-clause-contexts). By default, commands show in the **Command Palette** (`kb(workbench.action.showCommands)`) but they can also show in other [menus](/api/references/contribution-points#contributes.menus).
+title과 (옵션) 아이콘, 카테고리, 활성화 상태를 구성하는 커맨드를 UI에 제공합니다. 활성화는 `when` [문구](/docs/getstarted/keybindings#_when-clause-contexts)를 통해 표현됩니다. 기본값으로 커맨드는 **Command Palette** (`kb(workbench.action.showCommands)`) 에서 표시되지만 다른 [메뉴](/api/references/contribution-points#contributes.menus)에도 표시 될 수 있습니다.
 
+<!--
+Contribute the UI for a command consisting of a title and (optionally) an icon, category, and enabled state. Enablement is expressed with `when` [clauses](/docs/getstarted/keybindings#_when-clause-contexts). By default, commands show in the **Command Palette** (`kb(workbench.action.showCommands)`) but they can also show in other [menus](/api/references/contribution-points#contributes.menus). -->
+
+제공되는 커맨드의 표시는 포함되어 있는 메뉴에 따라 다릅니다. 예를 들어 **Command Palette**는, `category`를 커맨드 앞에 달아 쉽게 그룹지을 수 있습니다. 그러나, **Command Palette**는 아이콘이나 비활성화된 커맨드는 표기하지 않습니다. 한편 에디터 컨텍스트 메뉴는 비활성화된 내용을 표시하지만 카테고리 라벨은 표기 하지 않습니다.
+
+<!--
 Presentation of contributed commands depends on the containing menu. The **Command Palette**, for
 instance, prefixes commands with their `category`, allowing for easy grouping. However, the
 **Command Palette** doesn't show icons nor disabled commands. The editor context menu, on the other
-hand, shows disabled items but doesn't show the category label.
+hand, shows disabled items but doesn't show the category label.-->
 
-> **Note:** When a command is invoked (from a key binding, from the **Command Palette**, any other menu, or programmatically), VS Code will emit an activationEvent `onCommand:${command}`.
+> **주의:** 커맨드가 실행되었을때 (키바인딩이나, **Command Palette** 에서, 혹은 다른 메뉴나 프로그래밍방식으로) VS Code는 활성화 이벤트 `onCommand:${command}`를 실행합니다.
 
-### command example
+<!--
+> **Note:** When a command is invoked (from a key binding, from the **Command Palette**, any other menu, or programmatically), VS Code will emit an activationEvent `onCommand:${command}`. -->
+
+### 예시 커맨드
+<!--
+### command example -->
 
 ```json
 {
@@ -399,7 +418,10 @@ hand, shows disabled items but doesn't show the category label.
 }
 ```
 
-See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-guides/command) to learn more about using commands in VS Code extensions.
+[커맨드 익스텐션 가이드](https://code.visualstudio.com/api/extension-guides/command)를 참조하여 VS Code 익스텐션에서의 커맨드 사용에 관한 더 많은것을 배우십시오.
+
+<!--
+See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-guides/command) to learn more about using commands in VS Code extensions.-->
 
 ![commands extension point example](images/contribution-points/commands.png)
 
