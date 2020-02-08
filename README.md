@@ -149,7 +149,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 #### References
 
 - [ ] [VS Code API](api/references/vscode-api.md) : 초벌 번역 완료
-- [ ] Contribution Points
+- [ ] [Contribution Points](api/references/contribution-points.md) : 초벌 번역 완료
 - [ ] Activation Events
 - [ ] Extension Manifest
 - [ ] Commands
