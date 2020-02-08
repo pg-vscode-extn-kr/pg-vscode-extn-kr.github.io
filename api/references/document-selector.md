@@ -26,7 +26,7 @@ Visual Studio Code 익스텐션 API는 IntelliSense와 같은 언어별 기능�
 <!--
 The Visual Studio Code extension API combines language-specific features, like IntelliSense, with document selectors through the [DocumentSelector](/api/references/vscode-api#DocumentSelector) type. They are an easy mechanism to narrow down functionality to a specific language.-->
 
-아래 Snippet은 TypeScript 파일에 [HoverProvider](/api/references/vscode-api#HoverProvider)를 등록하며 문서 선택기는 'typescript'언어 식별자 문자열입니다.
+아래 Snippet은 TypeScript 파일에 [HoverProvider](/api/references/vscode-api#HoverProvider)를 등록하며 문서 선택기는 `typescript` 언어 식별자 문자열입니다.
 <!--
 The snippet below registers a [HoverProvider](/api/references/vscode-api#HoverProvider) for TypeScript files and the document selector is the `typescript` language identifier string.-->
 
@@ -111,10 +111,14 @@ vscode.languages.registerHoverProvider(
 <!--
 Documents are usually stored on the file system, but not always: there are untitled documents, cached documents that Git uses, documents from remote sources like FTP, and so forth. If your feature relies on disk access, make sure to use a document selector with the `file` scheme.-->
 
-## 다음 단계
+## 다음 단계들
 <!--
 ## Next steps-->
-To learn more about VS Code extensibility model, try these topic:
-
+VS 코드 확장성 모델에 대한 자세한 내용은 다음 항목을 읽어보십시오.
+<!--
+To learn more about VS Code extensibility model, try these topic:-->
+- [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json 익스텐션 매니페스트 파일 참조
+- [Contribution Points](/api/references/contribution-points) - VS Code 기여 포인트 참조
+<!--
 - [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json extension manifest file reference
-- [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference
+- [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference-->
