@@ -6,31 +6,45 @@ nav_order: 7
 description: ""
 ---
 
-# Icons in Labels
+# 레이블의 아이콘
+<!--
+# Icons in Labels-->
 
+당신은 [`StatusBarItem`](https://code.visualstudio.com/api/references/vscode-api#StatusBarItem) 텍스트와 [`QuickPickItem`](https://code.visualstudio.com/api/references/vscode-api#QuickPickItem) 레이블 API를 사용하여, 커스텀 아이콘 폰트인 [Codicons](https://github.com/microsoft/vscode-codicons)를 익스텐션에 사용할 수 있습니다. 아이콘을 추가하는 구문은 다음과 같습니다:
+
+<!--
 You can use [Codicons](https://github.com/microsoft/vscode-codicons), our custom icon font, in your extension using the [`StatusBarItem`](https://code.visualstudio.com/api/references/vscode-api#StatusBarItem) text and [`QuickPickItem`](https://code.visualstudio.com/api/references/vscode-api#QuickPickItem) label API. The syntax for adding an icon is:
+-->
 
 ```ts
 $(alert);
 ```
 
+텍스트를 끼워넣고 여러 아이콘을 사용할 수도 있습니다:
+<!--
 You can also embed text and use multiple icons:
+-->
 
 ```ts
 $(eye) $(heart) $(mark-github) GitHub
 ```
 
-## Animation
-
-You can apply a spinning animation to any icon by appending `~spin` to the icon name:
+## 애니메이션
+<!--
+## Animation-->
+아이콘 이름에 `~spin`을 추가하여 회전 아이콘을 적용할 수 있습니다.
+<!--
+You can apply a spinning animation to any icon by appending `~spin` to the icon name:-->
 
 ```ts
 $(sync~spin)
 ```
-
-## Icon Listing
-
-Below are the full listings of the icons that ships with the product:
+## 아이콘 목록
+<!--
+## Icon Listing-->
+다음은 제품과 함께 제공되는 아이콘의 전체 목록입니다.
+<!--
+Below are the full listings of the icons that ships with the product:-->
 
 <div id="codicon-listing">
 
