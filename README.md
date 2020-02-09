@@ -89,6 +89,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 35. Null -> Null
 36. Scheme -> 체계
 37. Label -> 레이블 
+38. Rule of thumb -> 기본 원칙
 
 ## Progress
 
@@ -152,7 +153,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 
 - [ ] [VS Code API](api/references/vscode-api.md) : 초벌 번역 완료
 - [ ] [Contribution Points](api/references/contribution-points.md) : 초벌 번역 완료
-- [ ] Activation Events
+- [ ] [Activation Events](api/references/activation-events.md) : 초벌 번역 완료
 - [ ] Extension Manifest
 - [ ] Commands
 - [ ] Theme Color
