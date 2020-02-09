@@ -87,6 +87,8 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 33. IntelliSense -> IntelliSense
 34. Subscribe -> 구독 
 35. Null -> Null
+36. Scheme -> 체계
+37. Label -> 레이블 
 
 ## Progress
 
@@ -154,16 +156,19 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 - [ ] Extension Manifest
 - [ ] Commands
 - [ ] Theme Color
-- [ ] Icons In Labels
-- [ ] Document Selector
+- [ ] [Icons In Labels](api/references/icons-in-labels.md) : 초벌 번역 완료
+- [ ] [Document Selector](api/references/document-selector.md) : 초벌 번역 완료
 
 ## Contributors (Alphabetical Order)
+
 <table>
 <tr>
+ <td align="center"><a href = "https://github.com/cheese98">cheese98</a></td>
  <td align="center"><a href = "https://github.com/jeonhyun97">jeonhyun97</a></td>
  <td align="center"><a href = "https://github.com/jhk0530">jhk0530</a></td>
  <td align="center"><a href = "https://github.com/mirusu400">mirusu400</a></td>
- <td align="center"><a href = "https://github.com/ssibl4">ssibl4</a></td>
+ <td align="center"><a href = "https://github.com/SimYunSup">SimYunSup</a></td>
+ <td align="center"><a href = "https://github.com/ssibl4">ssibl4</a></td>  
 </tr>
 </table>
 
