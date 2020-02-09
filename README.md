@@ -157,7 +157,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 - [ ] Commands
 - [ ] Theme Color
 - [ ] [Icons In Labels](api/references/icons-in-labels.md) : 초벌 번역 완료
-- [ ] [Document Selector](api/references/document-selector.md) : 초벌 번역 
+- [ ] [Document Selector](api/references/document-selector.md) : 초벌 번역 완료
 
 ## Contributors (Alphabetical Order)
 
