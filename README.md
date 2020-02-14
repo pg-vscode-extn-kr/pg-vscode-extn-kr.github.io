@@ -90,6 +90,8 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 36. Scheme -> 체계
 37. Label -> 레이블 
 38. Rule of thumb -> 기본 원칙
+39. Provider -> 제공자
+40. Hover -> 말풍선
 
 ## Progress
 
@@ -155,7 +157,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 - [ ] [Contribution Points](api/references/contribution-points.md) : 초벌 번역 완료
 - [ ] [Activation Events](api/references/activation-events.md) : 초벌 번역 완료
 - [ ] [Extension Manifest](api/references/extension-manifest.md) : 초벌 번역 완료
-- [ ] Commands
+- [ ] [Commands](api/references/commands.md) : 초벌 번역 완료
 - [ ] Theme Color
 - [ ] [Icons In Labels](api/references/icons-in-labels.md) : 초벌 번역 완료
 - [ ] [Document Selector](api/references/document-selector.md) : 초벌 번역 완료
