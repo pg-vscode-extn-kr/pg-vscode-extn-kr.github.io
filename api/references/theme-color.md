@@ -5,9 +5,16 @@ title: Theme Color
 nav_order: 6
 description: ""
 ---
-# Theme Color
 
-You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes) with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings).
+# 테마 색상
+
+<!--
+# Theme Color -->
+
+`workbench.colorCustomizations` 사용자 [설정](/docs/getstarted/settings)을 통해 활성화된 Visual Studio Code의 [색상 테마](/docs/getstarted/themes)를 커스텀 할 수 있습니다.
+
+<!--
+You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes) with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings). -->
 
 ```json
 {
@@ -17,25 +24,60 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 }
 ```
 
-**Note**: If you want to use an existing color theme, see [Color Themes](/docs/getstarted/themes) where you'll learn how to set the active color theme through the **Preferences: Color Theme** dropdown (`kb(workbench.action.selectTheme)`).
+**주의**: 만약 기존의 색상 테마를 사용하려는 경우, [색상 테마](/docs/getstarted/themes)를 참조하여 **Preferences: Color Theme** 드롭다운을 통해 (`kb(workbench.action.selectTheme)`) 활성 색상 테마를 설정하는 방법을 배우십시오.
 
-## Color formats
+<!--
+**Note**: If you want to use an existing color theme, see [Color Themes](/docs/getstarted/themes) where you'll learn how to set the active color theme through the **Preferences: Color Theme** dropdown (`kb(workbench.action.selectTheme)`). -->
 
-Color values can be defined in the RGB color model with an alpha channel for transparency. As format, the following hexadecimal notations are supported: `#RGB`, `#RGBA`, `#RRGGBB` and `#RRGGBBAA`. R (red), G (green), B (blue), and A (alpha) are hexadecimal characters (0-9, a-f or A-F). The three-digit notation (`#RGB`) is a shorter version of the six-digit form (`#RRGGBB`) and the four-digit RGB notation (`#RGBA`) is a shorter version of the eight-digit form (`#RRGGBBAA`). For example `#e35f` is the same color as `#ee3355ff`.
+## 색상 포맷
+<!--
+## Color formats -->
 
-If no alpha value is defined, it defaults to `ff` (opaque, no transparency). If alpha is set to `00`, the color is fully transparent.
+색상 값은 투명값을 위한 알파 채널을 포함한 RGB 색상 모델로 정의 할 수 있습니다. 포맷으로는 다음 16진법 표기법이 지원됩니다 : `#RGB`, `#RGBA`, `#RRGGBB` 및 `#RRGGBBAA`. R(빨간색), G(녹색), B(파란색), 그리고 A(알파)는 16진수 문자 (0-9, a-f 혹은 A-F) 입니다. 3자리 표기법은 (`#RGB`) 6자리 표기법의 짧은 버전이고, (`#RRGGBB`) 4자리 RGB 표기법은 (`#RGBA`) 8자리 표기법의 (`#RRGGBBAA`) 짧은 버전입니다. 예를 들어 `#e35f`는 `#ee3355ff`와 같은 색상을 표현합니다.
 
-Some colors should not be opaque in order to not cover other annotations. Check the color descriptions to see to which colors this applies.
+<!--
+Color values can be defined in the RGB color model with an alpha channel for transparency. As format, the following hexadecimal notations are supported: `#RGB`, `#RGBA`, `#RRGGBB` and `#RRGGBBAA`. R (red), G (green), B (blue), and A (alpha) are hexadecimal characters (0-9, a-f or A-F). The three-digit notation (`#RGB`) is a shorter version of the six-digit form (`#RRGGBB`) and the four-digit RGB notation (`#RGBA`) is a shorter version of the eight-digit form (`#RRGGBBAA`). For example `#e35f` is the same color as `#ee3355ff`. -->
 
-## Contrast colors
+만약 알파값이 정의 되지 않은 경우, 기본값인 `ff`로 (불투명, 투명도 없음) 설정 됩니다. 만약 알파가 `00`로 설정 되는 경우, 색상은 완전히 투명해집니다.
 
-The contrast colors are typically only set for high contrast themes. If set, they add an additional border around items across the UI to increase the contrast.
+<!--
+If no alpha value is defined, it defaults to `ff` (opaque, no transparency). If alpha is set to `00`, the color is fully transparent. -->
 
+다른 주석 범위를 포함하지 않기 위해서, 일부 색상은 불투명 하지 않아야 합니다. 색상 설명을 확인하여 어떤 색상들이 이에 해당하는지 확인하십시오.
+
+<!--
+Some colors should not be opaque in order to not cover other annotations. Check the color descriptions to see to which colors this applies. -->
+
+## 대비 색상
+<!--
+## Contrast colors -->
+
+대비 색상은 일반적으로 고대비 테마에서만 설정됩니다. 만약 설정된 경우, UI에서 항목 주위에 테두리를 추가하여 대비를 높입니다.
+
+<!--
+The contrast colors are typically only set for high contrast themes. If set, they add an additional border around items across the UI to increase the contrast. -->
+
+- `contrastActiveBorder`: 더 큰 대비를 위해 다른 엘리멘트와 구분하기 위한 활성 엘리멘트 주위의 추가 경계 입니다.
+- `contrastBorder`: 엘리먼트 주변에 여분에 추가 경계를 두어, 다른 엘리멘트와 구분하여 대비를 높입니다.
+
+<!--
 - `contrastActiveBorder`: An extra border around active elements to separate them from others for greater contrast.
-- `contrastBorder`: An extra border around elements to separate them from others for greater contrast.
+- `contrastBorder`: An extra border around elements to separate them from others for greater contrast. -->
 
-## Base colors
+## 기본 색상
+<!--
+## Base colors -->
 
+
+- `focusBorder`: 포커스된 엘리먼트의 전체 테두리 색입니다. 이는 컴포넌트에 의해 재정의되지 않는 경우에만 사용됩니다.
+- `foreground`: 전체 전경색입니다. 이는 컴포넌트에 의해 재정의되지 않는 경우에만 사용됩니다.
+- `widget.shadow`: 에디터 내부의 Find/Replace와 같은 위젯의 그림자 색상입니다.
+- `selection.background`: 워크벤치에서 선택된 텍스트의 배경색입니다. (입력 필드 혹은 텍스트 영역의 경우로, 에디터나 터미널에는 적용되지 않습니다.
+- `descriptionForeground`: 레이블과 같은 추가 정보를 제공하는 설명 텍스트의 전경색상입니다.
+- `errorForeground`: 에러 메시지의 전체 전경색상입니다. (이는 컴포넌트에 의해 재정의되지 않는 경우에만 사용됩니다.)
+- `icon.foreground`: 워크벤치에서의 아이콘의 기본 색상입니다.
+
+<!--
 - `focusBorder`: Overall border color for focused elements. This color is only used if not overridden by a component.
 - `foreground`: Overall foreground color. This color is only used if not overridden by a component.
 - `widget.shadow`: Shadow color of widgets such as Find/Replace inside the editor.
@@ -43,57 +85,129 @@ The contrast colors are typically only set for high contrast themes. If set, the
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
 - `errorForeground`: Overall foreground color for error messages (this color is only used if not overridden by a component).
 - `icon.foreground`: The default color for icons in the workbench.
+-->
 
-## Window border
+## 창 테두리
+<!--
+## Window border -->
 
-The theme colors for VS Code window border.
+VS Code 창 테두리를 위한 색상 테마 입니다.
 
+<!--
+The theme colors for VS Code window border. -->
+
+- `window.activeBorder`: 활성화된 (포커싱) 창의 테두리 색상입니다.
+- `window.inactiveBorder`: 비활성화된 (언포커싱) 창의 테두리 색상입니다.
+
+<!--
 - `window.activeBorder`: Border color for the active (focused) window.
-- `window.inactiveBorder`: Border color for the inactive (unfocused) windows.
+- `window.inactiveBorder`: Border color for the inactive (unfocused) windows. -->
 
-## Text colors
+## 텍스트 색상
+<!--
+## Text colors -->
 
-Colors inside a text document, such as the welcome page.
+웰컴 페이지와 같은 텍스트 문서 내부의 색상입니다. 
+<!--
+Colors inside a text document, such as the welcome page. -->
 
+- `textBlockQuote.background`: 블록 인용부호의 배경색입니다.
+- `textBlockQuote.border`: 블록 인용부호의 테두리색입니다.
+- `textCodeBlock.background`: 코드블록의 배경색입니다.
+- `textLink.activeForeground`: 링크를 마우스로 클릭하거나, 위에 두었을때의 전경색입니다.
+- `textLink.foreground`: 텍스트링크의 전경색입니다.
+- `textPreformat.foreground`: 포맷이 지정된 텍스트 세그먼트의 전경색입니다.
+- `textSeparator.foreground`: 텍스트 구분 기호의 색입니다.
+
+<!--
 - `textBlockQuote.background`: Background color for block quotes in text.
 - `textBlockQuote.border`: Border color for block quotes in text.
 - `textCodeBlock.background`: Background color for code blocks in text.
 - `textLink.activeForeground`: Foreground color for links in text when clicked on and on mouse hover.
 - `textLink.foreground`: Foreground color for links in text.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
-- `textSeparator.foreground`: Color for text separators.
+- `textSeparator.foreground`: Color for text separators. -->
 
-## Button control
+## 버튼 색상
 
-A set of colors for button widgets such as **Open Folder** button in the Explorer of a new window.
+<!--
+## Button control -->
+
+새 창 탐색기의 **Open Folder** 같은 버튼 위젯을 위한 색입니다.
+<!--
+A set of colors for button widgets such as **Open Folder** button in the Explorer of a new window. -->
 
 ![button control](images/theme-color/button.png)
 
+
+- `button.background`: 버튼 배경색입니다.
+- `button.foreground`: 버튼 전경색입니다.
+- `button.hoverBackground`: 버튼위에 마우스를 두었을때 나타나는 배경색입니다.
+- `checkbox.background`: 체크박스 위젯의 배경색입니다.
+- `checkbox.foreground`: 체크박스 위젯의 전경색입니다.
+- `checkbox.border`: 체크박스 위젯의 테두리색입니다.
+
+<!--
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
 - `button.hoverBackground`: Button background color when hovering.
 - `checkbox.background`: Background color of checkbox widget.
 - `checkbox.foreground`: Foreground color of checkbox widget.
-- `checkbox.border`: Border color of checkbox widget.
+- `checkbox.border`: Border color of checkbox widget. -->
 
-## Dropdown control
+## 드롭다운 설정
 
-A set of colors for all Dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the
-Dropdown control is not used on macOS currently.
+<!--
+## Dropdown control -->
+
+통합 터미널 혹은 출력 패널과 같은 모든 드롭다운 위젯의 색상 세트입니다. macOS에서는 현재 지원되지 않음에 주의하십시오.
+
+<!--
+A set of colors for all Dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the 
+Dropdown control is not used on macOS currently.-->
 
 ![drop down control](images/theme-color/Dropdown.png)
 
+- `dropdown.background`: 드롭다운 배경색입니다.
+- `dropdown.listBackground`: 드롭다운 목록의 배경색입니다.
+- `dropdown.border`: 드롭다운의 테두리색입니다.
+- `dropdown.foreground`: 드롭다운의 전경색입니다.
+
+<!--
 - `dropdown.background`: Dropdown background.
 - `dropdown.listBackground`: Dropdown list background.
 - `dropdown.border`: Dropdown border.
-- `dropdown.foreground`: Dropdown foreground.
+- `dropdown.foreground`: Dropdown foreground. -->
 
-## Input control
+## 입력 설정
 
-Colors for input controls such as in the Search view or the Find/Replace dialog.
+<!--
+## Input control -->
+
+서치 뷰 또는 Find/Replace 대화상자와 같은 입력 컨트롤의 색상입니다.
+<!--
+Colors for input controls such as in the Search view or the Find/Replace dialog. -->
 
 ![input control](images/theme-color/input.png)
 
+
+- `input.background`: 입력상자 배경
+- `input.border`: 입력상자 테두리색
+- `input.foreground`: 입력상자 전경색
+- `input.placeholderForeground`: 입력상자의 placeholder 전경색
+- `inputOption.activeBackground`: 입력필드에서 활성화된 옵션의 배경색
+- `inputOption.activeBorder`: 입력필드에서 활성화된 옵션의 테두리색
+- `inputValidation.errorBackground`: 오류 심각도에 대한 유효성 검사 배경색
+- `inputValidation.errorForeground`: 오류 심각도에 대한 유효성 검사 전경색
+- `inputValidation.errorBorder`: 오류 심각도에 대한 유효성 검사 테두리색
+- `inputValidation.infoBackground`: 정보 심각도에 대한 유효성 검사 배경색
+- `inputValidation.infoForeground`: 정보 심각도에 대한 유효성 검사 전경색
+- `inputValidation.infoBorder`: 정보 심각도에 대한 유효성 검사 테두리색
+- `inputValidation.warningBackground`: 정보 경고를 위한 유효성 검사 배경색
+- `inputValidation.warningForeground`: 경고 심각도에 대한 유효성 검사 전경색
+- `inputValidation.warningBorder`: 경고 심각도에 대한 유효성 검사 테두리색
+
+<!--
 - `input.background`: Input box background.
 - `input.border`: Input box border.
 - `input.foreground`: Input box foreground.
@@ -108,30 +222,79 @@ Colors for input controls such as in the Search view or the Find/Replace dialog.
 - `inputValidation.infoBorder`: Input validation border color for information severity.
 - `inputValidation.warningBackground`: Input validation background color for information warning.
 - `inputValidation.warningForeground`: Input validation foreground color for warning severity.
-- `inputValidation.warningBorder`: Input validation border color for warning severity.
+- `inputValidation.warningBorder`: Input validation border color for warning severity.-->
 
-## Scrollbar control
+## 스크롤바 설정
+<!--
+## Scrollbar control -->
 
+- `scrollbar.shadow`: 뷰가 스크롤 되었음을 나타내는 스크롤 막대 슬라이더 그림자
+- `scrollbarSlider.activeBackground`: 클릭시 나타나는 스크롤바 슬라이더 배경색
+- `scrollbarSlider.background`: 스크롤바 슬라이더 배경색
+- `scrollbarSlider.hoverBackground`: 마우스를 위에 두었을때 나타나는 스크롤바 슬라이더 배경색
+
+<!--
 - `scrollbar.shadow`: Scrollbar slider shadow to indicate that the view is scrolled.
 - `scrollbarSlider.activeBackground`: Scrollbar slider background color when clicked on.
 - `scrollbarSlider.background`: Scrollbar slider background color.
-- `scrollbarSlider.hoverBackground`: Scrollbar slider background color when hovering.
+- `scrollbarSlider.hoverBackground`: Scrollbar slider background color when hovering. -->
 
-## Badge
+## 뱃지
+<!--
+## Badge -->
 
-Badges are small information labels, for example, search results count.
+뱃지는 검색 결과의 개수와 같은 작은 정보 레이블입니다. 
+<!--
+Badges are small information labels, for example, search results count. -->
 
-- `badge.foreground`: Badge foreground color.
-- `badge.background`: Badge background color.
+- `badge.foreground`: 뱃지 전경색
+- `badge.background`: 뱃지 배경색
 
-## Progress bar
+<!--
+- `badge.foreground`: Badge foreground color. 
+- `badge.background`: Badge background color.-->
 
-- `progressBar.background`: Background color of the progress bar shown for long running operations.
+## 프로그레스 바
 
-## Lists and trees
+<!--
+## Progress bar -->
 
-Colors for list and trees like the File Explorer. An active list/tree has keyboard focus, an inactive does not.
+- `progressBar.background`: 장시간 실행되는 작업의 프로그레스 바 배경색
+<!--
+- `progressBar.background`: Background color of the progress bar shown for long running operations. -->
 
+## 리스트와 트리
+
+<!--
+## Lists and trees -->
+
+파일 탐색이와 같은 목록과 트리를 위한 색상입니다. 활성화된 리스트/트리는 키보드 포커스를 갖고 있으며, 비활성화의 경우는 그렇지 않습니다.
+
+<!--
+Colors for list and trees like the File Explorer. An active list/tree has keyboard focus, an inactive does not.-->
+
+- `list.activeSelectionBackground`: 활성된 리스트/트리의 선택된 항목의 리스트/트리의 배경색
+- `list.activeSelectionForeground`: 활성된 리스트/트리의 선택된 항목의 리스트/트리의 전경색
+- `list.dropBackground`: 마우스로 항목을 움직일때, 리스트/트리의 배경색 
+- `list.focusBackground`: 리스트/트리가 활성화 되어있을때, 포커스된 항목의 리스트/트리 배경색
+- `list.focusForeground`: 리스트/트리가 활성화 되어있을때, 포커스된 항목의 리스트/트리 전경색. 활성된 리스트/ 트리는 키보드 포커스를 갖고 있으며, 비활성화의 경우는 그렇지 않습니다.
+- `list.highlightForeground`: 리스트/트리 내부를 검색할때 일치되는 강조의 전경색
+- `list.hoverBackground`: 마우스를 아이템 위에 두었을때의 리스트/트리 배경색
+- `list.hoverForeground`: 마우스를 아이템 위에 두었을때의 리스트/트리 전경색
+- `list.inactiveSelectionBackground`: 리스트/트리가 비활성화 상태일때 선택된 항목의 리스트/트리 배경색
+- `list.inactiveSelectionForeground`: 리스트/트리가 비활성화 상태일때 선택된 항목의 리스트/트리 전경색. 활성된 리스트/ 트리는 키보드 포커스를 갖고 있으며, 비활성화의 경우는 그렇지 않습니다.
+- `list.inactiveFocusBackground`: 리스트가 비활성화 상태일때 포커스가 있는 항목의 배경색. 활성된 리스트는 키보드 포커스를 갖고 있으며, 비활성화의 경우는 그렇지 않습니다. 현재는 리스트에만 지원됩니다.
+- `list.invalidItemForeground`: 유효하지 않은 항목의 리스트/트리 전경색, 예를 들면 탐색기에서 확인 할수 없는 루트가 있습니다.
+- `list.errorForeground`: 에러를 포함하는 리스트 항목의 전경색
+- `list.warningForeground`: 경고가 포함된 리스트 항목의 전경색
+- `listFilterWidget.background`: 리스트/트리 안에서 검색할때 입력된 텍스트의 리스트/트리 필터 배경색
+- `listFilterWidget.outline`: 리스트/트리 안에서 검색할때 입력된 텍스트의 리스트/트리 필터 위젯의 윤곽선색
+- `listFilterWidget.noMatchesOutline`: 리스트/ 트리 내부에서 검색할때 입력된 텍스트와 일치하는 항목이 없을때 리스트/트리 필터 위젯의 윤곽선 색상.
+- `list.filterMatchBackground`: 리스트와 트리에서 필터링된 일치 항목의 배경색
+- `list.filterMatchBorder`: 리스트와 트리에서 필터링된 일치 항목의 테두리색
+- `tree.indentGuidesStroke`: 들여쓰기 가이드를 위한 트리 위젯의 선 색상
+
+<!--
 - `list.activeSelectionBackground`: List/Tree background color for the selected item when the list/tree is active.
 - `list.activeSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is active.
 - `list.dropBackground`: List/Tree drag and drop background when moving items around using the mouse.
@@ -151,12 +314,29 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `listFilterWidget.noMatchesOutline`: List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
 - `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
 - `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
-- `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
+- `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.-->
 
-## Activity Bar
+## 액티비티 바
+<!--
+## Activity Bar-->
 
-The Activity Bar is displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
+액티비티 바는 워크 벤치의 가장 왼쪽 혹은 오른쪽에 표시되며, 사이드 바 뷰를 빠르게 이동 할 수 있게 합니다.
+<!--
+The Activity Bar is displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar. -->
 
+
+- `activityBar.background`: 액티비티 바 배경색
+- `activityBar.dropBackground`: 액티비티 바 항목에 대한 드래그 앤 드롭 피드백 색상
+- `activityBar.foreground`: 액티비티 바 전경색 (예를 들어 아이콘에 쓰인).
+- `activityBar.inactiveForeground`: 비활성화 상태에서의 액티비티 바 항목 전경색
+- `activityBar.border`: 사이드 바가 있는 액티비티 바 테두리 색
+- `activityBarBadge.background`: 액티비티 알림 뱃지 배경색
+- `activityBarBadge.foreground`: 액티비티 알림 뱃지 전경색
+- `activityBar.activeBorder`: 액티비티 바 활성 표시기 테두리 색
+- `activityBar.activeBackground`: 활성화된 엘리먼트에 대한 액티비티 바 옵션 배경색
+- `activityBar.activeFocusBorder`: 활성화된 항목에 대한 액티비티 바 포커스 테두리 색
+
+<!--
 - `activityBar.background`: Activity Bar background color.
 - `activityBar.dropBackground`: Drag and drop feedback color for the Activity Bar items.
 - `activityBar.foreground`: Activity Bar foreground color (for example used for the icons).
@@ -167,6 +347,7 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBorder`: Activity Bar active indicator border color.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
+-->
 
 ## Side Bar
 
