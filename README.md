@@ -92,6 +92,12 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 38. Rule of thumb -> 기본 원칙
 39. Provider -> 제공자
 40. Hover -> 말풍선
+41. Quick picker -> 빠른 선택
+42. Welcome page -> 시작 페이지
+43. Interactive Playground -> Interactive Playground
+44. Viewlet -> 뷰릿
+45. Breadcrumbs -> 브레드크럼
+46. Snippet -> 스니펫
 
 ## Progress
 
@@ -158,7 +164,7 @@ Github pages 기능을 통해 서비스되며, [이 링크](https://pg-vscode-ex
 - [ ] [Activation Events](api/references/activation-events.md) : 초벌 번역 완료
 - [ ] [Extension Manifest](api/references/extension-manifest.md) : 초벌 번역 완료
 - [ ] [Commands](api/references/commands.md) : 초벌 번역 완료
-- [ ] Theme Color
+- [ ] [Theme Color](/api/references/theme-color.md) : 초벌 번역 완료
 - [ ] [Icons In Labels](api/references/icons-in-labels.md) : 초벌 번역 완료
 - [ ] [Document Selector](api/references/document-selector.md) : 초벌 번역 완료
 
