@@ -1110,8 +1110,24 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 - `titleBar.inactiveForeground`: Title Bar foreground when the window is inactive.
 - `titleBar.border`: Title bar border color. -->
 
-## Menu Bar colors
+## 메뉴 표시줄 색상
 
+<!--
+## Menu Bar colors -->
+
+
+- `menubar.selectionForeground`: 메뉴 표시줄에서 선택된 메뉴의 전경색상.
+- `menubar.selectionBackground`: 메뉴 표시줄에서 선택된 메뉴의 배경색상.
+- `menubar.selectionBorder`: 메뉴 표시줄에서 선택된 메뉴의 테두리 색상.
+- `menu.foreground`: 메뉴 항목의 전경색상.
+- `menu.background`: 메뉴 항목의 배경색상.
+- `menu.selectionForeground`: 메뉴에서 선택된 메뉴 항목의 전경색상.
+- `menu.selectionBackground`: 메뉴에서 선택된 메뉴 항목의 배경색상.
+- `menu.selectionBorder`: 메뉴에서 선택된 메뉴 항목의 테두리색상.
+- `menu.separatorBackground`: 메뉴에서 메뉴 항목을 구분짓는 색상.
+- `menu.border`: 메뉴의 테두리 색상.
+
+<!--
 - `menubar.selectionForeground`: Foreground color of the selected menu item in the menubar.
 - `menubar.selectionBackground`: Background color of the selected menu item in the menubar.
 - `menubar.selectionBorder`: Border color of the selected menu item in the menubar.
@@ -1122,19 +1138,43 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 - `menu.selectionBorder`: Border color of the selected menu item in menus.
 - `menu.separatorBackground`: Color of a separator menu item in menus.
 - `menu.border`: Border color of menus.
+-->
 
-## Notification colors
+## 알림 색상
 
-**Note:** The colors below only apply for VS Code versions 1.21 and higher.
+<!-- ## Notification colors-->
 
-Notification toasts slide up from the bottom-right of the workbench.
+**주의:** 아래의 색상은 VS Code 버전 1.21 이상에서만 적용됩니다.
+<!--
+**Note:** The colors below only apply for VS Code versions 1.21 and higher. -->
+
+알림은 작업공간의 우측 하단에서 위로 올라오며 나타납니다.
+<!--
+Notification toasts slide up from the bottom-right of the workbench. -->
 
 ![Notification Toasts](images/theme-color/notification-toast.png)
 
-Once opened in the Notification Center, they are displayed in a list with a header:
+한번 알림 센터에서 열린 이후에는, 헤더를 포함한 목록으로 표시됩니다:
+
+<!--
+Once opened in the Notification Center, they are displayed in a list with a header: -->
 
 ![Notification Center](images/theme-color/notification-center.png)
 
+
+- `notificationCenter.border`: 알림 센터의 테두리 색상.
+- `notificationCenterHeader.foreground`: 알림 센터 헤더의 전경색상.
+- `notificationCenterHeader.background`: 알림 센터 헤더의 배경색상.
+- `notificationToast.border`: 알림 토스트의 테두리 색상.
+- `notifications.foreground`: 알림의 전경색상.
+- `notifications.background`: 알림의 배경색상.
+- `notifications.border`: 알림 센터에서 다른 알림과 구분 짓는 알림의 테두리 색상.
+- `notificationLink.foreground`: 알림 링크의 전경색상.
+- `notificationsErrorIcon.foreground`: 알림 에러 아이콘의 색상.
+- `notificationsWarningIcon.foreground`: 알림 경고 아이콘의 색상.
+- `notificationsInfoIcon.foreground`: 알림 정보 아이콘의 색상.
+
+<!--
 - `notificationCenter.border`: Notification Center border color.
 - `notificationCenterHeader.foreground`: Notification Center header foreground color.
 - `notificationCenterHeader.background`: Notification Center header background color.
@@ -1146,8 +1186,12 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `notificationsErrorIcon.foreground`: The color used for the notification error icon.
 - `notificationsWarningIcon.foreground`: The color used for the notification warning icon.
 - `notificationsInfoIcon.foreground`: The color used for the notification info icon.
+-->
 
-If you target VS Code versions before the 1.21 (February 2018) release, these are the old (no longer supported) colors:
+만약 VS Code가 1.21 (2018 2월) 릴리즈 이전 버전이라면, 아래는 이전의 색상입니다 (현재 지원하지 않음):
+
+<!--
+If you target VS Code versions before the 1.21 (February 2018) release, these are the old (no longer supported) colors: -->
 
 - `notification.background`
 - `notification.foreground`
@@ -1161,23 +1205,70 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `notification.warningBackground`
 - `notification.warningForeground`
 
-## Extensions
+## 익스텐션
 
+<!--
+## Extensions -->
+
+- `extensionButton.prominentForeground`: 익스텐션 뷰 버튼의 전경색상. (예를 들어 **Install** 버튼)
+- `extensionButton.prominentBackground`: 익스텐션 뷰 버튼의 배경색상. 
+- `extensionButton.prominentHoverBackground`: 익스텐션 뷰 버튼의 말풍선 배경색상. 
+- `extensionBadge.remoteBackground`: 익스텐션 뷰의 원격 뱃지 배경색상.
+- `extensionBadge.remoteForeground`: 익스텐션 뷰의 원격 뱃지 전경색상.
+
+<!--
 - `extensionButton.prominentForeground`: Extension view button foreground color (for example **Install** button).
 - `extensionButton.prominentBackground`: Extension view button background color.
 - `extensionButton.prominentHoverBackground`: Extension view button background hover color.
 - `extensionBadge.remoteBackground`: Background color for the remote badge in the extensions view.
 - `extensionBadge.remoteForeground`: Foreground color for the remote badge in the extensions view.
+-->
 
-## Quick picker
+## 빠른 선택
 
+<!-- ## Quick picker -->
+
+- `pickerGroup.border`: 빠른 선택 (빠른 열기)의 그룹 테두리 색상.
+- `pickerGroup.foreground`: 빠른 선택 (빠른 열기)의 그룹 레이블 색상.
+- `quickInput.background`: 빠른 입력 배경색상. 빠른 입력 위젯은 색상 테마 선택자 같은 뷰를 담는 컨테이너 입니다.
+- `quickInput.foreground`: 빠른 입력 전경색상. 빠른 입력 위젯은 색상 테마 선택자 같은 뷰를 담는 컨테이너 입니다.
+
+<!--
 - `pickerGroup.border`: Quick picker (Quick Open) color for grouping borders.
 - `pickerGroup.foreground`: Quick picker (Quick Open) color for grouping labels.
 - `quickInput.background`: Quick input background color. The quick input widget is the container for views like the color theme picker.
 - `quickInput.foreground`: Quick input foreground color. The quick input widget is the container for views like the color theme picker.
+-->
 
-## Integrated Terminal colors
+## 통합 터미널 색상
+<!--
+## Integrated Terminal colors -->
 
+
+- `terminal.background`: 통합 터미널의 뷰포트 배경색상.
+- `terminal.border`: 터미널 내에서 분할 창을 구분하는 테두리의 색상. 기본값은 panel.border 입니다.
+- `terminal.foreground`: 통합 터미널의 기본 전경색상.
+- `terminal.ansiBlack`: 터미널의 'Black' ANSI 색상.
+- `terminal.ansiBlue`: 터미널의 'Blue' ANSI 색상.
+- `terminal.ansiBrightBlack`: 터미널의 'BrightBlack' ANSI 색상.
+- `terminal.ansiBrightBlue`: 터미널의 'BrightBlue' ANSI 색상.
+- `terminal.ansiBrightCyan`: 터미널의 'BrightCyan' ANSI 색상.
+- `terminal.ansiBrightGreen`: 터미널의 'BrightGreen' ANSI 색상.
+- `terminal.ansiBrightMagenta`: 터미널의 'BrightMagenta' ANSI 색상.
+- `terminal.ansiBrightRed`: 터미널의 'BrightRed' ANSI 색상.
+- `terminal.ansiBrightWhite`: 터미널의 'BrightWhite' 색상.
+- `terminal.ansiBrightYellow`: 터미널의 'BrightYellow' ANSI 색상.
+- `terminal.ansiCyan`: 터미널의 'Cyan' ANSI 색상.
+- `terminal.ansiGreen`: 터미널의 'Green' ANSI 색상.
+- `terminal.ansiMagenta`: 터미널의 'Magenta' ANSI 색상.
+- `terminal.ansiRed`: 터미널의 'Red' ANSI 색상.
+- `terminal.ansiWhite`: 터미널의 'White' ANSI 색상.
+- `terminal.ansiYellow`: 터미널의 'Yellow' ANSI 색상.
+- `terminal.selectionBackground`: 터미널의 선택 배경색상. 
+- `terminalCursor.background`: 터미널 커서의 배경색상. 블록 커서를 통해 커스터마이즈 할 수 있습니다.
+- `terminalCursor.foreground`: 터미널 커서의 전경색상.
+
+<!--
 - `terminal.background`: The background of the Integrated Terminal's viewport.
 - `terminal.border`: The color of the border that separates split panes within the terminal. This defaults to panel.border.
 - `terminal.foreground`: The default foreground color of the Integrated Terminal.
@@ -1200,35 +1291,88 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `terminal.selectionBackground`: The selection background color of the terminal.
 - `terminalCursor.background`: The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `terminalCursor.foreground`: The foreground color of the terminal cursor.
+-->
 
-## Debug
+## 디버그
 
+<!--
+## Debug -->
+
+- `debugToolBar.background`: 디버그 툴바 배경색상.
+- `debugToolBar.border`: 디버그 툴바 테두리색상.
+- `editor.stackFrameHighlightBackground`: 에디터의 상단 스택 프레임 강조의 배경색.
+- `editor.focusedStackFrameHighlightBackground`: 에디터의 포커스 된 스택 프레임 강조의 배경색.
+<!--
 - `debugToolBar.background`: Debug toolbar background color.
 - `debugToolBar.border`: Debug toolbar border color.
 - `editor.stackFrameHighlightBackground`: Background color of the top stack frame highlight in the editor.
 - `editor.focusedStackFrameHighlightBackground`: Background color of the focused stack frame highlight in the editor.
+-->
 
-## Welcome page
+## 시작 페이지
+<!--
+## Welcome page -->
 
+- `welcomePage.background`: 시작 페이지의 배경색상.
+- `welcomePage.buttonBackground`: 시작페이지 버튼의 배경색상.
+- `welcomePage.buttonHoverBackground`: 시작페이지 버튼의 말풍선 배경 색상.
+- `walkThrough.embeddedEditorBackground`: Interactive Playground에 임베드 된 에디터의 배경색상.
+
+<!--
 - `welcomePage.background`: Background color for the Welcome page.
 - `welcomePage.buttonBackground`: Background color for the buttons on the Welcome page.
 - `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
-- `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
+- `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground. -->
 
-## Git colors
+## 깃 색상
 
+<!--
+## Git colors -->
+
+- `gitDecoration.addedResourceForeground`: 추가 된 깃 리소스의 색상.파일 레이블과 SCM 뷰릿에 사용됩니다.
+- `gitDecoration.modifiedResourceForeground`: 수정 된 깃 리소스의 색상.파일 레이블과 SCM 뷰릿에 사용됩니다.
+- `gitDecoration.deletedResourceForeground`: 삭제 된 깃 리소스의 색상.파일 레이블과 SCM 뷰릿에 사용됩니다.
+- `gitDecoration.untrackedResourceForeground`: 추적되지 않은 깃 리소스의 색상.파일 레이블과 SCM 뷰릿에 사용됩니다.
+- `gitDecoration.ignoredResourceForeground`: 무시된 깃 리소스의 색상.파일 레이블과 SCM 뷰릿에 사용됩니다.
+- `gitDecoration.conflictingResourceForeground`: 충돌하는 깃 리소스의 색상.파일 레이블과 SCM 뷰릿에 사용됩니다.
+- `gitDecoration.submoduleResourceForeground`: 하위 모듈 리소스의 색상.
+
+<!--
 - `gitDecoration.addedResourceForeground`: Color for added Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.modifiedResourceForeground`: Color for modified Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.deletedResourceForeground`: Color for deleted Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.untrackedResourceForeground`: Color for untracked Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.ignoredResourceForeground`: Color for ignored Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.conflictingResourceForeground`: Color for conflicting Git resources. Used for file labels and the SCM viewlet.
-- `gitDecoration.submoduleResourceForeground`: Color for submodule resources.
+- `gitDecoration.submoduleResourceForeground`: Color for submodule resources. -->
 
-## Settings Editor colors
+## 에디터 설정 색상
 
-**Note:** These colors are for the GUI settings editor which can be opened with the `Preferences: Open Settings (UI)` command.
+<!--
+## Settings Editor colors -->
 
+**주의:** 이 색상들은 GUI 설정 에디터용이며, `Preferences: Open Settings (UI)` 커맨드를 통해 열 수 있습니다.
+
+<!--
+**Note:** These colors are for the GUI settings editor which can be opened with the `Preferences: Open Settings (UI)` command. -->
+
+- `settings.headerForeground`: 활성 제목이나 섹션 헤더를 위한 전경색상.
+- `settings.modifiedItemIndicator`: 수정된 설정을 나타내는 줄의 색상.
+- `settings.dropdownBackground`: 드롭다운 배경색상.
+- `settings.dropdownForeground`: 드롭다운 전경색상.
+- `settings.dropdownBorder`: 드롭다운 테두리 색상.
+- `settings.dropdownListBorder`: 드롭다운 목록의 테두리 색상.
+- `settings.checkboxBackground`: 체크박스 배경색상.
+- `settings.checkboxForeground`: 체크박스 전경색상.
+- `settings.checkboxBorder`: 체크박스 테두리색상.
+- `settings.textInputBackground`: 텍스트 입력 상자 배경색상.
+- `settings.textInputForeground`: 텍스트 입력 상자 전경색상.
+- `settings.textInputBorder`: 텍스트 입력 상자 테두리색상.
+- `settings.numberInputBackground`: 숫자 입력 상자 배경색상.
+- `settings.numberInputForeground`: 숫자 입력 상자 전경색상.
+- `settings.numberInputBorder`: 숫자 입력 상자 테두리색상.
+
+<!--
 - `settings.headerForeground`: The foreground color for a section header or active title.
 - `settings.modifiedItemIndicator`: The line that indicates a modified setting.
 - `settings.dropdownBackground`: Dropdown background.
@@ -1243,31 +1387,95 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `settings.textInputBorder`: Text input box border.
 - `settings.numberInputBackground`: Number input box background.
 - `settings.numberInputForeground`: Number input box foreground.
-- `settings.numberInputBorder`: Number input box border.
+- `settings.numberInputBorder`: Number input box border. -->
 
-## Breadcrumbs
+## 브레드크럼
+<!--
+## Breadcrumbs -->
 
-The theme colors for breadcrumbs navigation:
+브레드크럼 탐색을 위한 테마색상입니다:
 
+<!--
+The theme colors for breadcrumbs navigation: -->
+
+- `breadcrumb.foreground`: 브레드크럼 항목의 색상.
+- `breadcrumb.background`: 브레드크럼 항목의 배경색상.
+- `breadcrumb.focusForeground`: 포커스된 브레드크럼 항목의 색상.
+- `breadcrumb.activeSelectionForeground`: 선택된 브레드크럼 항목의 색상.
+- `breadcrumbPicker.background`: 브레드크럼 항목 선택기의 배경색상.
+
+<!--
 - `breadcrumb.foreground`: Color of breadcrumb items.
 - `breadcrumb.background`: Background color of breadcrumb items.
 - `breadcrumb.focusForeground`: Color of focused breadcrumb items.
 - `breadcrumb.activeSelectionForeground`: Color of selected breadcrumb items.
-- `breadcrumbPicker.background`: Background color of breadcrumb item picker.
+- `breadcrumbPicker.background`: Background color of breadcrumb item picker. -->
 
-## Snippets
+## 스니펫
+<!--
+## Snippets -->
 
-The theme colors for snippets:
+스니펫을 위한 테마 색상입니다:
+<!--
+The theme colors for snippets: -->
 
+- `editor.snippetTabstopHighlightBackground`: 스니펫 탭스톱의 강조 배경색상.
+- `editor.snippetTabstopHighlightBorder`: 스니펫 탭스톱의 강조 테두리 색상.
+- `editor.snippetFinalTabstopHighlightBackground`: 마지막 스니펫 탭스톱의 강조 배경색상.
+- `editor.snippetFinalTabstopHighlightBorder`: 마지막 스니펫 탭스톱의 강조 테두리 색상.
+
+<!--
 - `editor.snippetTabstopHighlightBackground`: Highlight background color of a snippet tabstop.
 - `editor.snippetTabstopHighlightBorder`: Highlight border color of a snippet tabstop.
 - `editor.snippetFinalTabstopHighlightBackground`: Highlight background color of the final tabstop of a snippet.
-- `editor.snippetFinalTabstopHighlightBorder`: Highlight border color of the final tabstop of a snippet.
+- `editor.snippetFinalTabstopHighlightBorder`: Highlight border color of the final tabstop of a snippet. -->
 
-## Symbol Icons
+## 심볼 아이콘
 
-The theme colors for symbol icons that appears in the Outline view, breadcrumb navigation, and suggest widget:
+<!--
+## Symbol Icons -->
 
+아웃라인 뷰, 브레드크럼 탐색 그리고 제안 위젯에서 나타나는 심볼 아이콘을 위한 테마 색상입니다:
+
+<!--
+The theme colors for symbol icons that appears in the Outline view, breadcrumb navigation, and suggest widget: -->
+
+
+- `symbolIcon.arrayForeground`: 배열 심볼의 전경색상.
+- `symbolIcon.booleanForeground`: 불리안 심볼의 전경색상.
+- `symbolIcon.classForeground`: 클래스 심볼의 전경색상.
+- `symbolIcon.colorForeground`: 색상 심볼의 전경색상.
+- `symbolIcon.constantForeground`: 상수 심볼의 전경색상.
+- `symbolIcon.constructorForeground`: 생성자 심볼의 전경색상.
+- `symbolIcon.enumeratorForeground`: 열거자 심볼의 전경색상.
+- `symbolIcon.enumeratorMemberForeground`: 열거자 구성원 심볼의 전경색상.
+- `symbolIcon.eventForeground`: 이벤트 심볼의 전경색상.
+- `symbolIcon.fieldForeground`: 필드 심볼의 전경색상.
+- `symbolIcon.fileForeground`: 파일 심볼의 전경색상.
+- `symbolIcon.folderForeground`: 폴더 심볼의 전경색상.
+- `symbolIcon.functionForeground`: 함수 심볼의 전경색상.
+- `symbolIcon.interfaceForeground`: 인터페이스 심볼의 전경색상.
+- `symbolIcon.keyForeground`: 키 심볼의 전경색상.
+- `symbolIcon.keywordForeground`: 키워드 심볼의 전경색상.
+- `symbolIcon.methodForeground`: 메소드 심볼의 전경색상.
+- `symbolIcon.moduleForeground`: 모듈 심볼의 전경색상.
+- `symbolIcon.namespaceForeground`: 네임스페이스 심볼의 전경색상.
+- `symbolIcon.nullForeground`: null 심볼의 전경색상.
+- `symbolIcon.numberForeground`: 숫자 심볼의 전경색상.
+- `symbolIcon.objectForeground`: 오브젝트 심볼의 전경색상.
+- `symbolIcon.operatorForeground`: 연산자 심볼의 전경색상.
+- `symbolIcon.packageForeground`: 패키지 심볼의 전경색상.
+- `symbolIcon.propertyForeground`: 속성 심볼의 전경색상.
+- `symbolIcon.referenceForeground`: 참조 심볼의 전경색상.
+- `symbolIcon.snippetForeground`: 스니펫 심볼의 전경색상.
+- `symbolIcon.stringForeground`: 문자열 심볼의 전경색상.
+- `symbolIcon.structForeground`: 구조체 심볼의 전경색상.
+- `symbolIcon.textForeground`: 텍스트 심볼의 전경색상.
+- `symbolIcon.typeParameterForeground`: 타입 매개변수 심볼의 전경색상.
+- `symbolIcon.unitForeground`: 단위 심볼의 전경색상.
+- `symbolIcon.variableForeground`: 변수 심볼의 전경색상.
+
+<!--
 - `symbolIcon.arrayForeground`: The foreground color for array symbols.
 - `symbolIcon.booleanForeground`: The foreground color for boolean symbols.
 - `symbolIcon.classForeground`: The foreground color for class symbols.
@@ -1300,10 +1508,30 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `symbolIcon.textForeground`: The foreground color for text symbols.
 - `symbolIcon.typeParameterForeground`: The foreground color for type parameter symbols.
 - `symbolIcon.unitForeground`: The foreground color for unit symbols.
-- `symbolIcon.variableForeground`: The foreground color for variable symbols.
+- `symbolIcon.variableForeground`: The foreground color for variable symbols.-->
 
-## Debug Icons
+## 디버그 아이콘
 
+<!--
+## Debug Icons -->
+
+- `debugIcon.breakpointForeground`: 중지점 아이콘 색상.
+- `debugIcon.breakpointDisabledForeground`: 비활성된 중지점 아이콘 색상.
+- `debugIcon.breakpointUnverifiedForeground`: 미검증된 중지점 아이콘 색상.
+- `debugIcon.breakpointCurrentStackframeForeground`: 현재 중지점 스택 프레임 아이콘 색상.
+- `debugIcon.breakpointStackframeForeground`: 모든 중지점 스택 프레임 아이콘 색상.
+- `debugIcon.startForeground`: 디버그 툴바의 디버깅 시작 아이콘 색상. 
+- `debugIcon.pauseForeground`: 디버그 툴바의 일시중지 아이콘 색상. 
+- `debugIcon.stopForeground`: 디버그 툴바의 정지 아이콘 색상. 
+- `debugIcon.disconnectForeground`: 디버그 툴바의 연결해제 아이콘 색상. 
+- `debugIcon.restartForeground`: 디버그 툴바의 재시작 아이콘 색상. 
+- `debugIcon.stepOverForeground`: 디버그 툴바의 단계 진행 아이콘 색상. 
+- `debugIcon.stepIntoForeground`: 디버그 툴바의 단계로 이동 아이콘 색상. 
+- `debugIcon.stepOutForeground`: 디버그 툴바의 건너뛰기 아이콘 색상. 
+- `debugIcon.continueForeground`: 디버그 툴바의 이어하기 아이콘 색상. 
+- `debugIcon.stepBackForeground`: 디버그 툴바의 단계 취소 아이콘 색상. 
+
+<!--
 - `debugIcon.breakpointForeground`: Icon color for breakpoints.
 - `debugIcon.breakpointDisabledForeground`: Icon color for disabled breakpoints.
 - `debugIcon.breakpointUnverifiedForeground`: Icon color for unverified breakpoints.
@@ -1319,9 +1547,14 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `debugIcon.stepOutForeground`: Debug toolbar icon for step over.
 - `debugIcon.continueForeground`: Debug toolbar icon for continue.
 - `debugIcon.stepBackForeground`: Debug toolbar icon for step back.
+-->
 
+## 익스텐션 색상
+<!--
+## Extension colors -->
+
+색상 id는 [색상 기여 포인트](/api/references/contribution-points#contributes.colors)를 통해 익스텐션을 통해 제공 될 수도 있습니다. 이 색상들은 `workbench.colorCustomizations` 설정 및 색상 테마 정의 파일에서 코드 완성을 사용 할때도 나타납니다. 사용자는 [익스텐션 기여](/docs/editor/extension-gallery#_extension-details)탭에서 익스텐션이 정의한 색상을 확인 할 수 있습니다.
+
+<!--
 Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
-
-## Extension colors
-
-Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
+-->
